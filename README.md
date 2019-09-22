@@ -48,26 +48,31 @@
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
-|p_name|string|null: false, index: true|
-|p_descript|text|null: false|
+|product_name|string|null: false, index: true|
+|product_descript|text|null: false|
 |condition|string|null: false|
-|delivery_condition|string|null: false|
-|delivery_from|string|null: false|
-|due_time_d|string|null: false|
-|p_price|string|null: false|
+|product_price|string|null: false|
 |stock|integer|null: false|
 |brand|string|null: false|
 |size|string|null: false|
-|big_categories|string|null: false|
-|mid_categories|string|null: false|
-|small_categories|string|null: false|
+|category|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :images
+- has_one :delivery
 - belongs_to :user
-- belongs_to :big-category
-- belongs_to :mid-category
-- belongs_to :small-category
+- belongs_to :category
+
+
+## deliveriesテーブル
+|pay_for_shipping|string|null: false|
+|delivery_from|string|null: false|
+|due_time_day|string|null: false|
+
+### Association
+- belongs_to :user
+- belongs_to :delivery
+
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -79,34 +84,12 @@
 - belongs_to :product
 
 
-## big_categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|path|string|null: false|
 |name|string|null: false|
 
 ### Association
 - has_many :products
-- has_many :mid_categories
-
-
-## mid_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|big_category|references|null: false, foreign_key: true|
-
-### Association
-- has_many :products
-- has_many :small_categories
-- belongs_to :big-category
-
-
-## small_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|mid_category|references|null: false, foreign_key: true|
-
-### Association
-- has_many :products
-- belongs_to :mid_category
+- has_ancestory
