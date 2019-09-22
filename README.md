@@ -11,19 +11,37 @@
 |name_family_kana|string|null: false|
 |name_first|string|null: false|
 |name_first_kana|string|null: false|
+
+### Association
+- has_many :products
+- has_one :card
+- has_one :address
+
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |postal_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
 |phone_number|string||
+
+### Association
+- belongs_to :user
+
+
+## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |card_naumber|string|null: false|
 |card_expiration_date_month|string|null: false|
 |card_expiration_date_year|string|null: false|
 |card_security_code|string|null: false|
 
 ### Association
-- has_many :products
+- belongs_to :user
 
 
 ## productsテーブル
