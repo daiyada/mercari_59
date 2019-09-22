@@ -4,9 +4,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|mailaddress|string|null: false|
+|mailaddress|string|null: false, unique: true|
 |password|string|null: false|
-|cellphone_number|string|null: false|
+|cellphone_number|string|null: false, unique: true|
 |name_family|string|null: false|
 |name_family_kana|string|null: false|
 |name_first|string|null: false|
@@ -35,7 +35,7 @@
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_naumber|string|null: false|
+|card_number|string|null: false, unique: true|
 |card_expiration_date_month|string|null: false|
 |card_expiration_date_year|string|null: false|
 |card_security_code|string|null: false|
