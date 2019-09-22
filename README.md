@@ -68,7 +68,7 @@
 
 ### Association
 - has_many :products
-- has_many :mid-categories
+- has_many :mid_categories
 
 
 ## mid_categoriesテーブル
@@ -80,7 +80,7 @@
 ### Association
 - has_many :products
 - belongs_to :big-categories
-- has_many :small-categories
+- has_many :small_categories
 
 
 ## mid_categoriesテーブル
@@ -91,4 +91,4 @@
 
 ### Association
 - has_many :products
-- belongs_to :mid-categories
+- belongs_to :mid_categories
