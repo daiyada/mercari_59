@@ -54,7 +54,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|null: false,foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 |image|string||
 
 ### Association
@@ -75,7 +75,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|big_categories_id|references|null: false|
+|big_categories_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :products
@@ -87,7 +87,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|mid_categories_id|references|null: false|
+|mid_categories_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :products
