@@ -87,7 +87,7 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|path|string|null: false|
+|path|string||
 |name|string|null: false|
 
 ### Association
