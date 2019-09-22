@@ -4,7 +4,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|mailadress|string|null: false|
+|mailaddress|string|null: false|
 |password|string|null: false|
 |cellphone_number|string|null: false|
 |name_family|string|null: false|
@@ -14,7 +14,7 @@
 |postal_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
-|adress|string|null: false|
+|address|string|null: false|
 |building|string||
 |phone_number|string||
 |card_naumber|string|null: false|
