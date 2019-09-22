@@ -29,7 +29,7 @@
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |p_name|string|null: false, index: true|
 |p_descript|text|null: false|
 |condition|string|null: false|
@@ -47,14 +47,14 @@
 ### Association
 - has_many :images
 - belongs_to :user
-- belongs_to :big-categories
-- belongs_to :mid-categories
-- belongs_to :small-categories
+- belongs_to :big-category
+- belongs_to :mid-category
+- belongs_to :small-category
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
 |image|string|null: false|
 
 ### Association
@@ -75,20 +75,20 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|big_categories_id|references|null: false, foreign_key: true|
+|big_category|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :products
-- belongs_to :big-categories
 - has_many :small_categories
+- belongs_to :big-category
 
 
 ## small_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|mid_categories_id|references|null: false, foreign_key: true|
+|mid_category|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :products
-- belongs_to :mid_categories
+- belongs_to :mid_category
