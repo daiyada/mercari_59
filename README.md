@@ -29,38 +29,66 @@
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|buyer_id|integer|foreign_key: true|
-|p_name|string|presence: true|
-|p_descript|string|presence: true|
-|condition|string|presence: true|
-|delivery_condition|string|presence: true|
-|delivery_from|string|presence: true|
-|due_time_d|string|presence: true|
-|p_price|string|presence: true|
-|sall_condition|integer|presence: true|
+|user_id|references|null: false, foreign_key: true|
+|p_name|string|null: false|
+|p_descript|text|null: false|
+|condition|string|null: false|
+|delivery_condition|string|null: false|
+|delivery_from|string|null: false|
+|due_time_d|string|null: false|
+|p_price|string|null: false|
+|stock|integer|null: false|
+|brand|string|null: false|
+|size|string|null: false|
+|big_categories|string|null: false|
+|mid_categories|string|null: false|
+|small_categories|string|null: false|
 
 ### Association
 - has_many :images
 - belongs_to :user
-- has_many :images
 - belongs_to :big-categories
+- belongs_to :mid-categories
+- belongs_to :small-categories
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|null: false,foreign_key: true|
-|image|integer|
+|product_id|references|null: false,foreign_key: true|
+|image|string||
 
 ### Association
 - belongs_to :product
 
-## imagesテーブル
+
+## big_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|null: false,foreign_key: true|
-|p_address|integer|presence: true|
+|name|string|null: false|
 
 ### Association
-- belongs_to :product
+- has_many :products
+- has_many :mid-categories
 
+
+## mid_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|big_categories_id|references|null: false|
+
+### Association
+- has_many :products
+- belongs_to :big-categories
+- has_many :small-categories
+
+
+## mid_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|mid_categories_id|references|null: false|
+
+### Association
+- has_many :products
+- belongs_to :mid-categories
