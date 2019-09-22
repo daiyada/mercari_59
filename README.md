@@ -30,7 +30,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|p_name|string|null: false|
+|p_name|string|null: false, index: true|
 |p_descript|text|null: false|
 |condition|string|null: false|
 |delivery_condition|string|null: false|
