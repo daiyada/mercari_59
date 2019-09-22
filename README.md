@@ -65,6 +65,8 @@
 
 
 ## deliveriesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |pay_for_shipping|string|null: false|
 |delivery_from|string|null: false|
 |due_time_day|string|null: false|
