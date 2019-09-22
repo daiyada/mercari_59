@@ -83,7 +83,7 @@
 - has_many :small_categories
 
 
-## mid_categoriesテーブル
+## small_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
