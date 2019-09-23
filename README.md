@@ -88,9 +88,9 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|ancestory|string|index: true|
+|ancestry|string|index: true|
 |name|string|null: false|
 
 ### Association
 - has_many :items
-- has_ancestory
+- has_ancestry
