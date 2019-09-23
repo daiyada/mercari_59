@@ -88,7 +88,7 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|path|string|index: true|
+|ancestory|string|index: true|
 |name|string|null: false|
 
 ### Association
