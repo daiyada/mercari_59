@@ -13,7 +13,7 @@
 |name_first_kana|string|null: false|
 
 ### Association
-- has_many :products
+- has_many :items
 - has_one :card
 - has_one :address
 
@@ -44,7 +44,7 @@
 - belongs_to :user
 
 
-## productsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
@@ -72,7 +72,7 @@
 |due_time_day|string|null: false|
 
 ### Association
-- belongs_to :product
+- belongs_to :item
 
 
 ## imagesテーブル
@@ -82,7 +82,7 @@
 |image|string|null: false|
 
 ### Association
-- belongs_to :product
+- belongs_to :item
 
 
 ## categoriesテーブル
@@ -92,5 +92,5 @@
 |name|string|null: false|
 
 ### Association
-- has_many :products
+- has_many :items
 - has_ancestory
