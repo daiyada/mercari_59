@@ -78,7 +78,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 |image|string|null: false|
 
 ### Association
