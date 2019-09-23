@@ -1,4 +1,4 @@
-# README_ヤッホー
+# README
 
 ## usersテーブル
 |Column|Type|Options|
