@@ -48,12 +48,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
-|product_name|string|null: false, index: true|
-|product_descript|text|null: false|
+|name|string|null: false, index: true|
+|descript|text|null: false|
 |condition|string|null: false|
-|product_price|string|null: false|
-|stock|integer|null: false|
-|brand|string|null: false|
+|price|string|null: false|
+|stock_status|integer|null: false|
+|brand|string||
 |size|string|null: false|
 |category|references|null: false, foreign_key: true|
 
@@ -72,8 +72,7 @@
 |due_time_day|string|null: false|
 
 ### Association
-- belongs_to :user
-- belongs_to :delivery
+- belongs_to :product
 
 
 ## imagesテーブル
@@ -89,7 +88,7 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|path|string||
+|path|string|index: true|
 |name|string|null: false|
 
 ### Association
