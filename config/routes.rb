@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "example#index"
+  devise_for :items
+  root "items#index"
 end
