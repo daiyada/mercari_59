@@ -35,10 +35,10 @@
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|string|null: false, unique: true|
-|card_expiration_date_month|string|null: false|
-|card_expiration_date_year|string|null: false|
-|card_security_code|string|null: false|
+|number|string|null: false, unique: true|
+|expiration_date_month|string|null: false|
+|expiration_date_year|string|null: false|
+|security_code|string|null: false|
 
 ### Association
 - belongs_to :user
@@ -51,7 +51,7 @@
 |name|string|null: false, index: true|
 |descript|text|null: false|
 |condition|string|null: false|
-|price|string|null: false|
+|price|integer|null: false|
 |stock_status|integer|null: false|
 |brand|string||
 |size|string|null: false|

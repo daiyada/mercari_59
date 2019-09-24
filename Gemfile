@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -76,3 +77,5 @@ gem 'fog-aws'
 gem 'devise'
 gem 'ancestry'
 gem 'haml-rails'
+gem 'jquery-rails'
+gem 'font-awesome-rails'
