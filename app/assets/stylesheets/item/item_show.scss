@@ -1,0 +1,136 @@
+.hi-container{
+  width: 100%;
+  &__header{
+    height: 100px;  //水谷さんの部分テンプレートできたら指定を外す
+  }
+  &__top-content{
+    background-color: #f5f5f5;
+    @include middle_located();
+    &__item{
+      background-color: white;
+      margin: 50px 0px 0px 0px;  //適当に決めた
+      padding: 24px 40px 40px;
+      &__name{
+        font-size: 24px;
+        text-align: center;
+      }
+      &__detail{
+        @include both_end_located();
+        margin: 16px 0px 0px 0px;
+        &__photo{             //適当に決めた
+          background-color: yellowgreen;
+          margin: 0px 30px 0px 0px;
+          width: 300px;
+          height: 400px;
+        }
+        &__matrix{
+          max-width: 300px;
+          height: 420px;
+          font-size: 14px;
+          .hi-container__top-content__item__detail__matrix__evaliation{
+            @include both_end_located();
+            &__good{
+              .fas-smile-beam{
+                color: pink;
+              }
+              &__num{
+                color: black;
+                font-size: 14px;
+              }
+            }
+            &__normal{
+              color: yellow;
+              &__num{
+                color: black;
+                font-size: 14px;
+              }
+            }
+            &__bad{
+              color: blue;
+              &__num{
+                color: black;
+                font-size: 14px;
+              }
+            }
+          }
+          th{
+            width: 39%;
+            padding: 8px 8px;
+            text-align: left;
+            font-weight: 400;
+            background-color: #fafafa;
+            border: 1px solid #f5f5f5;
+          }
+          td{
+            padding: 8px;
+            border: 1px solid #f5f5f5;
+          }
+        }
+      }
+      &__price{
+        margin: 16px 0px 0px 0px;
+        @include middle_located();
+        &__num{
+          font-size: 50px;
+          font-weight: bold;
+          margin: 0px 16px 0px 0px;
+        }
+        &__tax{
+          margin-top: 40px;
+          font-size: 10px;
+        }
+        &__shipping-fee{
+          margin-top: 34px;
+          font-size: 16px;
+        }
+      }
+      &__buybtn{
+        height: 60px;
+        margin-top: 16px;
+        background-color: #ea352d;
+        font-weight: bold;
+        @include middle_located();
+        align-items: center;
+        &__text{
+          color: white;
+          font-size: 24px;
+        }
+      }
+      &__explanation{
+        padding-top: 32px;
+        &__inner{
+          font-size: 18px;
+        }
+      }
+      &__smallbtns{
+        @include both_end_located();
+        margin-top: 16px;
+        font-size: 14px;
+        &__left{
+          display: flex;
+          &__favo{
+            padding: 8px 16px;
+            background-color: #f5f5f5;
+            border: 1px solid #f5f5f5;
+            border-radius: 40px;
+            span{
+              margin: 1px 0px 0px 8px;
+            }
+          }
+          &__ban{
+            padding: 8px 16px;
+            margin: 0px 0px 0px 16px;
+            background-color: #f5f5f5;
+            border: 1px solid #f5f5f5;
+            border-radius: 40px;
+          }
+        }
+        &__right{
+          padding: 8px 16px;
+          color: #0099E8;
+        }
+      }
+    }
+
+  }
+}
