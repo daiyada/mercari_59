@@ -8,7 +8,7 @@
           千鳥のノブ
         .hi-container__content__position__item__detail
           .hi-container__content__position__item__detail__photo
-            -# JSで洗濯した写真を表示させるコマンドを打ち込む必要あり
+            -# JSで選択した写真を表示させるコマンドを打ち込む必要あり
           %table.hi-container__content__position__item__detail__matrix
             %tr
               %th
@@ -106,9 +106,16 @@
       .hi-container__content__position__list
         .hi-container__content__position__list__caution
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いは退会処分となることがあります。
-        .hi-container__content__position__list__textarea
-        .hi-container__content__position__list__btn
+        %input.hi-container__content__position__list__textarea
+        %button.hi-container__content__position__list__btn
           %span
             コメントする
+  .hi-container__navigation
+    .hi-container__navigation__text
+      %span
+        メルカリ
+      = fa_icon "chevron-right", style: 'color: grey'
+      %span
+        千鳥
   .hi-container__footer
     -# 水谷さん作成の部分テンプレート(フッター)が入る
