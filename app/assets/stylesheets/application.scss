@@ -1,7 +1,10 @@
 @import "config/_reset";
-@import "font-awesome";
 @import "config/variable";
 @import "header";
 @import "footer";
 @import "items";
 @import "newitem";
+@import 'font_awesome5.css';
+@import 'font_awesome5_webfont';
+@import "item/item_show";
+@import "user/user_new";
