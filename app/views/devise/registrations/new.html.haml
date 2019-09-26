@@ -17,20 +17,24 @@
           -# 5
           .iz_registration-list__mailaddress
             -# 6
-            %a.iz_btn-default.iz_btn-mail{:href => "https://www.mercari.com/jp/signup/registration/"}
+            .iz_registration-list__mailaddress__button
               -# 7
-              %i.iz_icon-mail
-                = fa_icon "space-shuttle"
+              = fa_icon "envelope"
+            .iz_registration-list__mailaddress__message{:href => "https://www.mercari.com/jp/signup/registration/"}
               メールアドレスで登録
           .iz_registration-list__facebook
             -# 6
-            %button#facebook-login.iz_btn-default.iz_btn-sns.iz_btn-sns-facebook
+            .iz_registration-list__facebook__button
               -# 7
-              %i.iz_icon-facebook
-                Facebookで登録
+              = fa_icon "envelope"
+            .iz_registration-list__facebook__message
+              Facebookで登録
           .iz_registration-list__google
             -# 6
-            %button#google-login.iz_btn-default.iz_btn-sns.iz_btn-sns-google
+            .iz_registration-list__google__button
+              -# 7
+              = fa_icon "envelope"
+            .iz_registration-list__google__message
               Googleで登録
     .iz_login_form_facebook
       -# 3

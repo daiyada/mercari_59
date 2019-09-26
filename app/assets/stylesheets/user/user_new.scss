@@ -48,15 +48,16 @@
     margin:  auto;
     .iz_container{
       height: 100%;
-      width: 100%;
+      max-width: 636px;
       // border: solid blue;
-      background-color: #fff;
+      background-color: rgb(182, 180, 180);
       margin:  auto;
       .iz_h2{
         height: 59px;
         text-align:center;
         line-height: 59px;
         font-weight: bold;
+        border-bottom: solid 0.1px gray;
         // border: solid red;
         // background-color: rgb(5, 21, 238);
       }
@@ -66,17 +67,17 @@
         // border: solid blue;
         // background-color: rgb(204, 248, 7);
         margin:  auto;
+        padding-bottom: 50px;
         .iz_registration-list{
           height: 100%;
           width: 343px;
           // border: solid blue;
           // background-color: aqua;
           margin:  auto;
-          @include item__inner();
+          // @include item__inner();
           &__mailaddress{
             height: 50px;
             width: 100%;
-            color: #fff;
             background-color: #ea352d;
             border-radius: 4px;
             display: block;
@@ -86,7 +87,18 @@
             text-align: center;
             // border: solid blue;
             // background-color: rgb(223, 21, 241);
-            margin:  auto;
+            margin:  16px 0px 0px 0px;
+            @include both_end_located();
+            &__button{
+              height: 50px;
+              width: 50px;
+            }
+            &__message{
+              height: 50px;
+              width: 100%;
+              color: #fff;
+              // border: solid blue;
+            }
           }
           &__facebook{
             height: 50px;
@@ -100,6 +112,17 @@
             border: 1px solid transparent;
             text-align: center;
             margin:  16px 0px 0px 0px;
+            @include both_end_located();
+            &__button{
+              height: 50px;
+              width: 50px;
+            }
+            &__message{
+              height: 50px;
+              width: 100%;
+              color: #fff;
+              // border: solid blue;
+            }
           }
           &__google{
             height: 50px;
@@ -113,6 +136,17 @@
             color: #333;
             text-align: center;
             margin:  16px 0px 0px 0px;
+            @include both_end_located();
+            &__button{
+              height: 50px;
+              width: 50px;
+            }
+            &__message{
+              height: 50px;
+              width: 100%;
+              color: black;
+              // border: solid blue;
+            }
           }
         }
       }
@@ -133,15 +167,19 @@
     }
   }
   .iz_footer{
-    height: 170px;
+    height: 100%;
     width: 500px;
     // border: solid blue;
     // background-color: rgb(190, 189, 183);
     margin:  auto;
     padding: 40px 0px;
     .iz_navi{
-      height: 68px;
+      height: 30px;
+      width: 400px;
+      font-size: 12px;
+      margin: auto;
       .iz_ul{
+        @include both_end_located();
         .iz_privacy{
           text-align:center;
         }
