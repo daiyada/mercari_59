@@ -3,4 +3,9 @@ Rails.application.routes.draw do
   root "example#index"
   resources :users, only: [:index]
   resources :items, only: [:show]
+<<<<<<< HEAD
 end
+end
+=======
+end
+>>>>>>> master
