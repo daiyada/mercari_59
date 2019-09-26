@@ -14,16 +14,33 @@
         padding: 24px 40px 40px;
         &__name{
           font-size: 24px;
+          font-weight: bold;
           text-align: center;
         }
         &__detail{
           @include both_end_located();
           margin: 16px 0px 0px 0px;
           &__photo{             //適当に決めた
-            background-color: yellowgreen;
             margin: 0px 30px 0px 0px;
             width: 300px;
-            height: 400px;
+            height: 420px;
+            background-color: #f5f5f5;
+            &__top{
+              height: 300px;
+              @include middle_located();
+            }
+            &__bottom{
+              height: 120px;
+              &__size{
+                height: 60px;
+                width: 300px;
+                @include both_end_located();
+                &__mini{
+                  width: 60px;
+                  @include middle_located();
+                }
+              }
+            }
           }
           &__matrix{
             max-width: 300px;
