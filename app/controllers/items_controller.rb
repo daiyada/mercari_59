@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-<<<<<<< HEAD
   def index
   end
   def new
@@ -7,8 +6,4 @@ class ItemsController < ApplicationController
   def show
   end
 
-=======
-  def show
-  end
->>>>>>> master
 end
