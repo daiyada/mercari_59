@@ -238,19 +238,21 @@
              }
           }
           &__last{
+            font-size:14px;
             padding: 30px 40px ;
             border-top: 1px solid #eee;
             &__button{
+              margin-top:40px;
               background: #ea352d;
               border: 1px solid #ea352d;
               color: #fff;
-                display: block;
-                width: 100%;
-                line-height: 48px;
-                font-size: 14px;
-                transition: all ease-out .3s;
-                cursor: pointer;
-                text-align: center;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;
           
             }
             &__retract{
