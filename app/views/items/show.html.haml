@@ -1,114 +1,146 @@
 .hi-container
   .hi-container__header 
     -# 水谷さん作成の部分テンプレート(ヘッダー)が入る
-  .hi-container__top-content
-    .hi-container__top-content__item
-      .hi-container__top-content__item__name
-        千鳥のノブ
-      .hi-container__top-content__item__detail
-        .hi-container__top-content__item__detail__photo
-          -# JSで洗濯した写真を表示させるコマンドを打ち込む必要あり
-        %table.hi-container__top-content__item__detail__matrix
-          %tr
-            %th
-              出品者
-            %td
-              大吾
-              .hi-container__top-content__item__detail__matrix__evaliation
-                .hi-container__top-content__item__detail__matrix__evaliation__good
-                  = fa_icon "space-shuttle"
-                  .hi-container__top-content__item__detail__matrix__evaliation__good__num
-                    0
-                .hi-container__top-content__item__detail__matrix__evaliation__normal
-                  -# 顔マークgood
-                  .hi-container__top-content__item__detail__matrix__evaliation__good__num
-                    0
-                .hi-container__top-content__item__detail__matrix__evaliation__bad
-                  -# 顔マークgood
-                  .hi-container__top-content__item__detail__matrix__evaliation__good__num
-                    100
-          %tr
-            %th
-              カテゴリ
-            %td
-              超むちゃんこおもろい芸人
-          %tr
-            %th
-              ブランド
-            %td
-              吉本
-          %tr
-            %th
-              商品のサイズ
-            %td
-              わしには扱いきれんぐらいでかい
-          %tr
-            %th
-              商品の状態
-            %td
-              売り物にならんほど汚れまくり
-          %tr
-            %th
-              配送料の負担
-            %td
-              ノブが全部負担
-          %tr
-            %th
-              配送の方法
-            %td
-              商品(ノブ)が自ら向かいます
-          %tr
-            %th
-              配送元地域
-            %td
-              岡山県
-          %tr
-            %th
-              発送日の目安
-            %td
-              購入直後
-      .hi-container__top-content__item__price
-        .hi-container__top-content__item__price__num
-          ¥10
-        .hi-container__top-content__item__price__tax
-          （税込）
-        .hi-container__top-content__item__price__shipping-fee
-          送料込み
-      .hi-container__top-content__item__buybtn
-        .hi-container__top-content__item__buybtn__text
-          購入画面に進む
-      .hi-container__top-content__item__explanation
-        .hi-container__top-content__item__explanation__inner
-          もうこの相方飽きたから売る
-          %br
-          %br
-          けどこれ言うと吉本に怒られるから、吉本に通さず直接メルカリに出品します。
-          %br
-          %br
-          コメント無し、即購入OKです！
-      .hi-container__top-content__item__smallbtns
-        .hi-container__top-content__item__smallbtns__left
-          .hi-container__top-content__item__smallbtns__left__favo
-            -# fontawesomeでハートマークを持ってくるiタグ
+  .hi-container__content
+    .hi-container__content__position
+      .hi-container__content__position__item
+        .hi-container__content__position__item__name
+          【激安】千鳥のノブ
+        .hi-container__content__position__item__detail
+          .hi-container__content__position__item__detail__photo
+            -# JSで選択した写真を表示させるコマンドを打ち込む必要あり
+            .hi-container__content__position__item__detail__photo__top
+              %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+            .hi-container__content__position__item__detail__photo__bottom
+              .hi-container__content__position__item__detail__photo__bottom__size
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+              .hi-container__content__position__item__detail__photo__bottom__size
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+          %table.hi-container__content__position__item__detail__matrix
+            %tr
+              %th
+                出品者
+              %td
+                千鳥の大悟
+                .hi-container__content__position__item__detail__matrix__evaliation
+                  .hi-container__content__position__item__detail__matrix__evaliation__good
+                    = fa_icon "smile-beam"
+                    .hi-container__content__position__item__detail__matrix__evaliation__good__num
+                      0
+                  .hi-container__content__position__item__detail__matrix__evaliation__normal
+                    = fa_icon "meh"
+                    .hi-container__content__position__item__detail__matrix__evaliation__good__num
+                      0
+                  .hi-container__content__position__item__detail__matrix__evaliation__bad
+                    = fa_icon "tired"
+                    .hi-container__content__position__item__detail__matrix__evaliation__good__num
+                      100
+            %tr
+              %th
+                カテゴリ
+              %td
+                超むちゃんこおもろい芸人
+            %tr
+              %th
+                ブランド
+              %td
+                吉本
+            %tr
+              %th
+                商品のサイズ
+              %td
+                わしには扱いきれんぐらいでかい
+            %tr
+              %th
+                商品の状態
+              %td
+                売り物にならんほど汚れまくり
+            %tr
+              %th
+                配送料の負担
+              %td
+                ノブが全部負担
+            %tr
+              %th
+                配送の方法
+              %td
+                商品(ノブ)が自ら向かいます
+            %tr
+              %th
+                配送元地域
+              %td
+                岡山県
+            %tr
+              %th
+                発送日の目安
+              %td
+                購入直後
+        .hi-container__content__position__item__price
+          .hi-container__content__position__item__price__num
+            ¥10
+          .hi-container__content__position__item__price__tax
+            （税込）
+          .hi-container__content__position__item__price__shipping-fee
+            送料込み
+        .hi-container__content__position__item__buybtn
+          .hi-container__content__position__item__buybtn__text
+            購入画面に進む
+        .hi-container__content__position__item__explanation
+          .hi-container__content__position__item__explanation__inner
+            もうこの相方飽きたから売る
+            %br
+            %br
+            けどこれ言うと吉本に怒られるから、吉本に通さず直接メルカリに出品します。
+            %br
+            %br
+            コメント無し、即購入OKです！
+        .hi-container__content__position__item__smallbtns
+          .hi-container__content__position__item__smallbtns__left
+            .hi-container__content__position__item__smallbtns__left__favo
+              = fa_icon "heart",type: :regular
+              %span
+                いいね
+              %span
+                0
+            .hi-container__content__position__item__smallbtns__left__ban
+              = fa_icon "flag",type: :regular
+              %span
+                不適切な商品の報告
+          .hi-container__content__position__item__smallbtns__right
+            = fa_icon "key"
             %span
-              いいね
-            %span
-              0
-          .hi-container__top-content__item__smallbtns__left__ban
-            %span
-              不適切な商品の報告
-        .hi-container__top-content__item__smallbtns__right
-          -# fontawesomeでハートマークを持ってくるiタグ
+              あんしん・あんぜんへの取り組み
+      .hi-container__content__position__list
+        .hi-container__content__position__list__caution
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いは退会処分となることがあります。
+        %input.hi-container__content__position__list__textarea
+        %button.hi-container__content__position__list__btn
           %span
-            あんしん・あんぜんへの取り組み
-  .hi-container__down-content
-    .hi-container__down-content__list
-    .hi-container__down-content__post
-      .hi-container__down-content__post__caution
-        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いは退会処分となることがあります。
-      .hi-container__down-content__post__textarea
-      .hi-container__down-content__post__btn
-        %span
-          コメントする
+            コメントする
+  .hi-container__navigation
+    .hi-container__navigation__text
+      %span
+        メルカリ
+      = fa_icon "chevron-right", style: 'color: grey'
+      %span
+        千鳥
   .hi-container__footer
     -# 水谷さん作成の部分テンプレート(フッター)が入る
