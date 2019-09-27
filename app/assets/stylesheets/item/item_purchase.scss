@@ -1,0 +1,100 @@
+.hi_wrapper{
+  background-color: #f5f5f5;
+  &__head{
+    height: 128px;
+    @include middle_located();
+    &__img{
+      width: 185px;
+      height: 49px;
+    }
+  }
+  &__body{
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    &__title{
+      padding: 16px;
+      font-size: 22px;
+      font-weight: bold;
+      background-color: white;
+      text-align: center;
+      border-bottom: solid 1px #f5f5f5;
+    }
+    &__item{
+      padding: 24px 87.5px 40px;
+      width: 320px;
+      margin: 0 auto;
+      &__top{
+        display: flex;
+        &__img{
+          height: 64px;
+          width: 64px;
+          object-fit: cover;
+          object-position: 0px -5px;
+        }
+        &__text{
+          font-size: 16px;
+          font-weight: bold;
+          margin-left: 16px;
+        }
+      }
+      &__pay{
+        @include middle_located();
+        &__yen{
+          font-size: 22px;
+          font-weight: bold;
+          margin-top: 8px;
+        }
+        &__payee{
+          margin: 8px 0 0 8px;
+          font-size: 14px;
+        }
+      }
+      &__point{
+        @include middle_located();
+        position: relative;
+        &__btn{
+          margin-top: 16px;
+          padding: 16px;
+          border: 1px solid #ccc;
+          width: 286px;
+          text-align: center;
+          font-size: 14px;
+        }
+        .fas.fa-chevron-down{
+          position: absolute;
+          top: 48%;
+          right: 28%;
+          font-size: 20px;
+        }
+      }
+      &__price{
+        @include both_end_located();
+        height: 60px;
+        &__left{
+          padding: 22px 0 10px 0;
+          font-weight: bold;
+          font-size: 18px;
+        }
+        &__right{
+          margin-right: 10px;
+          padding: 12px 0 20px 0;
+          font-weight: bold;
+          font-size: 28px;
+        }
+      }
+      &__buybtn{
+        @include middle_located();
+        &__btn{
+          margin-top: 8px;
+          color: white;
+          background-color: #EA352D;
+          width: 100%;
+          text-align: center;
+          padding: 16px 0;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
