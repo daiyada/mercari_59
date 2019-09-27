@@ -8,6 +8,9 @@
       = fa_icon "chevron-right", style: 'color: grey'
       %span
         マイページ
+      = fa_icon "chevron-right", style: 'color: grey'
+      %span
+        プロフィール
   .hi-container__main
     %nav.hi-container__main__left
       %ul.hi-container__main__left__mypage-nav
@@ -89,79 +92,14 @@
             ログアウト
             = fa_icon "chevron-right"
     .hi-container__main__right
-      .hi-container__main__right__userinfo
-        .hi-container__main__right__userinfo__identity
-          .hi-container__main__right__userinfo__identity__image
-            %img.hi-container__main__right__userinfo__identity__image__icon
-          %p.hi-container__main__right__userinfo__identity__name
-            千鳥の大悟
-          .hi-container__main__right__userinfo__identity__condition
-            .hi-container__main__right__userinfo__identity__condition__evaluation
-              %p.hi-container__main__right__userinfo__identity__condition__evaluation__word
-                評価
-              %p.hi-container__main__right__userinfo__identity__condition__evaluation__num
-                500
-            .hi-container__main__right__userinfo__identity__condition__exhibit
-              %p.hi-container__main__right__userinfo__identity__condition__exhibit__word
-                出品数
-              %p.hi-container__main__right__userinfo__identity__condition__exhibit__num
-                1
-      .hi-container__main__right__tab
-        .hi-container__main__right__tab__notice
-          お知らせ
-        .hi-container__main__right__tab__todo
-          やることリスト
-      %ul.hi-container__main__right__list
-        %li.hi-container__main__right__list__link
-          .hi-container__main__right__list__link__icon
-          .hi-container__main__right__list__link__content
-            .hi-container__main__right__list__link__content__text
-              2秒後、105%還元超絶チケットの有効期限が切れます！タップして詳細を確認しましょう。
-            .hi-container__main__right__list__link__content__time
-              2秒前
-              = fa_icon("clock", type: :regular)
-          = fa_icon "chevron-right"
-        %li.hi-container__main__right__list__link
-          .hi-container__main__right__list__link__icon
-          .hi-container__main__right__list__link__content
-            .hi-container__main__right__list__link__content__text
-              【意外と高く売れる!?】いらない相方がいくらで売れるかバーコードスキャンでいますぐチェック！
-            .hi-container__main__right__list__link__content__time
-              15分前
-              = fa_icon("clock", type: :regular)
-          = fa_icon "chevron-right"
-        %li.hi-container__main__right__list__link
-          .hi-container__main__right__list__link__icon
-          .hi-container__main__right__list__link__content
-            .hi-container__main__right__list__link__content__text
-              メルカリから警告を受けました！
-            .hi-container__main__right__list__link__content__time
-              58分前
-              = fa_icon("clock", type: :regular)
-          = fa_icon "chevron-right"
-        %li.hi-container__main__right__list__link
-          .hi-container__main__right__list__link__icon
-          .hi-container__main__right__list__link__content
-            .hi-container__main__right__list__link__content__text
-              《もうP10,000はゲットしましたか？》相方を紹介すると1人の招待につき必ずP10,000がもらえる
-            .hi-container__main__right__list__link__content__time
-              1日前
-              = fa_icon("clock", type: :regular)
-          = fa_icon "chevron-right"
-        %li.hi-container__main__right__list__linkbtn
-          .hi-container__main__right__list__linkbtn__btn
-            .hi-container__main__right__list__linkbtn__btn__text
-              一覧を見る
-      .hi-container__main__right__itemlist
-        .hi-container__main__right__itemlist__head
-          購入した商品
-        .hi-container__main__right__itemlist__tab
-          .hi-container__main__right__itemlist__tab__now
-            取引中
-          .hi-container__main__right__itemlist__tab__past
-            過去の取引
-        .hi-container__main__right__itemlist__box
-          取引中の商品がありません
-          .hi-container__main__right__itemlist__box__image
+      .hi-container__main__right__head
+        プロフィール
+      .hi-container__main__right__icon
+        .hi-container__main__right__icon__image
+        .hi-container__main__right__icon__name
+      .hi-container__main__right__content
+        .hi-container__main__right__content__textarea
+        .hi-container__main__right__content__btn
+          変更する
   .hi-container__footer
     -# 水谷さん作成の部分テンプレート(フッター)が入る
