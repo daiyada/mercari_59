@@ -28,17 +28,30 @@
         .hi_wrapper__body__item__buybtn__btn
           購入する
     .hi_wrapper__body__shipping-address
-      .hi_wrapper__body__shipping-address__top
-        配送先
-        .hi_wrapper__body__shipping-address__text
-
-        .hi_wrapper__body__shipping-address__bottom
+      .hi_wrapper__body__shipping-address__inner
+        .hi_wrapper__body__shipping-address__inner__top
+          配送先
+        .hi_wrapper__body__shipping-address__inner__middle
+          〒714-0301
+          %br
+          岡山県笠岡市北木島町2
+          %br
+          山本 大梧
+        .hi_wrapper__body__shipping-address__inner__bottom
+          変更する
+          = fa_icon "chevron-right"
     .hi_wrapper__body__payment
-      .hi_wrapper__body__payment__top
-        支払い方法
-      .hi_wrapper__body__payment__cardnum
-      .hi_wrapper__body__payment__cardcorp
-      .hi_wrapper__body__payment__bottom
+      .hi_wrapper__body__payment__inner
+        .hi_wrapper__body__payment__inner__title
+          支払い方法
+        .hi_wrapper__body__payment__inner__num
+          ************9876
+          %br
+          02/32
+        %img{class: "hi_wrapper__body__payment__inner__img", src: "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2687693852"}
+        .hi_wrapper__body__payment__inner__bottom
+          変更する
+          = fa_icon "chevron-right"
   .hi_wrapper__foot
     .hi_wrapper__foot__rule
       %p.hi_wrapper__foot__rule__left
@@ -47,6 +60,7 @@
         メルカリ利用規約
       %p.hi_wrapper__foot__rule__right
         特定商取引に関する表記
-    .hi_wrapper__foot__img
+    .hi_wrapper__foot__mark
+      %img{class: "hi_wrapper__foot__mark__img", src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2687693852"}
     .hi_wrapper__foot__mercari
       ©︎2019 Mercari
