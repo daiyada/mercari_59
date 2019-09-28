@@ -1,0 +1,28 @@
+
+  .m-sell__btn{
+  text-decoration: none;
+  font-size: 22px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  
+    .fa-camera{
+    font-size:60px;
+    color: #fff;
+    }
+    &__s{
+    font-size:2px;
+    
+    }
+  }
