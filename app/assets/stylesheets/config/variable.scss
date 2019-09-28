@@ -9,6 +9,11 @@
   justify-content: space-between;
 }
 
+@mixin even_placement() {
+  display: flex;
+  justify-content: space-around;
+}
+
 @mixin item__inner{
   // 縦に積む
   display: flex;

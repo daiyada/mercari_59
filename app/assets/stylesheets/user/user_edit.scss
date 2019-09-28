@@ -1,0 +1,116 @@
+.hi-container{
+  width: 100%;
+  &__header{
+    height: 100px;  //水谷さんの部分テンプレートできたら指定を外す
+  }
+  &__navigation{
+    height: 49px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    box-shadow: 0 3px 3px 0 #c0c0c0;
+    @include middle_located();
+    position:relative;
+    z-index:2;
+    &__text{
+      margin: 0 126px;
+      padding: 16px 0;
+      width: 100%;
+      display: flex;
+      .fa-chevron-right{
+        margin: 4px 0 0 0;
+        font-size: 12px;
+      }
+      span{
+        font-size: 14px;
+        margin: 0 8px;
+      }
+    }
+  }
+  &__main{
+    padding: 40px 104.5px;
+    background-color: #f0f0f0;
+    display: flex;
+    &__left{
+      width: 280px;
+      margin: 0 40px 0 0;
+      &__mypage-nav{
+        background-color: #fff;
+        &__list{
+          display: block;
+          font-size: 14px;
+          padding: 16px;
+          position: relative;
+          border: 0.5px solid #f5f5f5
+        }
+        .fas.fa-chevron-right{
+          color: #c0c0c0;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+      }
+      &__merpay{
+        margin: 40px 0 0;
+        &__nav{
+          background-color: #fff;
+        }
+        .fas.fa-chevron-right{
+          color: #c0c0c0;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+      }
+    }
+    &__right{
+      width: 700px;
+      &__head{
+        font-size: 24px;
+        font-weight: bold;
+        padding: 8px 24px;
+        text-align: center;
+        background-color: white;
+      }
+      &__icon{
+        background-image: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?51123997");
+        padding: 72px 16px 24px;
+        @include middle_located();
+        &__image{
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: 0px 0px;
+        }
+        &__name{
+          margin: 0 0 0 8px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+      }
+      &__content{
+        padding: 40px 16px;
+        background-color: white;
+        &__textarea{
+          padding: 10px;
+          width: 100%;
+          box-sizing: border-box;
+          min-height: 216px;
+        }
+        &__btn{
+          width: 100%;
+          color: white;
+          margin-top: 16px;
+          background-color: #EA352D;
+          font-size: 14px;
+          line-height: 48px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  &__footer{
+    height: 100px;  //水谷さんの部分テンプレートできたら指定を外す
+  }
+}
