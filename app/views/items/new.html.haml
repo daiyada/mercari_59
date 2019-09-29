@@ -17,11 +17,12 @@
                     %span.form-require 必須
                   %p 最大10枚までアップロードできます
                   .m-main__container__inner__form__upload__number10
-                    .m-main__container__inner__form__upload__number10__container
-                      .m-main__container__inner__form__upload__number10__container__item
-                        %ul
+                    
                     .m-main__container__inner__form__upload__number10__box.have-item-0
-                      %input.m-main__container__inner__form__upload__number10__box__file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
+                      -# %input.m-main__container__inner__form__upload__number10__box__file{name: "message[image]", type: "file"}/
+                      -# = form.file_field :image, class: "image", style: "display:none;", id: "file"
+                      -# = image_tag , class: 'lower-message__image'
+                      %input.m-main__container__inner__form__upload__number10__box__file{multiple: "multiple", name: "image1", type: "file"}/
                     .m-main__container__inner__form__upload__number10__box__visible 
                       ドラッグアンドドロップ 
                       %br/
