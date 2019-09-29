@@ -1,8 +1,8 @@
 .hi-container{
   width: 100%;
-  &__header{
-    height: 100px;  //水谷さんの部分テンプレートできたら指定を外す
-  }
+  // &__header{
+  //   height: 100px;  //水谷さんの部分テンプレートできたら指定を外す
+  // }
   &__content{
     background-color: #f5f5f5;
     @include middle_located();
@@ -125,25 +125,11 @@
           background-color: #ea352d;
           font-weight: bold;
           margin: 0px 16px 0px 0px;
-        }
-        &__tax{
-          margin-top: 40px;
-          font-size: 10px;
-        }
-        &__shipping-fee{
-          margin-top: 34px;
-          font-size: 16px;
-        }
-      }
-      &__buybtn{
-        height: 60px;
-        margin-top: 16px;
-        background-color: #ea352d;
-        font-weight: bold;
-        @include middle_located();
-        &__text{
-          color: white;
-          font-size: 24px;
+          @include middle_located();
+          &__text{
+            color: white;
+            font-size: 24px;
+          }
         }
         &__explanation{
           padding-top: 32px;
@@ -230,8 +216,5 @@
         margin: 0 8px;
       }
     }
-  }
-  &__footer{
-    height: 300px;  //水谷さんの部分テンプレートできたら指定を外す
   }
 }

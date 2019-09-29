@@ -1,6 +1,5 @@
 .hi-container
-  .hi-container__header 
-    -# 水谷さん作成の部分テンプレート(ヘッダー)が入る
+  = render 'items/header'
   .hi-container__navigation
     .hi-container__navigation__text
       %span
@@ -101,5 +100,5 @@
         %textarea{class: "hi-container__main__right__content__textarea", value: "お静かに！"}
         .hi-container__main__right__content__btn
           変更する
-  .hi-container__footer
-    -# 水谷さん作成の部分テンプレート(フッター)が入る
+  = render 'items/sell_btn'
+  = render 'items/footer'
