@@ -29,6 +29,8 @@ namespace :deploy do
   end
 end
 
+set :linked_files, fetch(:linked_files, []).push("config/master.key") #本番環境のsharedディレクトリの中にconfig/master.keyを置いているという意味
+
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
