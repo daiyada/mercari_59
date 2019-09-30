@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit] do
     member do
       get "logout" => "users#logout"
+      get "info"  => "users#info"
     end
   end
   resources :cards, only: [:show]
