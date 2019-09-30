@@ -49,8 +49,7 @@
                     %label
                       商品の説明
                       %span.form-require 必須
-                    %input.m-main__container__inner__form__sell__low__textarea{name: "item[descript]", placeholder: "商品の説明（必須 1,000文字以内）\r\n（色、素材、重さ、定価、注意点など）\r\n例）2010年頃に1万円で購入したジャケットです。\r\nライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", type: "text"}/  
-                    -# %textarea.m-main__container__inner__form__sell__low__textarea{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+                    %textarea.m-main__container__inner__form__sell__low__textarea{name: "item[descript]",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
   
                 .m-main__container__inner__form__descript.clearfix
                   %h3.m-main__container__inner__form__descript__head 商品の詳細
@@ -186,7 +185,7 @@
                           .m-main__container__inner__form__price__box__price__up__cnt__uright.sell-price-input
                             ¥ &thinsp; 
                             %div
-                              %input.input-default{name: "item[price]", placeholder:  "            例）300", :type => "integer"}/
+                              %input.input-default{name: "item[price]", placeholder:  "            例）300", value: "",:type => "integer"}/
                               
                       %li.m-main__container__inner__form__price__box__price__calc
                         .m-main__container__inner__form__price__box__price__calc__left
