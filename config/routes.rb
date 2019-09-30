@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "example#index"
+  root "items#index"
   resources :users, only: [:index, :edit] do
     member do
       get "logout" => "users#logout"
