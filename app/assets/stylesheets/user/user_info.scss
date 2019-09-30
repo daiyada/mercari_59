@@ -1,0 +1,117 @@
+.hi-container__wrapper__main__right__title{
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 8px 24px;
+  text-align: center;
+  border-bottom: solid 1px #f5f5f5; 
+}
+.hi-container__wrapper__main__right__content{
+  color: #333333;
+  background-color: #FFFFFF;
+  padding: 64px;
+  font-size: 14px;
+  &__head{
+    margin-top: 8px;
+  }
+  &__attention{
+    margin-top: 8px;
+    color: #0099E8;
+    text-align: right;
+  }
+  &__name-group{
+    margin-top: 40px;
+    &__label{
+      font-weight: bold;
+    }
+    &__name{
+      margin-top: 8px;
+    }
+  }
+  &__text-group{
+    margin-top: 40px;
+    &__btn{
+      background-color:#EA352D;
+      color: white;
+      text-align: center;
+      padding: 14px;
+    }
+    &__attention{
+      margin-top: 8px;
+      color: #0099E8;
+      text-align: right;
+    }
+    &__label{
+      display: flex;
+      &__postnum{
+        font-weight: bold;
+        position: relative;
+        &__tag{
+          font-weight: nomal;
+          background-color: #CCCCCC;
+          color: white;
+          font-size: 12px;
+          padding: 0 2px;
+          border-radius: 2px;
+          position: absolute;
+          right: -32px;
+          top: 0%;
+        }
+      }
+    }
+    &__textarea{
+      height :48px;
+      margin-top: 8px;
+      padding: 10px 16px 8px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+  }
+  &__select-group{
+    margin-top: 40px;
+    position: relative;
+    &__label{
+      display: flex;
+      &__postnum{
+        font-weight: bold;
+        position: relative;
+        &__tag{
+          background-color: #CCCCCC;
+          color: white;
+          font-size: 12px;
+          padding: 0 2px;
+          border-radius: 2px;
+          position: absolute;
+          right: -32px;
+          top: 0%;
+        }
+      }
+    }
+    &__textarea{
+      height :48px;
+      margin-top: 8px;
+      padding: 10px 16px 8px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: white;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .fas.fa-chevron-down{
+      color: #CCCCCC;
+      font-size: 16px;
+      position: absolute;
+      right: 2.5%;
+      bottom: 20%;
+    }
+  }
+}
