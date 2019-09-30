@@ -1,12 +1,6 @@
 .hi-container
   = render 'items/header'
-  .hi-container__navigation
-    .hi-container__navigation__text
-      %span
-        メルカリ
-      = fa_icon "chevron-right", style: 'color: grey'
-      %span
-        マイページ
+  = render 'users/head-navigation'
   .hi-container__wrapper
     .hi-container__wrapper__main
       %nav.hi-container__wrapper__main__left
