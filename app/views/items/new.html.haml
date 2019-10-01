@@ -26,7 +26,17 @@
                       .m-main__container__inner__form__upload__number10__box__file
                         -# = f.file_field :image, class: 'hidden'
                         -# \#{f_item.file_field :image, placeholder: ''}
-                        %input.m-main__container__inner__form__upload__number10__box__file{:name => "image[image]", :placeholder => "", :type => "file"}/
+                        -# = f.file_field :image, :multiple => true
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
                         -# %input.m-main__container__inner__form__upload__numbe10__box__file.hidden{:name => "item[image]", :type => "file"}/
                       -# %input.m-main__container__inner__form__upload__number10__box__file{multiple: "multiple", name: "image1", type: "file"}/
                     .m-main__container__inner__form__upload__number10__box__visible 
@@ -76,6 +86,12 @@
                             %option{value: "1027"} チケット
                             %option{value: "1318"} 自動車・オートバイ
                             %option{value: "10"} その他
+                        -#   = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.parent.parent.name), {}, {class: 'select', id: 'parent_category'}
+                        -# .form_group#children
+                        -#   = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select', id: 'child_category'}
+                        -# .form_group#grandchildren
+                        -#   = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select', id: 'grandchild_category'}
+                        -#   = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
                     .m-main__container__inner__form__descript__box__low
                       %label
                         商品の状態

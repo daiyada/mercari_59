@@ -6,17 +6,28 @@ class ItemsController < ApplicationController
     @item = Item.new
     # @image = Image.new
     # @deliverrie = Delivery.new
+    @category = Category.all
   end
   def create
-
+    
     item = Item.new(item_params) 
     delivery = Delivery.new(delivery_params)
-    image = Image.new(image_params) 
+    
+    item_id = Item.last
+    item_id == nil ? item_id =1 : item_id = item_id.id + 1
+    image_params_pics = image_params.compact.reject(&:empty?)
+    image = Image.new(image: image_params[0] , item_id: item_id) 
+    
+    
     validate = [image.image , item.name , item.descript , item.condition , item.price , delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
     unless validate.include?(""||nil)
       item.save  
       image.save
       delivery.save
+      image_params_pics.drop(1).each do |photo|
+      image = Image.new(image: photo, item_id: item_id) unless photo == ""
+      image.save
+        end
       redirect_to controller: :items, action: :index
     else
     # render :new
@@ -33,13 +44,9 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name,:descript,:condition,:price).merge(user_id: 1,stock_status: 1, category_id: 3, size:"M")
   end
   def image_params
-    item_id = Item.last
-    if item_id == nil
-      item_id =1 
-    else
-      item_id = item_id.id + 1
-    end
-    params.require(:image).permit(:image).merge(item_id: item_id)
+    # params.require(:image).permit(:image1,:image2,:image3,:image4,:image5,:image6,:image7,:image8,:image9,:image10).merge(item_id: item_id)
+    params.require(:image)
+    # params.require(:image).permit({image: []}).merge(item_id: item_id)
   end
   def delivery_params
     params.require(:delivery).permit(:pay_for_shipping,:delivery_from,:due_time_day)
