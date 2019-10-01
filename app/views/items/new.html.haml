@@ -27,16 +27,16 @@
                         -# = f.file_field :image, class: 'hidden'
                         -# \#{f_item.file_field :image, placeholder: ''}
                         -# = f.file_field :image, :multiple => true
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic1{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic2{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic3{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic4{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic5{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic6{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic7{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic8{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic9{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic10{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
                         -# %input.m-main__container__inner__form__upload__numbe10__box__file.hidden{:name => "item[image]", :type => "file"}/
                       -# %input.m-main__container__inner__form__upload__number10__box__file{multiple: "multiple", name: "image1", type: "file"}/
                     .m-main__container__inner__form__upload__number10__box__visible 
@@ -71,21 +71,9 @@
                       %div
                         .select-wrap
                           %i.fas.fa-chevron-down.m-arrow
-                          %select.m-select-default{name: "category[name]",:type => "string"}
-                            %option{value: ""} ---
-                            %option{value: "レディース"} レディース
-                            %option{value: "メンズ"} メンズ
-                            %option{value: "ベビー・キッズ"} ベビー・キッズ
-                            %option{value: "インテリア・住まい・小物"} インテリア・住まい・小物
-                            %option{value: "5"} 本・音楽・ゲーム
-                            %option{value: "1328"} おもちゃ・ホビー・グッズ
-                            %option{value: "6"} コスメ・香水・美容
-                            %option{value: "7"} 家電・スマホ・カメラ
-                            %option{value: "8"} スポーツ・レジャー
-                            %option{value: "9"} ハンドメイド
-                            %option{value: "1027"} チケット
-                            %option{value: "1318"} 自動車・オートバイ
-                            %option{value: "10"} その他
+                            -# %select.m-select-default{name: "category[name]",:type => "string"}
+                          = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
+                         
                         -#   = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.parent.parent.name), {}, {class: 'select', id: 'parent_category'}
                         -# .form_group#children
                         -#   = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select', id: 'child_category'}

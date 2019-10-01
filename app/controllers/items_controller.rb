@@ -7,12 +7,18 @@ class ItemsController < ApplicationController
     # @image = Image.new
     # @deliverrie = Delivery.new
     @category = Category.all
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+    end
   end
   def create
-    
+    # binding.pry
     item = Item.new(item_params) 
     delivery = Delivery.new(delivery_params)
-    
+
     item_id = Item.last
     item_id == nil ? item_id =1 : item_id = item_id.id + 1
     image_params_pics = image_params.compact.reject(&:empty?)
