@@ -1,0 +1,35 @@
+.iz_footer{
+  height: 100%;
+  width: 100%;
+  margin:  auto;
+  padding: 40px 0px;
+  background-color: rgb(245,245,245);
+  .iz_navi{
+    height: 30px;
+    width: 430px;
+    font-size: 12px;
+    margin: auto;
+    .iz_ul{
+      @include both_end_located();
+      .iz_privacy{
+        text-align:center;
+      }
+      .iz_tos{
+        text-align:center;
+      }
+      .iz_tokutei{
+        text-align:center;
+      }
+    }
+  }
+  .iz_a{
+    height: 65px;
+    width: 80px;
+    margin: 40px auto 0;
+  }
+  .iz_p{
+    margin: 8px 0px 0px;
+    text-align:center;
+    font-size: 13px;
+  }
+}
