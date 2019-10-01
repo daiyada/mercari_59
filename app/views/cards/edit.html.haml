@@ -1,0 +1,26 @@
+.hi-container
+  = render 'items/header'
+  = render 'users/head-navigation'
+  .hi-container__wrapper
+    .hi-container__wrapper__main
+      = render 'users/left-side-bar'
+      .hi-container__wrapper__main__right
+        .hi-container__wrapper__main__right__head
+          クレジットカード情報入力
+        .hi-container__wrapper__main__right__secret
+          .hi-container__wrapper__main__right__secret__content
+            .hi-container__wrapper__main__right__secret__content__title
+              .hi-container__wrapper__main__right__secret__content__title__text
+                カード番号
+              .hi-container__wrapper__main__right__secret__content__title__required
+                必須
+            %input{class: "hi-container__wrapper__main__right__secret__content__textarea", placeholder: "半角数字のみ"}
+            .hi-container__wrapper__main__right__secret__content__cardlist
+              %img{class: "visa", src: "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2561606804"}
+              %img{class: "mastercard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2561606804"}
+              %img{class: "saisoncard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2561606804"}
+              %img{class: "jcb", src: "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2561606804"}
+              %img{class: "americanexpress", src: "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2561606804"}
+              %img{class: "dinersclub", src: "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2561606804"}
+              %img{class: "discover", src: "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2561606804"}
+              
