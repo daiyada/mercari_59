@@ -37,6 +37,17 @@
       right: 0px;
       @include middle_located();
     }
+    &__btn{
+      font-size: 14px;
+      background-color: #EA352D;
+      color: white;
+      margin-bottom: 8px;
+      line-height: 50px;
+      @include middle_located();
+      &__text{
+        margin-left: 8px;
+      }
+    }
   }
   &__bottom{
     padding: 40px 0 0;
