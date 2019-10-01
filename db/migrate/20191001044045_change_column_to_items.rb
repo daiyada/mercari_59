@@ -1,7 +1,8 @@
 class ChangeColumnToItems < ActiveRecord::Migration[5.2]
   def change
-    add_column :items, :saler, :references, null: false, foreign_key: true
-    add_column :items, :buyer, :references, foreign_key: true
-    remove_column :items, :user
+    remove_reference :items, :user, foreign_key: true
+
+    add_column :items, :buyer_id, :integer, null: false
+    add_column :items, :seller_id, :integer, null: false
   end
 end
