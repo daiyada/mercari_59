@@ -19,6 +19,11 @@
             .hi-container__wrapper__main__right__content__card-info__delete-btn
               .hi-container__wrapper__main__right__content__card-info__delete-btn__text
                 削除する
+            -# if文で分岐させる。（current_user.idと一致するuser.idを含んだカードが登録されている場合）
+            -# .hi-container__wrapper__main__right__content__card-info__btn
+            -#   = fa_icon("credit-card", type: :regular)
+            -#   .hi-container__wrapper__main__right__content__card-info__btn__text
+            -#     クレジットカードを追加する
           .hi-container__wrapper__main__right__content__bottom
             支払い方法について
             = fa_icon "chevron-right"
