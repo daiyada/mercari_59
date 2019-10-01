@@ -13,7 +13,9 @@
 |name_first_kana|string|null: false|
 
 ### Association
-- has_many :items
+- has_many :bought_items
+- has_many :saling_items
+- has_many :sold_items
 - has_one :card
 - has_one :address
 
@@ -47,7 +49,6 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
 |name|string|null: false, index: true|
 |descript|text|null: false|
 |condition|string|null: false|
@@ -56,11 +57,14 @@
 |brand|string||
 |size|string|null: false|
 |category|references|null: false, foreign_key: true|
+|salar_id|integer|null: false, foreign_key: true|
+|buyer_id|integer|foreign_key: true|
 
 ### Association
 - has_many :images
 - has_one :delivery
-- belongs_to :user
+- belongs_to :saler, class_name: "User"
+- belongs_to :buyer, class_name: "User"
 - belongs_to :category
 
 
