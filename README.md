@@ -57,8 +57,8 @@
 |brand|string||
 |size|string|null: false|
 |category|references|null: false, foreign_key: true|
-|salar_id|integer|null: false, foreign_key: true|
-|buyer_id|integer|foreign_key: true|
+|saler_id|references|null: false, foreign_key: true|
+|buyer_id|references|foreign_key: true|
 
 ### Association
 - has_many :images
