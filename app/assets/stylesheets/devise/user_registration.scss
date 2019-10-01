@@ -1,0 +1,117 @@
+.iz2_wrapper{
+  height:100%;
+  width: 100%;
+  .iz2_header{
+    height:100%;
+    width: 700px;
+    margin:  auto;
+    padding: 0;
+    line-height: 33px;
+    &__progress-bar{
+      height:100%;
+      width: 100%;
+      @include middle_located();
+      &__logo{
+        height: 49px;
+        width: 185px;
+        margin:  auto;
+        padding: 0;
+        line-height: 56px;
+      }
+      &__active{
+        // margin:  auto;
+      }
+      &__phone-certification{
+        // margin:  auto;
+      }
+      &__address{
+        // margin:  auto;
+      }
+      &__pay{
+        // margin:  auto;
+      }
+      &__finish{
+        // margin:  auto;
+      }
+    }
+  }
+  .iz2_container{
+    height: 100%;
+    max-width: 700px;
+    // background-color: rgb(119, 118, 118);
+    margin:  auto;
+    &__header{
+      // height: 795px;
+      // max-width: 343px;
+      text-align:center;
+      line-height: 59px;
+      font-weight: bold;
+      border-bottom: solid 0.1px gray;
+    }
+    &__registration{
+      height: 795px;
+      max-width: 343px;
+      margin:  auto;
+      padding-bottom: 50px;
+      font-size: 14px;
+      &__form-group{
+        &--require{
+          height: 100%;
+          // width: 100%;
+          font-size: 12px;
+          color:white;
+          background-color: #ea352d;
+          margin: 0px 130px 0px 0px;
+        }
+        &--input-default{
+          height: 40px;
+          width: 300px;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+  .iz2_login_form_facebook{
+    margin:  auto;
+  }
+  .iz2_login_form_google{
+    margin:  auto;
+  }
+  .iz2_footer{
+    // height: 100%;
+    // width: 500px;
+    // margin:  auto;
+    // padding: 40px 0px;
+    .iz2_navi{
+      // height: 30px;
+      // width: 400px;
+      // font-size: 12px;
+      // margin: auto;
+      .iz2_ul{
+        // @include both_end_located();
+        .iz2_privacy{
+          text-align:center;
+        }
+        .iz2_tos{
+          text-align:center;
+        }
+        .iz2_tokutei{
+          text-align:center;
+        }
+      }
+    }
+    .iz2_a{
+      height: 65px;
+      width: 80px;
+      margin: 40px auto 0;
+    }
+    .iz2_p{
+      margin: 8px 0px 0px;
+      text-align:center;
+    }
+  }
+}
+// *{
+//   border:solid blue;
+//   margin: auto;
+// }
