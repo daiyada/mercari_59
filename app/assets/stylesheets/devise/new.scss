@@ -1,37 +1,40 @@
 .iz2_wrapper{
   height:100%;
   width: 100%;
+  background-color: rgb(245,245,245);
   .iz2_header{
-    height:100%;
-    width: 700px;
+    height:128px;
+    width: 100%;
     margin:  auto;
     padding: 0;
     line-height: 33px;
     &__progress-bar{
       height:100%;
       width: 100%;
+      font-size: 12px;
       @include middle_located();
+      text-align: center;
+      color: gainsboro;
       &__logo{
         height: 49px;
         width: 185px;
-        margin:  auto;
-        padding: 0;
         line-height: 56px;
+        margin-right: 50px;
       }
       &__active{
-        // margin:  auto;
+        margin-right: 50px;
       }
       &__phone-certification{
-        // margin:  auto;
+        margin-right: 50px;
       }
       &__address{
-        // margin:  auto;
+        margin-right: 50px;
       }
       &__pay{
-        // margin:  auto;
+        margin-right: 50px;
       }
       &__finish{
-        // margin:  auto;
+        margin-right: 50px;
       }
     }
   }
@@ -40,21 +43,23 @@
     max-width: 700px;
     // background-color: rgb(119, 118, 118);
     margin:  auto;
+    background-color: white;
     &__header{
-      // height: 795px;
-      // max-width: 343px;
+      height: 97px;
+      font-size:22px;
       text-align:center;
-      line-height: 59px;
+      line-height: 97px;
       font-weight: bold;
       border-bottom: solid 0.1px gray;
     }
     &__registration{
-      height: 795px;
+      height: 100%;
       max-width: 343px;
       margin:  auto;
       padding-bottom: 50px;
       font-size: 14px;
       &__form-group{
+        padding-top: 20px;
         &--require{
           height: 100%;
           // width: 100%;
@@ -76,39 +81,6 @@
   }
   .iz2_login_form_google{
     margin:  auto;
-  }
-  .iz2_footer{
-    // height: 100%;
-    // width: 500px;
-    // margin:  auto;
-    // padding: 40px 0px;
-    .iz2_navi{
-      // height: 30px;
-      // width: 400px;
-      // font-size: 12px;
-      // margin: auto;
-      .iz2_ul{
-        // @include both_end_located();
-        .iz2_privacy{
-          text-align:center;
-        }
-        .iz2_tos{
-          text-align:center;
-        }
-        .iz2_tokutei{
-          text-align:center;
-        }
-      }
-    }
-    .iz2_a{
-      height: 65px;
-      width: 80px;
-      margin: 40px auto 0;
-    }
-    .iz2_p{
-      margin: 8px 0px 0px;
-      text-align:center;
-    }
   }
 }
 // *{
