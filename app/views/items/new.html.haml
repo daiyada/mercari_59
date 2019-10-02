@@ -36,7 +36,7 @@
                         %input.m-main__container__inner__form__upload__number10__box__file.pic7{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
                         %input.m-main__container__inner__form__upload__number10__box__file.pic8{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
                         %input.m-main__container__inner__form__upload__number10__box__file.pic9{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        %input.m-main__container__inner__form__upload__number10__box__file.pic10{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        %input.m-main__container__inner__form__upload__number10__box__file.pic1{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
                         -# %input.m-main__container__inner__form__upload__numbe10__box__file.hidden{:name => "item[image]", :type => "file"}/
                       -# %input.m-main__container__inner__form__upload__number10__box__file{multiple: "multiple", name: "image1", type: "file"}/
                     .m-main__container__inner__form__upload__number10__box__visible 
@@ -61,7 +61,7 @@
                       %span.form-require 必須
                     %textarea.m-main__container__inner__form__sell__low__textarea{name: "item[descript]",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
   
-                .m-main__container__inner__form__descript.clearfix
+                .m-main__container__inner__form__descript.clearfix 
                   %h3.m-main__container__inner__form__descript__head 商品の詳細
                   .m-main__container__inner__form__descript__box
                     .m-main__container__inner__form__descript__box__up
@@ -73,7 +73,33 @@
                           %i.fas.fa-chevron-down.m-arrow
                             -# %select.m-select-default{name: "category[name]",:type => "string"}
                           = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
-                         
+                        #children_wrapper.select-wrap
+                          -# %i.fas.fa-chevron-down.m-arrow
+                          -#   -# %select.m-select-default{name: "category[name]",:type => "string"}
+                          -# = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
+                        #grandchildren_wrapper.select-wrap
+                          -# %i.fas.fa-chevron-down.m-arrow
+                          -#   -# %select.m-select-default{name: "category[name]",:type => "string"}
+                          -# = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
+                    
+                    #size_wrapper.select-wrap
+                      -# %label
+                      -#   サイズ
+                      -#   %span.form-require 必須
+                      -# %div
+            
+                        -# %i.fas.fa-chevron-down.m-arrow
+                        -#   -# %select.m-select-default{name: "category[name]",:type => "string"}
+                        -# = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
+                    #brand_wrapper.form-suggest-container.select-wrap
+                      -# %label
+                      -#   ブランド
+                      -#   %span.form-arbitrary 任意
+                      -# %div
+                      -#   %input.input-default{:placeholder => "例）シャネル", :value => ""}/
+                      -#   %div
+                    
+                    
                         -#   = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.parent.parent.name), {}, {class: 'select', id: 'parent_category'}
                         -# .form_group#children
                         -#   = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select', id: 'child_category'}
