@@ -9,18 +9,72 @@
           クレジットカード情報入力
         .hi-container__wrapper__main__right__secret
           .hi-container__wrapper__main__right__secret__content
-            .hi-container__wrapper__main__right__secret__content__title
-              .hi-container__wrapper__main__right__secret__content__title__text
-                カード番号
-              .hi-container__wrapper__main__right__secret__content__title__required
-                必須
-            %input{class: "hi-container__wrapper__main__right__secret__content__textarea", placeholder: "半角数字のみ"}
-            .hi-container__wrapper__main__right__secret__content__cardlist
-              %img{class: "visa", src: "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2561606804"}
-              %img{class: "mastercard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2561606804"}
-              %img{class: "saisoncard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2561606804"}
-              %img{class: "jcb", src: "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2561606804"}
-              %img{class: "americanexpress", src: "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2561606804"}
-              %img{class: "dinersclub", src: "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2561606804"}
-              %img{class: "discover", src: "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2561606804"}
-              
+            .hi-container__wrapper__main__right__secret__content__cardinfo
+              .hi-container__wrapper__main__right__secret__content__title
+                .hi-container__wrapper__main__right__secret__content__title__text
+                  カード番号
+                .hi-container__wrapper__main__right__secret__content__title__required
+                  必須
+              %input{class: "hi-container__wrapper__main__right__secret__content__textarea", placeholder: "半角数字のみ"}
+              .hi-container__wrapper__main__right__secret__content__cardlist
+                %img{class: "visa", src: "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2561606804"}
+                %img{class: "mastercard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2561606804"}
+                %img{class: "saisoncard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2561606804"}
+                %img{class: "jcb", src: "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2561606804"}
+                %img{class: "americanexpress", src: "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2561606804"}
+                %img{class: "dinersclub", src: "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2561606804"}
+                %img{class: "discover", src: "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2561606804"}
+            .hi-container__wrapper__main__right__secret__content__deadline
+              .hi-container__wrapper__main__right__secret__content__deadline__title
+                .hi-container__wrapper__main__right__secret__content__deadline__title__text
+                  有効期限
+                .hi-container__wrapper__main__right__secret__content__deadline__title__required
+                  必須
+              .hi-container__wrapper__main__right__secret__content__deadline__date
+                .hi-container__wrapper__main__right__secret__content__deadline__date__element
+                  .hi-container__wrapper__main__right__secret__content__deadline__date__element__select
+                    %select.hi-container__wrapper__main__right__secret__content__deadline__date__element__select__num
+                      %option 01
+                      %option 02
+                      %option 03
+                      %option 04
+                      %option 05
+                      %option 06
+                      %option 07
+                      %option 08
+                      %option 09
+                      %option 10
+                      %option 11
+                      %option 12
+                    = fa_icon "chevron-down"
+                  .hi-container__wrapper__main__right__secret__content__deadline__date__element__unit
+                    月
+                .hi-container__wrapper__main__right__secret__content__deadline__date__element
+                  .hi-container__wrapper__main__right__secret__content__deadline__date__element__select
+                    %select.hi-container__wrapper__main__right__secret__content__deadline__date__element__select__num
+                      %option 19
+                      %option 20
+                      %option 21
+                      %option 22
+                      %option 23
+                      %option 24
+                      %option 25
+                      %option 26
+                      %option 27
+                      %option 28
+                      %option 29
+                    = fa_icon "chevron-down"
+                  .hi-container__wrapper__main__right__secret__content__deadline__date__element__unit
+                    年
+            .hi-container__wrapper__main__right__secret__content__deadline
+              .hi-container__wrapper__main__right__secret__content__deadline__title
+                .hi-container__wrapper__main__right__secret__content__deadline__title__text
+                  セキュリティーコード
+                .hi-container__wrapper__main__right__secret__content__deadline__title__required
+                  必須
+              %input{class: "hi-container__wrapper__main__right__secret__content__textarea", placeholder: "カード背面4桁もしくは3桁の番号"}
+              .hi-container__wrapper__main__right__secret__content__deadline__caution
+                =fa_icon "question-circle"
+                カード裏面の番号とは？
+            .hi-container__wrapper__main__right__secret__content__btn
+              追加する
