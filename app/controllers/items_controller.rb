@@ -16,13 +16,6 @@ class ItemsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
     end
-    @item.price = params[:keyword].to_i
-    # @price  = params[:keyword].to_i
-# binding.pry
-    # respond_to do |format|
-    #   format.json
-    #   format.html
-    # end
   end
   def create
     

@@ -20,24 +20,18 @@ $(document).on('turbolinks:load', function() {
     $("#set_item_price").on("keyup", function() {
       var input = $("#set_item_price").val();
       
-      $.ajax({
-        type: 'GET',
-        url: '/items/new',
-        data: { keyword: input },
-        dataType: 'json'
-      })
-  
-      .done(function(item) {
-        console.log(item.price);
         $(".m-main__container__inner__form__price__box__price__calc__right").empty();
         $(".m-main__container__inner__form__price__box__price__benefit__right").empty();
         ;
-        if (item.price >= 300) {
-          margin_fee = item.price * 0.1
+          if (input>= 300) {
+         
+          margin_fee = input * 0.1
+          margin_fee = Math.floor(margin_fee); 
           margin_fee = '¥' + margin_fee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-          benefit = item.price * 0.9
+          // margin_fee = margin_fee.substring(0,margin_fee.indexOf("."));
+          benefit = input * 0.9
+          benefit = Math.floor(benefit); 
           benefit = '¥' + benefit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-          
           appendProduct1(margin_fee);
           appendProduct2(benefit);
         }
@@ -45,7 +39,6 @@ $(document).on('turbolinks:load', function() {
           appendProduct1("-");
           appendProduct2("-");   
         }
-      })
     });
   });
   });

@@ -34,7 +34,10 @@
         }
         &__form{
             &__upload{
-              height:220px;
+              min-height:220px;
+              height:auto;
+              display:flex;
+              flex-direction: column;
               padding: 30px 40px ;
               border-top: 1px solid #eee;
               &__head{
@@ -50,6 +53,8 @@
               &__number10{
                 display: block;
                 width: 620px;
+                // height:450px;
+                box-sizing: content-box; 
                 
                 &__box{
                   width: 100%;
@@ -61,26 +66,68 @@
                   border: 1px dashed #ccc;
                   font-size: 0;
                   text-align: center;
+                  display:flex;
                   &__file{
-                  // width:100%;
-                  // height:162px;
-                  // background-color:red;
+                  
                   position:relative;
                   z-index:10;
                   
                   }
                   &__visible{
                     position:absolute;
-                    left: 0;
-                    right: 0;
                     margin: auto;
                     text-align:center;
-                    padding-top:40px;
+                    display: -webkit-flex;
+                    display: flex;
+                    flex-wrap: wrap;
                     height:100px;
-                    width:350px;
-                    display: block;
+                    width:620px;
                     z-index: 9;
-                    // background-color:red;
+                 
+                    &__pic1{
+                      width:100%;
+                      height:162px;
+                      // display: -webkit-flex;
+            
+                      display:flex;
+                      align-items: center; /*上下中央*/
+                      justify-content: center; /*左右中央*/
+                      
+                    }
+                    &__box{
+                      width:20%;
+                      // height:162px;
+                      display: flex;
+                      flex-direction: column;
+                      display: -webkit-flex;
+                
+                      
+                      &__pic{
+                        height:140px;
+                        // color: #0099e8;
+                        background: #a19e9e;
+                        display: -webkit-flex;
+                        display: flex;
+                      }
+                      &__pic1{
+                        height:140px;
+                        background: #a19e9e;
+                        -webkit-order: 5;
+                        order: 5;
+                      }
+                        // text-align:bottom;
+                        // b
+                      &__btn{
+                        color: #0099e8;
+                        text-decoration:none;
+                        bottom:0;
+                        // display: flex;
+                        // justify-content: flex-end;
+                        
+                        // text-align:bottom;
+                        // background-color:rgb(21, 255, 0);
+                      }
+                    }
                   }
                 }
               }   
