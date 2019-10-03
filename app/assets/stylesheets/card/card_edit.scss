@@ -90,6 +90,7 @@
             position: relative;
             width: 70%;
             &__num{
+              background-color: white;
               height: 48px;
               width: 100%;
               padding: 0 16px;
@@ -122,6 +123,7 @@
       }
     }
     &__btn{
+      width: 100%;
       font-size: 13px;
       background-color: #EA352D;
       color: white;
