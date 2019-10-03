@@ -6,31 +6,26 @@ class ItemsController < ApplicationController
     @item = Item.new
 
 
-    # binding.pry
-    # @image = Image.new
-    # @deliverrie = Delivery.new
+
     @category = Category.all
-    #セレクトボックスの初期値設定
     @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
     Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
     end
   end
   def create
     
-    @item = Item.new(item_params) 
+    item = Item.new(item_params) 
     delivery = Delivery.new(delivery_params)
-
     item_id = Item.last
     item_id == nil ? item_id =1 : item_id = item_id.id + 1
     image_params_pics = image_params.compact.reject(&:empty?)
     image = Image.new(image: image_params[0] , item_id: item_id) 
-    # binding.pry
+  
     
-    validate = [image.image , @item.name , @item.descript , @item.condition , @item.price ,@item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
+    validate = [image.image , item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
     unless validate.include?(""||nil)
-      @item.save  
+      item.save  
       image.save
       delivery.save
       image_params_pics.drop(1).each do |photo|
