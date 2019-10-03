@@ -8,22 +8,22 @@ $(document).on("turbolinks:load", function(){
 
     var card = {
         number: $("#card_num").val(),
-        cvc: $("cvc").val(),
-        exp_month: $("exp_month").val(),
-        exp_year: $("exp_year").val()
+        cvc: $("#cvc").val(),
+        exp_month: $("#exp_month").val(),
+        exp_year: $("#exp_year").val()
     };
     Payjp.createToken(card, function(s, response){
       if (response.error){
         alert("トークン作成時にエラーが生じました。");
       }
       else{
-        $("card_num").removeAttr("name");
-        $("cvc").removeAttr("name");
-        $("exp_month").removeAttr("name");
-        $("exp_year").removeAttr("name");
+        $("#card_num").removeAttr("name");
+        $("#cvc").removeAttr("name");
+        $("#exp_month").removeAttr("name");
+        $("#exp_year").removeAttr("name");
         var token = response.id
 
-        form.append($('<input type="hidden" name="payjpToken">'));
+        form.append($('<input type="hidden" name="payjpToken">').val(token));
         form.get(0).submit();
       }
     })
