@@ -7,5 +7,6 @@ class ChangeColumnToCard < ActiveRecord::Migration[5.2]
 
     add_reference :cards, :user, foreign_key: true, null: false
     add_column :cards, :customer_id, :string, null: false
+    add_column :cards, :card_id, :string, null: false
   end
 end
