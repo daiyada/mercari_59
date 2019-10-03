@@ -7,7 +7,7 @@
       .hi-container__wrapper__main__right
         .hi-container__wrapper__main__right__head
           クレジットカード情報入力
-        .hi-container__wrapper__main__right__secret
+        = form_with url: card_path, class: "hi-container__wrapper__main__right__secret" do |f|
           .hi-container__wrapper__main__right__secret__content
             .hi-container__wrapper__main__right__secret__content__cardinfo
               .hi-container__wrapper__main__right__secret__content__title
@@ -15,7 +15,7 @@
                   カード番号
                 .hi-container__wrapper__main__right__secret__content__title__required
                   必須
-              %input{class: "hi-container__wrapper__main__right__secret__content__textarea", placeholder: "半角数字のみ"}
+              = f.text_field :card_num, class: "hi-container__wrapper__main__right__secret__content__textarea", placeholder: "半角数字のみ", maxlength: "16",type: "text", id: "card_num"
               .hi-container__wrapper__main__right__secret__content__cardlist
                 %img{class: "visa", src: "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2561606804"}
                 %img{class: "mastercard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2561606804"}
@@ -33,7 +33,7 @@
               .hi-container__wrapper__main__right__secret__content__deadline__date
                 .hi-container__wrapper__main__right__secret__content__deadline__date__element
                   .hi-container__wrapper__main__right__secret__content__deadline__date__element__select
-                    %select.hi-container__wrapper__main__right__secret__content__deadline__date__element__select__num
+                    = f.select :exp_month, {maxlength: "2", id: "exp_month", type: "text"}, {}, {class: "hi-container__wrapper__main__right__secret__content__deadline__date__element__select__num"} do
                       %option 01
                       %option 02
                       %option 03
@@ -51,7 +51,7 @@
                     月
                 .hi-container__wrapper__main__right__secret__content__deadline__date__element
                   .hi-container__wrapper__main__right__secret__content__deadline__date__element__select
-                    %select.hi-container__wrapper__main__right__secret__content__deadline__date__element__select__num
+                    = f.select :exp_year,{maxlength: "2", id: "exp_year", type: "text"}, {}, class: "hi-container__wrapper__main__right__secret__content__deadline__date__element__select__num" do
                       %option 19
                       %option 20
                       %option 21
@@ -72,9 +72,8 @@
                   セキュリティーコード
                 .hi-container__wrapper__main__right__secret__content__deadline__title__required
                   必須
-              %input{class: "hi-container__wrapper__main__right__secret__content__textarea", placeholder: "カード背面4桁もしくは3桁の番号"}
+              = f.text_field :cvc, class: "hi-container__wrapper__main__right__secret__content__textarea", maxlength: "3", placeholder: "カード背面4桁もしくは3桁の番号", id: "cvc"
               .hi-container__wrapper__main__right__secret__content__deadline__caution
                 =fa_icon "question-circle"
                 カード裏面の番号とは？
-            .hi-container__wrapper__main__right__secret__content__btn
-              追加する
+            = f.submit "追加する", class: "hi-container__wrapper__main__right__secret__content__btn"
