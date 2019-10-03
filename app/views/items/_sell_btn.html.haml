@@ -1,6 +1,12 @@
 .m-sell
-  %a.m-sell__btn{:href => ""}
+
+  %a.m-sell__btn{:href => "/items/new"}
     %div 出品
     %i.fas.fa-camera
     .m-sell__btn__s  &thinsp; 
-  
+
+-# = link_to raw("詳細条件<br/>（入力）"), "/products/#{@cars.id}/edit", method: :get
+-# - if user_signed_in?
+-#   %a.m-sell__btn{:href => "/items/new"}
+-# - else
+-#   %a.m-sell__btn{:href => "/users/new"}
