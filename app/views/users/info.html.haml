@@ -1,0 +1,124 @@
+.hi-container
+  = render 'items/header'
+  = render 'users/head-navigation'
+  .hi-container__wrapper
+    .hi-container__wrapper__main
+      = render 'users/left-side-bar'
+      .hi-container__wrapper__main__right
+        .hi-container__wrapper__main__right__title
+          本人情報の登録
+        .hi-container__wrapper__main__right__content
+          .hi-container__wrapper__main__right__content__head
+            お客さまの本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .hi-container__wrapper__main__right__content__attention
+            本人確認書類のアップロードについて
+            = fa_icon "chevron-right"
+          .hi-container__wrapper__main__right__content__name-group
+            .hi-container__wrapper__main__right__content__name-group__label
+              お名前
+            .hi-container__wrapper__main__right__content__name-group__name
+              山本 大悟
+          .hi-container__wrapper__main__right__content__name-group
+            .hi-container__wrapper__main__right__content__name-group__label
+              お名前
+            .hi-container__wrapper__main__right__content__name-group__name
+              ヤマモト ダイゴ
+          .hi-container__wrapper__main__right__content__name-group
+            .hi-container__wrapper__main__right__content__name-group__label
+              生年月日
+            .hi-container__wrapper__main__right__content__name-group__day
+              1980/3/25
+          .hi-container__wrapper__main__right__content__text-group
+            .hi-container__wrapper__main__right__content__text-group__label
+              .hi-container__wrapper__main__right__content__text-group__label__postnum
+                郵便番号
+                .hi-container__wrapper__main__right__content__text-group__label__postnum__tag
+                  任意
+            %input{class: "hi-container__wrapper__main__right__content__text-group__textarea", placeholder: "例）1234567"}
+          .hi-container__wrapper__main__right__content__select-group
+            .hi-container__wrapper__main__right__content__select-group__label
+              .hi-container__wrapper__main__right__content__select-group__label__postnum
+                都道府県
+                .hi-container__wrapper__main__right__content__select-group__label__postnum__tag
+                  任意
+            %select{class: "hi-container__wrapper__main__right__content__select-group__textarea"}
+              %option{value: ""} ---
+              %option{value: "1"} 北海道
+              %option{value: "2"} 青森県
+              %option{value: "3"} 岩手県
+              %option{value: "4"} 宮城県
+              %option{value: "5"} 秋田県
+              %option{value: "6"} 山形県
+              %option{value: "7"} 福島県
+              %option{value: "8"} 茨城県
+              %option{value: "9"} 栃木県
+              %option{value: "10"} 群馬県
+              %option{value: "11"} 埼玉県
+              %option{value: "12"} 千葉県
+              %option{value: "13"} 東京都
+              %option{value: "14"} 神奈川県
+              %option{value: "15"} 新潟県
+              %option{value: "16"} 富山県
+              %option{value: "17"} 石川県
+              %option{value: "18"} 福井県
+              %option{value: "19"} 山梨県
+              %option{value: "20"} 長野県
+              %option{value: "21"} 岐阜県
+              %option{value: "22"} 静岡県
+              %option{value: "23"} 愛知県
+              %option{value: "24"} 三重県
+              %option{value: "25"} 滋賀県
+              %option{value: "26"} 京都府
+              %option{value: "27"} 大阪府
+              %option{value: "28"} 兵庫県
+              %option{value: "29"} 奈良県
+              %option{value: "30"} 和歌山県
+              %option{value: "31"} 鳥取県
+              %option{value: "32"} 島根県
+              %option{value: "33", selected: "selected"} 岡山県
+              %option{value: "34"} 広島県
+              %option{value: "35"} 山口県
+              %option{value: "36"} 徳島県
+              %option{value: "37"} 香川県
+              %option{value: "38"} 愛媛県
+              %option{value: "39"} 高知県
+              %option{value: "40"} 福岡県
+              %option{value: "41"} 佐賀県
+              %option{value: "42"} 長崎県
+              %option{value: "43"} 熊本県
+              %option{value: "44"} 大分県
+              %option{value: "45"} 宮崎県
+              %option{value: "46"} 鹿児島県
+              %option{value: "47"} 沖縄県
+            = fa_icon "chevron-down"
+          .hi-container__wrapper__main__right__content__text-group
+            .hi-container__wrapper__main__right__content__text-group__label
+              .hi-container__wrapper__main__right__content__text-group__label__postnum
+                市区町村
+                .hi-container__wrapper__main__right__content__text-group__label__postnum__tag
+                  任意
+            %input{class: "hi-container__wrapper__main__right__content__text-group__textarea", value: "笠原市"}
+          .hi-container__wrapper__main__right__content__text-group
+            .hi-container__wrapper__main__right__content__text-group__label
+              .hi-container__wrapper__main__right__content__text-group__label__postnum
+                番地
+                .hi-container__wrapper__main__right__content__text-group__label__postnum__tag
+                  任意
+            %input{class: "hi-container__wrapper__main__right__content__text-group__textarea", value: "北木島"}
+          .hi-container__wrapper__main__right__content__text-group
+            .hi-container__wrapper__main__right__content__text-group__label
+              .hi-container__wrapper__main__right__content__text-group__label__postnum
+                番地
+                .hi-container__wrapper__main__right__content__text-group__label__postnum__tag
+                  任意
+            %input{class: "hi-container__wrapper__main__right__content__text-group__textarea", placeholder: "例）柳ビル103"}
+          .hi-container__wrapper__main__right__content__text-group
+            .hi-container__wrapper__main__right__content__text-group__btn
+              登録する
+          .hi-container__wrapper__main__right__content__text-group
+            .hi-container__wrapper__main__right__content__text-group__attention
+              本人確認書類のアップロードについて
+              = fa_icon "chevron-right"
+  = render 'items/footer'

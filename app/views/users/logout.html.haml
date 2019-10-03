@@ -1,0 +1,11 @@
+.hi-container
+  = render 'items/header'
+  = render 'users/head-navigation'
+  .hi-container__wrapper
+    .hi-container__wrapper__main
+      = render 'users/left-side-bar'
+      .hi-container__wrapper__main__right
+        .hi-container__wrapper__main__content
+          .hi-container__wrapper__main__content__logout-btn
+            ログアウト
+  = render 'items/footer'

@@ -34,7 +34,10 @@
         }
         &__form{
             &__upload{
-              height:220px;
+              min-height:220px;
+              height:auto;
+              display:flex;
+              flex-direction: column;
               padding: 30px 40px ;
               border-top: 1px solid #eee;
               &__head{
@@ -50,6 +53,8 @@
               &__number10{
                 display: block;
                 width: 620px;
+                // height:450px;
+                box-sizing: content-box; 
                 
                 &__box{
                   width: 100%;
@@ -61,26 +66,80 @@
                   border: 1px dashed #ccc;
                   font-size: 0;
                   text-align: center;
+                  display:flex;
+                  
                   &__file{
-                  width:100%;
-                  height:162px;
-                  // background-color:red;
+                  width: 100%;
                   position:relative;
                   z-index:10;
                   
+               
                   }
+                  .pic{
+                    width: 100%;
+                    height:100%;
+                    position:relative;
+                    // z-index:30;
+                    display:flex;
+                    
+                    
+                    }
+
                   &__visible{
                     position:absolute;
-                    left: 0;
-                    right: 0;
                     margin: auto;
                     text-align:center;
-                    padding-top:40px;
+                    display: -webkit-flex;
+                    display: flex;
+                    flex-wrap: wrap;
                     height:100px;
-                    width:350px;
-                    display: block;
+                    width:620px;
                     z-index: 9;
-                    // background-color:red;
+                 
+                    &__pic1{
+                      width:100%;
+                      height:162px;
+                      // display: -webkit-flex;
+            
+                      display:flex;
+                      align-items: center; /*上下中央*/
+                      justify-content: center; /*左右中央*/
+                      
+                    }
+                    &__box{
+                      width:20%;
+                      // height:162px;
+                      display: flex;
+                      flex-direction: column;
+                      display: -webkit-flex;
+                
+                      
+                      &__pic{
+                        height:140px;
+                        // color: #0099e8;
+                        background: #a19e9e;
+                        display: -webkit-flex;
+                        display: flex;
+                      }
+                      &__pic1{
+                        height:140px;
+                        background: #a19e9e;
+                        -webkit-order: 5;
+                        order: 5;
+                      }
+                        // text-align:bottom;
+                        // b
+                      &__btn{
+                        color: #0099e8;
+                        text-decoration:none;
+                        bottom:0;
+                        // display: flex;
+                        // justify-content: flex-end;
+                        
+                        // text-align:bottom;
+                        // background-color:rgb(21, 255, 0);
+                      }
+                    }
                   }
                 }
               }   
@@ -99,38 +158,40 @@
               margin-top:20px;
               &__textarea{
                 width:100%;
-                display: block;
+                // overflow-wrap: anywhere;
+                // display: block;
                 max-width: 100%;
                 min-height: 104px;
                 border: 1px solid #ccc;
                 background: #fff;
                 font-size: 16px;
-                line-height: 1.5;
+                // line-height: 1.5;
                }
              }
           }
-
+         
           &__descript{
-            height:210px;
+            height:100%;
+            display: flex;
+            justify-content: space-between;
             padding: 30px 40px ;
             border-top: 1px solid #eee;
             &__head{
              margin-top:20px;
-             float: left;
              font-size: 14px;
             }
             &__box{
               margin-top:20px;
-              float: right;
               width: 400px;
               
               &__up{
+              
                 width:100%;
-                display: block;
+                // display: block;
                }
                &__low{
                 width:100%;
-                display: block;
+                // display: block;
                 margin-top:20px;
                }
             }
@@ -347,6 +408,7 @@ z-index:3;
   margin: 8px 0 0;
   position:relative;
 }
+
 .form-question {
   display: inline-block;
   width: 14px;
@@ -357,4 +419,14 @@ z-index:3;
   line-height: 14px;
   font-size: 12px;
   text-align: center;
+}
+.form-arbitrary{
+  background: #ccc;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+
 }

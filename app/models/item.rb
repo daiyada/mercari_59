@@ -1,6 +1,10 @@
 class Item < ApplicationRecord
-  has_many :images
-  belongs_to :user
+
+  has_many :images, dependent: :destroy
+  has_one :delivery, dependent: :destroy
   belongs_to :category
-  has_one :delivery
+  
+  # belongs_to :saler, class_name: "User"
+  # belongs_to :buyer, class_name: "User"
+
 end
