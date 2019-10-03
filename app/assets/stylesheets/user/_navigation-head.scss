@@ -1,0 +1,23 @@
+.navigation-head{
+  height: 49px;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  box-shadow: 0 3px 3px 0 #c0c0c0;
+  @include middle_located();
+  position:relative;
+  z-index:2;
+  &__text{
+    margin: 0 auto;
+    padding: 16px 0;
+    width: 980px;
+    display: flex;
+    .fa-chevron-right{
+      margin: 4px 0 0 0;
+      font-size: 12px;
+    }
+    span{
+      font-size: 14px;
+      margin: 0 8px;
+    }
+  }
+}

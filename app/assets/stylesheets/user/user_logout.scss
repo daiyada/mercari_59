@@ -1,0 +1,13 @@
+.hi-container__wrapper__main__content{
+  padding: 64px;
+  @include middle_located();
+  background-color: white;
+  &__logout-btn{
+    width: 320px;
+    line-height: 50px;
+    color: #FFFFFF;
+    background-color: #EA352D;
+    font-size: 14px;
+    text-align: center;
+  }
+}
