@@ -12,11 +12,8 @@ $(document).on("turbolinks:load", function(){
         exp_month: $("#exp_month").val(),
         exp_year: $("#exp_year").val()
     };
-    Payjp.createToken(card, function(s, response){
-      if (response.error){
-        alert("トークン作成時にエラーが生じました。");
-      }
-      else{
+    Payjp.createToken(card, function(status, response){
+      if (status === 200){
         $("#card_num").removeAttr("name");
         $("#cvc").removeAttr("name");
         $("#exp_month").removeAttr("name");
@@ -25,6 +22,10 @@ $(document).on("turbolinks:load", function(){
 
         form.append($('<input type="hidden" name="payjpToken">').val(token));
         form.get(0).submit();
+        alert("成功");
+      }
+      else{
+        alert("トークン作成時にエラーが生じました。");
       }
     })
   })
