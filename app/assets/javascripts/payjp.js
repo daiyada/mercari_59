@@ -22,7 +22,6 @@ $(document).on("turbolinks:load", function(){
 
         form.append($('<input type="hidden" name="payjpToken">').val(token));
         form.get(0).submit();
-        alert("成功");
       }
       else{
         alert("トークン作成時にエラーが生じました。");
