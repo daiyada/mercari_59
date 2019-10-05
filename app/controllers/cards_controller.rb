@@ -4,4 +4,18 @@ class CardsController < ApplicationController
 
   def edit
   end
+
+  def new
+  end
+
+  def create
+    Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
+    customer = Payjp::Customer.create(card: params[:payjpToken])
+    @card = Card.create(user_id: 1, customer_id: customer.id, card_id: params[:payjpToken])
+    if @card.blank?
+      redirect_to "/cards/1/edit"
+    else
+      redirect_to "/cards/1/"
+    end
+  end
 end
