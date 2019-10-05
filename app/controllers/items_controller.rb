@@ -27,11 +27,11 @@ class ItemsController < ApplicationController
     # item.save
     
     delivery = Delivery.new(delivery_params)
-   
+    params[:item][:images_attributes] == nil ? pic_exist = nil : pic_exist = 1 
 
-    validate = [ item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
-    
-    unless validate.include?(""||nil)
+    validate = [ pic_exist, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
+    binding.pry
+    unless validate.include?("") || validate.include?(nil)
       item.save  
       # image.save
       delivery.save
@@ -41,10 +41,10 @@ class ItemsController < ApplicationController
       # image.save
       
       #   end
-      # redirect_to controller: :items, action: :index
+      redirect_to controller: :items, action: :index
     else
-    render :new
-    redirect_to controller: :items, action: :new
+    # render :new
+    # redirect_to controller: :items, action: :new
     end
   end
   def get_category_children 

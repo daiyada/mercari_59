@@ -30,9 +30,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # 変換したファイルのファイル名の規則
-  def filename
-    "#{Time.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
-  end
+  # def filename
+  #   "#{Time.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
+  # end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]

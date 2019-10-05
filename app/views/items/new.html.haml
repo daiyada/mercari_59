@@ -8,6 +8,8 @@
       %section.m-main__container.buy-item-container
         #sell-container
           = form_for @item do |f|
+        
+
          
             .m-main__container__inner
               %h2.m-main__container__inner__head 商品の情報を入力
@@ -30,6 +32,8 @@
                         -# %input.m-main__container__inner__form__upload__number10__box__file1.pic{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
                         = f.fields_for :images do |image|
                           = image.file_field :image, multiple: true , class: "m-main__container__inner__form__upload__number10__box__file1 pic"
+                          -# = image.file_field :image, multiple: true , class: "m-main__container__inner__form__upload__number10__box__file1 pic"
+                          -# = image.file_field :image, multiple: true , class: "m-main__container__inner__form__upload__number10__box__file1 pic"
                     -# .m-main__container__inner__form__upload__number10__box.have-item-0
                     -#   -# %input.m-main__container__inner__form__upload__number10__box__file{name: "message[image]", type: "file"}/
                     -#   -# = form.file_field :image, class: "image", style: "display:none;", id: "file"
