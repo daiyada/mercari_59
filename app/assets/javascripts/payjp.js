@@ -24,6 +24,7 @@ $(document).on("turbolinks:load", function(){
         form.get(0).submit();
       }
       else{
+        console.log(status);
         alert("トークン作成時にエラーが生じました。");
       }
     })
