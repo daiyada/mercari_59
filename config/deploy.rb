@@ -27,6 +27,7 @@ namespace :deploy do
     task :restart do
       invoke 'unicorn:restart'
     end
+  # master.keyを本番環境のshared/configに置きに行く記述
   #   desc 'upload master.key'
   #   task :upload do
   #     on roles(:app) do |host|
