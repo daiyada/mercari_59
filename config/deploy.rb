@@ -40,7 +40,7 @@ namespace :deploy do
   # after :finishing, 'deploy:cleanup'
 end
 
-set :linked_files, %w{config/master.key}
+# set :linked_files, %w{config/master.key}
 
 # set :linked_files, fetch(:linked_files, []).push("config/master.key") #本番環境のsharedディレクトリの中にconfig/master.keyを置いているという意味
 
