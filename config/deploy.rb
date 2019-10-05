@@ -29,7 +29,19 @@ namespace :deploy do
   end
 end
 
-set :linked_files, fetch(:linked_files, []).push("config/master.key") #本番環境のsharedディレクトリの中にconfig/master.keyを置いているという意味
+desc 'upload master.key'
+task :upload do
+  on roles(:app) do |host|
+    if test "[ ! -d #{shared_path}/config ]"
+      execute "mkdir -p #{shared_path}/config"
+    end
+    upload!('config/master.key', "#{shared_path}/config/master.key")
+  end
+end
+before :starting, 'deploy:upload'
+after :finishing, 'deploy:cleanup'
+end
+# set :linked_files, fetch(:linked_files, []).push("config/master.key") #本番環境のsharedディレクトリの中にconfig/master.keyを置いているという意味
 
 # set :default_env, {
 #   rbenv_root: "/usr/local/rbenv",
