@@ -27,20 +27,19 @@
                         -# = f.file_field :image, class: 'hidden'
                         -# \#{f_item.file_field :image, placeholder: ''}
                         -# = f.file_field :image, :multiple => true
-                        %input.m-main__container__inner__form__upload__number10__box__file1.pic{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        
-                        
-                        -# %input.m-main__container__inner__form__upload__number10__box__file.pic2{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        -# %input.m-main__container__inner__form__upload__number10__box__file.pic3{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        -# %input.m-main__container__inner__form__upload__number10__box__file.pic4{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        -# %input.m-main__container__inner__form__upload__number10__box__file.pic5{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        -# %input.m-main__container__inner__form__upload__number10__box__file.pic6{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        -# %input.m-main__container__inner__form__upload__number10__box__file.pic7{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        -# %input.m-main__container__inner__form__upload__number10__box__file.pic8{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        -# %input.m-main__container__inner__form__upload__number10__box__file.pic9{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        -# %input.m-main__container__inner__form__upload__number10__box__file.pic1{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
-                        -# %input.m-main__container__inner__form__upload__numbe10__box__file.hidden{:name => "item[image]", :type => "file"}/
-                      -# %input.m-main__container__inner__form__upload__number10__box__file{multiple: "multiple", name: "image1", type: "file"}/
+                        -# %input.m-main__container__inner__form__upload__number10__box__file1.pic{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
+                        = f.fields_for :images do |image|
+                          = image.file_field :image, multiple: true , class: "m-main__container__inner__form__upload__number10__box__file1 pic"
+                    -# .m-main__container__inner__form__upload__number10__box.have-item-0
+                    -#   -# %input.m-main__container__inner__form__upload__number10__box__file{name: "message[image]", type: "file"}/
+                    -#   -# = form.file_field :image, class: "image", style: "display:none;", id: "file"
+                    -#   -# = image_tag , class: 'lower-message__image'
+                    -#   .m-main__container__inner__form__upload__number10__box__file
+                    -#     -# = f.file_field :image, class: 'hidden'
+                    -#     -# \#{f_item.file_field :image, placeholder: ''}
+                    -#     -# = f.file_field :image, :multiple => true
+                    -#     %input.m-main__container__inner__form__upload__number10__box__file1.pic{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/    
+                         -# %input.m-main__container__inner__form__upload__number10__box__file{multiple: "multiple", name: "image1", type: "file"}/
                     .m-main__container__inner__form__upload__number10__box__visible 
                       
                       -# .m-main__container__inner__form__upload__number10__box__visible__box
