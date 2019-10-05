@@ -7,10 +7,7 @@
     %main.m-main
       %section.m-main__container.buy-item-container
         #sell-container
-          = form_for @item do |f|
-        
-
-         
+          = form_for @item do |f|    
             .m-main__container__inner
               %h2.m-main__container__inner__head 商品の情報を入力
               %form.m-main__container__inner__form
@@ -22,43 +19,12 @@
                   .m-main__container__inner__form__upload__number10
                     
                     .m-main__container__inner__form__upload__number10__box.have-item-0
-                      -# %input.m-main__container__inner__form__upload__number10__box__file{name: "message[image]", type: "file"}/
-                      -# = form.file_field :image, class: "image", style: "display:none;", id: "file"
-                      -# = image_tag , class: 'lower-message__image'
                       .m-main__container__inner__form__upload__number10__box__file
-                        -# = f.file_field :image, class: 'hidden'
-                        -# \#{f_item.file_field :image, placeholder: ''}
-                        -# = f.file_field :image, :multiple => true
-                        -# %input.m-main__container__inner__form__upload__number10__box__file1.pic{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/
                         = f.fields_for :images do |image|
                           = image.file_field :image, multiple: true , class: "m-main__container__inner__form__upload__number10__box__file1 pic"
-                          -# = image.file_field :image, multiple: true , class: "m-main__container__inner__form__upload__number10__box__file1 pic"
-                          -# = image.file_field :image, multiple: true , class: "m-main__container__inner__form__upload__number10__box__file1 pic"
-                    -# .m-main__container__inner__form__upload__number10__box.have-item-0
-                    -#   -# %input.m-main__container__inner__form__upload__number10__box__file{name: "message[image]", type: "file"}/
-                    -#   -# = form.file_field :image, class: "image", style: "display:none;", id: "file"
-                    -#   -# = image_tag , class: 'lower-message__image'
-                    -#   .m-main__container__inner__form__upload__number10__box__file
-                    -#     -# = f.file_field :image, class: 'hidden'
-                    -#     -# \#{f_item.file_field :image, placeholder: ''}
-                    -#     -# = f.file_field :image, :multiple => true
-                    -#     %input.m-main__container__inner__form__upload__number10__box__file1.pic{multiple: true, :name => "image[]", :placeholder => "", :type => "file"}/    
-                         -# %input.m-main__container__inner__form__upload__number10__box__file{multiple: "multiple", name: "image1", type: "file"}/
+                
                     .m-main__container__inner__form__upload__number10__box__visible 
                       
-                      -# .m-main__container__inner__form__upload__number10__box__visible__box
-                        -# %img.m-main__container__inner__form__upload__number10__box__visible__box__pic
-                        -# .m-main__container__inner__form__upload__number10__box__visible__box__btn
-                        -#   %a.sell-upload-edit{:href => ""} 編集
-                        -#   %a{:href => ""} 削除
-                      -# .m-main__container__inner__form__upload__number10__box__visible__box
-                      -#   %img.m-main__container__inner__form__upload__number10__box__visible__box__pic
-                      -#   .m-main__container__inner__form__upload__number10__box__visible__box__btn
-                      -#     %a.sell-upload-edit{:href => ""} 編集
-                      -#     %a{:href => ""} 削除
-                    
-                        
-
                       .m-main__container__inner__form__upload__number10__box__visible__pic1
                         ドラッグアンドドロップ 
                         %br/
@@ -70,10 +36,7 @@
                       商品名
                       %span.form-require 必須
                     %div
-                      -# \#{f.text_field :name, placeholder: '商品名（必須 40文字まで)'}
                       %input.input-default{name: "item[name]", placeholder: "商品名（必須 40文字まで)", :type => "stling"}/
-
-                      -# %input.input-default{placeholder: "商品名（必須 40文字まで)", value: ""}/
         
                   .m-main__container__inner__form__sell__low
                     %label
@@ -91,41 +54,15 @@
                       %div
                         .select-wrap
                           %i.fas.fa-chevron-down.m-arrow
-                            -# %select.m-select-default{name: "category[name]",:type => "string"}
                           = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
                         #children_wrapper.select-wrap
-                          -# %i.fas.fa-chevron-down.m-arrow
-                          -#   -# %select.m-select-default{name: "category[name]",:type => "string"}
-                          -# = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
+
                         #grandchildren_wrapper.select-wrap
-                          -# %i.fas.fa-chevron-down.m-arrow
-                          -#   -# %select.m-select-default{name: "category[name]",:type => "string"}
-                          -# = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
                     
                     #size_wrapper.select-wrap
-                      -# %label
-                      -#   サイズ
-                      -#   %span.form-require 必須
-                      -# %div
-            
-                        -# %i.fas.fa-chevron-down.m-arrow
-                        -#   -# %select.m-select-default{name: "category[name]",:type => "string"}
-                        -# = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
+
                     #brand_wrapper.form-suggest-container.select-wrap
-                      -# %label
-                      -#   ブランド
-                      -#   %span.form-arbitrary 任意
-                      -# %div
-                      -#   %input.input-default{:placeholder => "例）シャネル", :value => ""}/
-                      -#   %div
-                    
-                    
-                        -#   = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.parent.parent.name), {}, {class: 'select', id: 'parent_category'}
-                        -# .form_group#children
-                        -#   = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select', id: 'child_category'}
-                        -# .form_group#grandchildren
-                        -#   = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select', id: 'grandchild_category'}
-                        -#   = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
+
                     .m-main__container__inner__form__descript__box__low
                       %label
                         商品の状態
