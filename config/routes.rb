@@ -8,8 +8,8 @@ Rails.application.routes.draw do
       get "info"  => "users#info"
     end
   end
-  
-  resources :cards, only: [:show, :edit]
+
+  resources :cards, only: [:show, :create, :edit, :new]
   resources :items, only: [:show, :new , :index, :create] do
     
     collection do
