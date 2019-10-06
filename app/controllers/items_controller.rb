@@ -31,28 +31,16 @@ class ItemsController < ApplicationController
 
     item_id = Item.last
     item_id == nil ? item_id =1 : item_id = item_id.id + 1
-    
     item = Item.new(item_params) 
-    # image_params_pics = params[:item][:images_attributes][:"0"][:image] rescue
-    
-    # image = Image.new
-    # image.item_id = item_id
-    # (item_id: item_id)
-    # binding.pry
-    # image.image = image_params_pics[0] unless image_params_pics = ""
     delivery = Delivery.new(delivery_params)
-    # binding.pry
-    validate = [  item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
+    pic_pass = params[:item][:images_attributes]
+    
+    validate = [pic_pass, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
     unless validate.include?("") || validate.include?(nil)
       item.save  
-      # image.save
       delivery.save
-      # image_params_pics.drop(1).each do |photo|
-      #   image = Image.new(image: photo, item_id: item_id) unless photo == ""
-      #   image.save
-      # end
-      # redirect_to controller: :items, action: :index
-    binding.pry
+      redirect_to controller: :items, action: :index
+   
     end
   end
   def get_category_children 
