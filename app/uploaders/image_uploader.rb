@@ -24,6 +24,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+  #  # 許可する画像の拡張子
+  #  def extension_white_list
+  #   %w(jpg jpeg gif png)
+  # end
+
+  # 変換したファイルのファイル名の規則
+  # def filename
+  #   "#{Time.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
+  # end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
