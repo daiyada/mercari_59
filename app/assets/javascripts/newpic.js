@@ -8,7 +8,7 @@ $(function(){
   function appendProduct(id) {
   search_list = $(".m-main__container__inner__form__upload__number10__box__file");
   
-  var html = `<input multiple="multiple" class="m-main__container__inner__form__upload__number10__box__file${id} pic" type="file" name="item[images_attributes][${id}][image][]" id="item_images_attributes_${id}_image">`
+  var html = `<input multiple="multiple" class="m-main__container__inner__form__upload__number10__box__file${id} pic" type="file" name="item[images_attributes][0][image][]" id="item_images_attributes_${id}_image">`
 
      search_list.append(html);
     }
