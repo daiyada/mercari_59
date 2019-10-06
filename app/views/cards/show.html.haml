@@ -25,7 +25,7 @@
               = "***********" + @card.last4
             .hi-container__wrapper__main__right__content__card-info__dead
               = "#{@card.exp_month}/#{@card.exp_year-2000}" 
-            .hi-container__wrapper__main__right__content__card-info__delete-btn
+            = link_to "/cards/1", method: :delete, class: "hi-container__wrapper__main__right__content__card-info__delete-btn" do
               .hi-container__wrapper__main__right__content__card-info__delete-btn__text
                 削除する
           .hi-container__wrapper__main__right__content__bottom
