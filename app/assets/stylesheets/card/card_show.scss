@@ -17,9 +17,24 @@
     font-size: 13px;
     margin: 0 auto;
     position: relative;
-    &__type{
-      width: 26px;
-      height: 20px;
+    .visa{
+      width: 49px;
+    }
+    .mastercard{
+      width: 34px;
+      margin: 0 4px;
+    }
+    .jcb{
+      width: 32px;
+      margin: 0 4px;
+    }
+    .americanexpress{
+      width: 21px;
+      margin: 0 4px;
+    }
+    .dinersclub{
+      width: 32px;
+      margin: 0 4px;
     }
     &__dead{
       margin-top: 8px;
