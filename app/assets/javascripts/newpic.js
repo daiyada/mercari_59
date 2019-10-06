@@ -1,4 +1,4 @@
-// $(function(){
+
 
 $(document).on('turbolinks:load', function() { 
 $(function(){
@@ -64,7 +64,6 @@ $(function(){
         }
         if (i == 7) {
           appendProduct6(i);
-          console.log(i);
           }
         
   

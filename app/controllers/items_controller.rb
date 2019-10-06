@@ -7,10 +7,8 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.build
     @category = Category.all
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent.name
-    end
+    category = Category.where(ancestry: nil)
+    @category_parent_array = category.pluck(:name).unshift("---")
   end
   def create
 
