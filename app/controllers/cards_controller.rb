@@ -7,7 +7,7 @@ class CardsController < ApplicationController
         customer = Payjp::Customer.retrieve(card.customer_id)
         @card = customer[:cards][:data][0]
       else
-        redirect_to "/cards/new"
+        redirect_to new_card_path
       end
   end
 
