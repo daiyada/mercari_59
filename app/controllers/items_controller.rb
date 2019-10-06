@@ -1,7 +1,24 @@
 class ItemsController < ApplicationController
   def index
-     @images = Image.includes(:item).per(10).order("created_at DESC")
-    
+    category_Nos = Category.where(ancestry: nil)
+   border_No=[]
+   category_Nos.each do |category_No|
+   num = category_No.id
+   border_No << num
+   end
+    # .where('model LIKE(?)', "%#{a_model}%")
+   radies = Item.where("category_id <= ?", border_No[1])
+  #  .where("id > ?", 5) #{border_No[1]}
+
+  #  binding.pry
+   radies.each do |rady|
+   image = rady.images.first
+
+   binding.pry
+   end
+  #  .where('model LIKE(?)', "%#{a_model}%")
+    @images = Image.order("created_at DESC")
+    @image = Image.last
   end
   def new
     @item = Item.new
@@ -14,12 +31,16 @@ class ItemsController < ApplicationController
 
     item_id = Item.last
     item_id == nil ? item_id =1 : item_id = item_id.id + 1
+    
     item = Item.new(item_params) 
     image_params_pics = params[:item][:images_attributes][:"0"][:image] rescue
-    image = Image.new(item_id: item_id) 
+    image = Image.new
+    binding.pry
+    image.item_id = item_id
+    binding.pry
     image.image = image_params_pics[0] unless image_params_pics = ""
     delivery = Delivery.new(delivery_params)
-
+    # binding.pry
     validate = [ image.image, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
     unless validate.include?("") || validate.include?(nil)
       item.save  
