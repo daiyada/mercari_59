@@ -7,8 +7,8 @@ $(function(){
   var search_list = "";
   function appendProduct(id) {
   search_list = $(".m-main__container__inner__form__upload__number10__box__file");
-  
-  var html = `<input multiple="multiple" class="m-main__container__inner__form__upload__number10__box__file${id} pic" type="file" name="item[images_attributes][0][image][]" id="item_images_attributes_${id}_image">`
+  // <input class="m-main__container__inner__form__upload__number10__box__file1 pic" type="file" name="item[images_attributes][0][image]" id="item_images_attributes_0_image"></input>
+  var html = `<input multiple="multiple" class="m-main__container__inner__form__upload__number10__box__file${id} pic" type="file" name="item[images_attributes][${id}][image]" id="item_images_attributes_${id}_image">`
 
      search_list.append(html);
     }

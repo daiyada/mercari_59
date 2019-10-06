@@ -33,25 +33,26 @@ class ItemsController < ApplicationController
     item_id == nil ? item_id =1 : item_id = item_id.id + 1
     
     item = Item.new(item_params) 
-    image_params_pics = params[:item][:images_attributes][:"0"][:image] rescue
-    image = Image.new
-    binding.pry
-    image.item_id = item_id
-    binding.pry
-    image.image = image_params_pics[0] unless image_params_pics = ""
+    # image_params_pics = params[:item][:images_attributes][:"0"][:image] rescue
+    
+    # image = Image.new
+    # image.item_id = item_id
+    # (item_id: item_id)
+    # binding.pry
+    # image.image = image_params_pics[0] unless image_params_pics = ""
     delivery = Delivery.new(delivery_params)
     # binding.pry
-    validate = [ image.image, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
+    validate = [  item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
     unless validate.include?("") || validate.include?(nil)
       item.save  
-      image.save
+      # image.save
       delivery.save
-      image_params_pics.drop(1).each do |photo|
-        image = Image.new(image: photo, item_id: item_id) unless photo == ""
-        image.save
-      end
-      redirect_to controller: :items, action: :index
-    
+      # image_params_pics.drop(1).each do |photo|
+      #   image = Image.new(image: photo, item_id: item_id) unless photo == ""
+      #   image.save
+      # end
+      # redirect_to controller: :items, action: :index
+    binding.pry
     end
   end
   def get_category_children 
@@ -70,7 +71,8 @@ class ItemsController < ApplicationController
   def item_params  
     ancestry_pass = params.require(:grandchild_id) rescue
     ancestry_pass =nil if ancestry_pass == "---" || ancestry_pass == nil || ancestry_pass == "" 
-    params.require(:item).permit(:name,:descript,:condition,:price ).merge(buyer_id: 0, seller_id: 1,stock_status: 1, category_id: ancestry_pass, size:"M")
+    params.require(:item).permit(:name,:descript,:condition,:price,images_attributes: [:image] ).merge(buyer_id: 0, seller_id: 1,stock_status: 1, category_id: ancestry_pass, size:"M")
+    # images_attributes: {image: []}
   end
 
   def delivery_params
