@@ -1,8 +1,19 @@
 class CardsController < ApplicationController
+
   def show
+    card = Card.where(user_id: 1)[0]
+      if card.present?
+        Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
+        customer = Payjp::Customer.retrieve(card.customer_id)
+        binding.pry
+        @card = customer[:cards][:data][0]
+      else
+        redirect_to "/cards/new"
+      end
   end
 
   def edit
+    
   end
 
   def new
