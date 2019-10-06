@@ -28,4 +28,7 @@ class CardsController < ApplicationController
       redirect_to "/cards/1/"
     end
   end
+
+  def destroy
+  end
 end
