@@ -5,7 +5,6 @@ class CardsController < ApplicationController
       if card.present?
         Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
         customer = Payjp::Customer.retrieve(card.customer_id)
-        binding.pry
         @card = customer[:cards][:data][0]
       else
         redirect_to "/cards/new"
