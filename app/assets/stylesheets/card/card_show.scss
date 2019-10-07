@@ -17,9 +17,24 @@
     font-size: 13px;
     margin: 0 auto;
     position: relative;
-    &__type{
-      width: 26px;
-      height: 20px;
+    .visa{
+      width: 49px;
+    }
+    .mastercard{
+      width: 34px;
+      margin: 0 4px;
+    }
+    .jcb{
+      width: 32px;
+      margin: 0 4px;
+    }
+    .americanexpress{
+      width: 21px;
+      margin: 0 4px;
+    }
+    .dinersclub{
+      width: 32px;
+      margin: 0 4px;
     }
     &__dead{
       margin-top: 8px;
@@ -32,6 +47,7 @@
       width: 70px;
       height: 24px;
       box-sizing: border-box;
+      text-decoration: none;
       position: absolute;
       top: 20%;
       right: 0px;
@@ -43,6 +59,7 @@
       color: white;
       margin-bottom: 8px;
       line-height: 50px;
+      text-decoration: none;
       @include middle_located();
       &__text{
         margin-left: 8px;
