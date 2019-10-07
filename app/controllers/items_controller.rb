@@ -7,8 +7,12 @@ class ItemsController < ApplicationController
    border_No << num
    end
     # .where('model LIKE(?)', "%#{a_model}%")
-   @radies = Item.where("category_id <= ?", border_No[1]).order("created_at DESC")
-  #  .where("id > ?", 5) #{border_No[1]}
+   @radies = Item.where(category_id: 1...border_No[1]).order("created_at DESC").limit(10)
+   @mens = Item.where(category_id: border_No[1]...border_No[2]).order("created_at DESC").limit(10)
+   @kadens = Item.where(category_id: border_No[2]...border_No[3]).order("created_at DESC").limit(10)
+  #  @radies = Item.where("category_id <= ?", border_No[1]).order("created_at DESC").limit(10)
+  #  @mens = Item.where("category_id <= ?", border_No[1]).order("created_at DESC").limit(10)
+  #  .where("id > ?", 5) #{border_No[1]} .where(price: 3218..4104)
 
   #  binding.pry
   #  @radies.each do |rady|
