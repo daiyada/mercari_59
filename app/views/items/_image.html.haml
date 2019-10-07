@@ -1,9 +1,9 @@
-.m-main__items__low__item
+%a.m-main__items__low__item{:href => "/items/1"}
   %figure.m-main__items__low__item__pic
     = image_tag image.images.first.image.url , class: 'm-main__items__low__item__pic'
     .m-main__items__low__item__pic__price
-    =image.price
+      = "¥"+ image.price.to_s(:delimited)
   .m-main__items__low__item__descript
     .m-main__items__low__item__descript__1
-      =image.descript
+      =image.descript.truncate(20)
         
