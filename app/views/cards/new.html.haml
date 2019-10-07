@@ -1,6 +1,9 @@
 .hi-container
   = render 'items/header'
-  = render 'users/head-navigation'
+  .hi-container__navigation
+    .hi-container__navigation__text
+      - breadcrumb :regicard
+      = breadcrumbs pretext: "",separator: " &rsaquo; "
   .hi-container__wrapper
     .hi-container__wrapper__main
       = render 'users/left-side-bar'
