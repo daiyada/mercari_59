@@ -6,5 +6,4 @@ $(document).on('turbolinks:load', function(){
     nextArrow: '<img src="https://web-jp-assets.mercdn.net/_next/static/images/carousel-next-bc3a1438a1435e953bc67d720cd05c61.png" class="slide-arrow next-arrow">'
     
   });
- 
 });

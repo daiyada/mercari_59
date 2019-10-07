@@ -28,6 +28,7 @@ $(function(){
     }
 
     function appendProduct6(i) {
+
       search_list = $(".m-main__container__inner__form__upload__number10");
   
       
@@ -36,18 +37,20 @@ $(function(){
   
        search_list.append(html);
       }
-
-  $('.m-main__container__inner__form__upload__number10__box__file').change(function(e){
+      // $('.m-main__container__inner__form__upload__number10__box__file').change(function(e){    
+  $('.m-main__container__inner__form__upload__number10__box__file').off('change')
+  $('.m-main__container__inner__form__upload__number10__box__file').on('change', function(e) {
     //ファイルオブジェクトを取得する
+    
     var file = e.target.files[0];
     var reader = new FileReader();
-    
+    console.log(e.target)
     //画像でない場合は処理終了
     if(file.type.indexOf("image") < 0){
       alert("画像ファイルを指定してください。");
       return false;
     }
-    console.log(file.type.indexOf("image"))
+    // console.log(file.type.indexOf("image"))
     //アップロードした画像を設定する
     reader.onload = (function(file){
       
@@ -66,7 +69,7 @@ $(function(){
           appendProduct6(i);
           }
         
-  
+          
       };
     })(file);
     reader.readAsDataURL(file);
