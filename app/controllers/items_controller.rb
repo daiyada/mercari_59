@@ -7,18 +7,18 @@ class ItemsController < ApplicationController
    border_No << num
    end
     # .where('model LIKE(?)', "%#{a_model}%")
-   radies = Item.where("category_id <= ?", border_No[1])
+   @radies = Item.where("category_id <= ?", border_No[1]).order("created_at DESC")
   #  .where("id > ?", 5) #{border_No[1]}
 
   #  binding.pry
-   radies.each do |rady|
-   image = rady.images.first
+  #  @radies.each do |rady|
+  #  image = rady.images.first
 
-   binding.pry
-   end
+  #  binding.pry
+  #  end
   #  .where('model LIKE(?)', "%#{a_model}%")
-    @images = Image.order("created_at DESC")
-    @image = Image.last
+    # @images = Image.order("created_at DESC")
+    # @image = Image.last
   end
   def new
     @item = Item.new

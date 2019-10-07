@@ -1,7 +1,9 @@
 .m-main__items__low__item
   %figure.m-main__items__low__item__pic
-    = image_tag image.image.url , class: 'm-main__items__low__item__pic'
-    .m-main__items__low__item__pic__price ¥2,600
+    = image_tag image.images.first.image.url , class: 'm-main__items__low__item__pic'
+    .m-main__items__low__item__pic__price
+    =image.price
   .m-main__items__low__item__descript
-    .m-main__items__low__item__descript__1 ノースリーブロングワンピース
+    .m-main__items__low__item__descript__1
+      =image.descript
         
