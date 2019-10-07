@@ -1,28 +1,11 @@
 class ItemsController < ApplicationController
   def index
-    category_Nos = Category.where(ancestry: nil)
-   border_No=[]
-   category_Nos.each do |category_No|
-   num = category_No.id
-   border_No << num
-   end
-    # .where('model LIKE(?)', "%#{a_model}%")
+   category_No = Category.where(ancestry: nil)
+   border_No = category_No.pluck(:id)
    @radies = Item.where(category_id: 1...border_No[1]).order("created_at DESC").limit(10)
    @mens = Item.where(category_id: border_No[1]...border_No[2]).order("created_at DESC").limit(10)
-   @kadens = Item.where(category_id: border_No[2]...border_No[3]).order("created_at DESC").limit(10)
-  #  @radies = Item.where("category_id <= ?", border_No[1]).order("created_at DESC").limit(10)
-  #  @mens = Item.where("category_id <= ?", border_No[1]).order("created_at DESC").limit(10)
-  #  .where("id > ?", 5) #{border_No[1]} .where(price: 3218..4104)
-
-  #  binding.pry
-  #  @radies.each do |rady|
-  #  image = rady.images.first
-
-  #  binding.pry
-  #  end
-  #  .where('model LIKE(?)', "%#{a_model}%")
-    # @images = Image.order("created_at DESC")
-    # @image = Image.last
+   @kadens = Item.where(category_id: border_No[7]...border_No[8]).order("created_at DESC").limit(10)
+ 
   end
   def new
     @item = Item.new
@@ -32,19 +15,17 @@ class ItemsController < ApplicationController
     @category_parent_array = category.pluck(:name).unshift("---")
   end
   def create
-
     item_id = Item.last
     item_id == nil ? item_id =1 : item_id = item_id.id + 1
     item = Item.new(item_params) 
     delivery = Delivery.new(delivery_params)
+    delivery.item_id = item_id
     pic_pass = params[:item][:images_attributes]
-    
-    validate = [pic_pass, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day ]
+    validate = [pic_pass, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day, delivery.item_id ]
     unless validate.include?("") || validate.include?(nil)
       item.save  
       delivery.save
       redirect_to controller: :items, action: :index
-   
     end
   end
   def get_category_children 
@@ -64,7 +45,7 @@ class ItemsController < ApplicationController
     ancestry_pass = params.require(:grandchild_id) rescue
     ancestry_pass =nil if ancestry_pass == "---" || ancestry_pass == nil || ancestry_pass == "" 
     params.require(:item).permit(:name,:descript,:condition,:price,images_attributes: [:image] ).merge(buyer_id: 0, seller_id: 1,stock_status: 1, category_id: ancestry_pass, size:"M")
-    # images_attributes: {image: []}
+  
   end
 
   def delivery_params
