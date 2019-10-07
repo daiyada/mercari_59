@@ -4,9 +4,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_fit: [800, 800]
 
-  # Choose what kind of storage to use for this uploader:
-  storage :fog
-  # storage :fog
+   # 開発／テスト環境ではfileに保存、本番環境ではS3に保存されるようにする。
+  if Rails.env.development? || Rails.env.test? 
+    storage :file
+  else
+    storage :fog
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -20,6 +23,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  # end
+  #  # 許可する画像の拡張子
+  #  def extension_white_list
+  #   %w(jpg jpeg gif png)
+  # end
+
+  # 変換したファイルのファイル名の規則
+  # def filename
+  #   "#{Time.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
   # end
 
   # Process files as they are uploaded:

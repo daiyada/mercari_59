@@ -8,9 +8,10 @@ Rails.application.routes.draw do
       get "info"  => "users#info"
     end
   end
-  resources :cards, only: [:show, :edit]
-  resources :items, only: [:show, :new , :index, :create] do
 
+  resources :cards, only: [:show, :create, :edit, :new, :destroy]
+  resources :items, only: [:show, :new , :index, :create] do
+    
     collection do
       get "purchase/:id" => "items#purchase"
     end

@@ -1,0 +1,22 @@
+.hi-container
+  = render 'items/header'
+  = render 'users/head-navigation'
+  .hi-container__wrapper
+    .hi-container__wrapper__main
+      = render 'users/left-side-bar'
+      .hi-container__wrapper__main__right
+        .hi-container__wrapper__main__right__head
+          支払い方法
+        .hi-container__wrapper__main__right__content
+          .hi-container__wrapper__main__right__content__title
+            クレジットカード一覧
+          .hi-container__wrapper__main__right__content__card-info
+            -# パス変えるべき
+            = link_to "/cards/1/edit", class: "hi-container__wrapper__main__right__content__card-info__btn" do
+              = fa_icon("credit-card", type: :regular)
+              .hi-container__wrapper__main__right__content__card-info__btn__text
+                クレジットカードを追加する
+          .hi-container__wrapper__main__right__content__bottom
+            支払い方法について
+            = fa_icon "chevron-right"
+  = render 'items/footer'
