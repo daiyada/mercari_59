@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def index
+    user = User.find(1)
+    @id = user.card.user_id
   end
 
   def create
