@@ -1,6 +1,26 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to root_path, notice: "アカウントを作成しました"
+    else
+      render :new
+    end
+  end
+
+  def new
+    @user = User.new
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:nickname, :email, :password, :cellphone_number, :name_family, :name_family_kana, :name_first, :name_first_kana)
+  end
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
