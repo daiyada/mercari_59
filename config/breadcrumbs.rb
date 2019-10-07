@@ -22,6 +22,11 @@ crumb :logout do
   parent :mypage
 end
 
+crumb :profile do
+  link "プロフィール", edit_user_path
+  parent :mypage
+end
+
 crumb :cardinfo do
   link "クレジットカード情報入力", edit_card_path
   parent :regicard

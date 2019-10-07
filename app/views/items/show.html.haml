@@ -56,7 +56,9 @@
               %th
                 カテゴリ
               %td
-                超むちゃんこおもろい芸人
+                = @category.parent.parent.name
+                = @category.parent.name
+                = @category.name
             %tr
               %th
                 ブランド
@@ -64,9 +66,9 @@
                 吉本
             %tr
               %th
-                = @item.size
+                サイズ
               %td
-                わしには扱いきれんぐらいでかい
+                = @item.size
             %tr
               %th
                 商品の状態
@@ -76,41 +78,35 @@
               %th
                 配送料の負担
               %td
-                ノブが全部負担
+                = @delivery.pay_for_shipping
             %tr
               %th
                 配送の方法
               %td
-                商品(ノブ)が自ら向かいます
+                らくらくメルカリ便
             %tr
               %th
                 配送元地域
               %td
-                岡山県
+                = @delivery.delivery_from
             %tr
               %th
                 発送日の目安
               %td
-                購入直後
+                = @delivery.due_time_day
         .hi-container__content__position__item__price
           .hi-container__content__position__item__price__num
-            ¥10
+            = "¥ #{@item.price.to_s(:delimited)}"
           .hi-container__content__position__item__price__tax
             （税込）
           .hi-container__content__position__item__price__shipping-fee
-            送料込み
+            = @delivery.pay_for_shipping
         .hi-container__content__position__item__buybtn
           .hi-container__content__position__item__buybtn__text
             購入画面に進む
         .hi-container__content__position__item__explanation
           .hi-container__content__position__item__explanation__inner
-            もうこの相方飽きたから売る
-            %br
-            %br
-            けどこれ言うと吉本に怒られるから、吉本に通さず直接メルカリに出品します。
-            %br
-            %br
-            コメント無し、即購入OKです！
+            = @item.descript
         .hi-container__content__position__item__smallbtns
           .hi-container__content__position__item__smallbtns__left
             .hi-container__content__position__item__smallbtns__left__favo
@@ -130,10 +126,13 @@
       .hi-container__content__position__list
         .hi-container__content__position__list__caution
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いは退会処分となることがあります。
-        %input.hi-container__content__position__list__textarea
+        %textarea.hi-container__content__position__list__textarea
         %button.hi-container__content__position__list__btn
           %span
             コメントする
-  = render 'items/navigation-bottom'
+  .hi-navigation-bottom
+    .hi-navigation-bottom__text
+      - breadcrumb :mypage
+      = breadcrumbs pretext: "",separator: " &rsaquo; "
   = render 'items/sell_btn'
   = render 'items/footer'
