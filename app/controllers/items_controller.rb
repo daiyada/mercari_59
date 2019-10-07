@@ -52,9 +52,17 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(1)    #1→params[:id]に変更する。
+    @category = @item.category
+    @image =  @item.images
+    binding.pry
+    @delivery = @item.delivery
   end
+
   def purchase
+
   end
+
   private
   def item_params  
     ancestry_pass = params.require(:grandchild_id) rescue

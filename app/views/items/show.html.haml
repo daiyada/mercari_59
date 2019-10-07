@@ -4,7 +4,7 @@
     .hi-container__content__position
       .hi-container__content__position__item
         .hi-container__content__position__item__name
-          【激安】千鳥のノブ
+          = @item.name
         .hi-container__content__position__item__detail
           .hi-container__content__position__item__detail__photo
             -# JSで選択した写真を表示させるコマンドを打ち込む必要あり
@@ -64,14 +64,14 @@
                 吉本
             %tr
               %th
-                商品のサイズ
+                = @item.size
               %td
                 わしには扱いきれんぐらいでかい
             %tr
               %th
                 商品の状態
               %td
-                売り物にならんほど汚れまくり
+                = @item.condition
             %tr
               %th
                 配送料の負担
