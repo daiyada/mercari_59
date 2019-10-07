@@ -27,5 +27,17 @@
         - image = rady
         = render partial: "image", locals: { image: image }
  
-
+  .m-main__items
+    .m-main__items__up メンズ新着アイテム
+    .m-main__items__low
+      - @mens.each do |man|
+        - image = man
+        = render partial: "image", locals: { image: image }
       
+  .m-main__items
+    .m-main__items__up 家電・スマホ・カメラ新着アイテム
+    .m-main__items__low
+      - @kadens.each do |kaden|
+        - image = kaden
+        = render partial: "image", locals: { image: image }
+ 
