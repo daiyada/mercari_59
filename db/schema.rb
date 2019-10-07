@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2019_10_07_093753) do
     t.string "due_time_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_deliveries_on_item_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 2019_10_07_093753) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
+  add_foreign_key "deliveries", "items"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
 end
