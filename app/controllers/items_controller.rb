@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
    border_No << num
    end
     # .where('model LIKE(?)', "%#{a_model}%")
-   @radies = Item.where("category_id <= ?", border_No[1]).order("created_at DESC")
+   @radies = Item.where("category_id <= ?", border_No[1]).order("created_at DESC").limit(10)
   #  .where("id > ?", 5) #{border_No[1]}
 
   #  binding.pry
