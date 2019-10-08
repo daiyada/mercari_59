@@ -38,7 +38,7 @@
               %th
                 出品者
               %td
-                千鳥の大悟
+                = link_to "#{@nickname}", edit_user_path, class: "edit_user"
                 .hi-container__content__position__item__detail__matrix__evaliation
                   .hi-container__content__position__item__detail__matrix__evaliation__good
                     = fa_icon "smile-beam"
@@ -52,23 +52,40 @@
                     = fa_icon "tired"
                     .hi-container__content__position__item__detail__matrix__evaliation__good__num
                       100
-            %tr
-              %th
-                カテゴリ
-              %td
-                = @category.parent.parent.name
-                = @category.parent.name
-                = @category.name
-            %tr
-              %th
-                ブランド
-              %td
-                吉本
-            %tr
-              %th
-                サイズ
-              %td
-                = @item.size
+            - if @category.parent.parent.name.present?
+              %tr
+                %th
+                  カテゴリ
+                %td.category_ancestory
+                  = @category.parent.parent.name
+                  %br
+                  = fa_icon "chevron-right"
+                  = @category.parent.name
+                  %br
+                  = fa_icon "chevron-right"
+                  = @category.name
+            - elsif @category.parent.name.present?
+              %tr
+                %th
+                  カテゴリ
+                %td.category_ancestory
+                  = @category.parent.name
+                  %br
+                  = fa_icon "chevron-right"
+                  = @category.name
+            - else
+            - if @item.brand.present?
+              %tr
+                %th
+                  ブランド
+                %td
+                  = @item.brand
+            - if @item.size.present?
+              %tr
+                %th
+                  サイズ
+                %td
+                  = @item.size
             %tr
               %th
                 商品の状態
@@ -101,9 +118,14 @@
             （税込）
           .hi-container__content__position__item__price__shipping-fee
             = @delivery.pay_for_shipping
-        .hi-container__content__position__item__buybtn
-          .hi-container__content__position__item__buybtn__text
-            購入画面に進む
+        - if @item.buyer_id == 0 ||  @item.buyer_id.blank?
+          = link_to "/items/purchase/#{@item.id}", class: "hi-container__content__position__item__buybtn" do
+            .hi-container__content__position__item__buybtn__text
+              購入画面に進む
+        - else
+          .hi-container__content__position__item__soldbtn
+            .hi-container__content__position__item__soldbtn__text
+              売り切れました
         .hi-container__content__position__item__explanation
           .hi-container__content__position__item__explanation__inner
             = @item.descript
@@ -127,12 +149,17 @@
         .hi-container__content__position__list__caution
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いは退会処分となることがあります。
         %textarea.hi-container__content__position__list__textarea
-        %button.hi-container__content__position__list__btn
-          %span
-            コメントする
+        - if @item.buyer_id == 0 ||  @item.buyer_id.blank?
+          %button.hi-container__content__position__list__btn
+            %span
+              コメントする
+        - else
+          %button.hi-container__content__position__list__btn
+            %span
+              売り切れのためコメントできません
   .hi-navigation-bottom
     .hi-navigation-bottom__text
-      - breadcrumb :mypage
+      - breadcrumb :iteminfo, @item.name
       = breadcrumbs pretext: "",separator: " &rsaquo; "
   = render 'items/sell_btn'
   = render 'items/footer'

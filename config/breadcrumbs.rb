@@ -7,10 +7,16 @@ crumb :mypage do
   parent :root
 end
 
+crumb :iteminfo do |itemname|
+  link itemname
+  parent :root
+end
+
 crumb :userinfo do
   link "本人情報の登録", info_user_path
   parent :mypage
 end
+
 
 crumb :regicard do
   link "支払い方法", new_card_path

@@ -52,10 +52,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(1)    #1→params[:id]に変更する。show.html.hamlでeachで取り出すようにする
+    @item = Item.find(params[:id])    #1→params[:id]に変更する。show.html.hamlでeachで取り出すようにする
     @category = @item.category
     @image =  @item.images
     @delivery = @item.delivery
+    @nickname = User.find(@item.seller_id).nickname
   end
 
   def purchase
