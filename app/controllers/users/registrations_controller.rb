@@ -13,12 +13,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     @user = User.new
+    @user.build_address
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password, :cellphone_number, :name_family, :name_family_kana, :name_first, :name_first_kana)
+    params.require(:user).permit(:nickname, :email, :password, :cellphone_number, :name_family, :name_family_kana, :name_first, :name_first_kana, address_attributes:[:id, :postal_code, :prefecture, :city, :address, :building, :phone_number])
   end
 
   # before_action :configure_sign_up_params, only: [:create]
