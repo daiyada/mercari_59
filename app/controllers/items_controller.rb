@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    set_item
     @category = @item.category
     @image = @item.images
     @delivery = @item.delivery
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
+    set_item
     @user = User.find(1)          #1→current_user.idに
     @card = @user.card
     @address = User.find(1).address     #1→current_user.idに
@@ -80,5 +80,9 @@ class ItemsController < ApplicationController
 
   def delivery_params
     params.require(:delivery).permit(:pay_for_shipping,:delivery_from,:due_time_day)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
