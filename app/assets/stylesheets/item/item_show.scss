@@ -27,7 +27,13 @@
             background-color: #f5f5f5;
             &__top{
               height: 300px;
+              width: 300px;
               @include middle_located();
+              .top-big-photo{
+                height: 300px;
+                width: 300px;
+                object-fit: contain;
+              }
             }
             &__bottom{
               height: 120px;

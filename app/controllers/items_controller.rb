@@ -52,21 +52,28 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])    #1→params[:id]に変更する。show.html.hamlでeachで取り出すようにする
+    @item = Item.find(params[:id])
     @category = @item.category
-    @image =  @item.images
+    @image = @item.images
     @delivery = @item.delivery
     @nickname = User.find(@item.seller_id).nickname
   end
 
   def purchase
-
+    @item = Item.find(params[:id])
+    @user = User.find(1)          #1→current_user.idに
+    @card = @user.card
+    @address = User.find(1).address     #1→current_user.idに
+    @image = @item.images
+    Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @cards = customer[:cards][:data][0]
   end
 
   private
   def item_params  
     ancestry_pass = params.require(:grandchild_id) rescue
-    ancestry_pass =nil if ancestry_pass == "---" || ancestry_pass == nil || ancestry_pass == "" 
+    ancestry_pass = nil if ancestry_pass == "---" || ancestry_pass == nil || ancestry_pass == "" 
     params.require(:item).permit(:name,:descript,:condition,:price,images_attributes: [:image] ).merge(buyer_id: 0, seller_id: 1,stock_status: 1, category_id: ancestry_pass, size:"M")
     # images_attributes: {image: []}
   end
