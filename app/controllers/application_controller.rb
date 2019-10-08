@@ -10,5 +10,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name_family_kana])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name_first])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name_first_kana])
+
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:postal_code])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:prefecture])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:city])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:address])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:building])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number])
   end
 end
