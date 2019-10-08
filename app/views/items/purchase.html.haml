@@ -7,12 +7,12 @@
       購入内容の確認
     .hi_wrapper__body__item
       .hi_wrapper__body__item__top
-        %img{class: "hi_wrapper__body__item__top__img", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+        %img{class: "hi_wrapper__body__item__top__img", src: "#{@image.first.image}"}
         .hi_wrapper__body__item__top__text
-          【激安】千鳥のノブ
+          = @item.name
       .hi_wrapper__body__item__pay
         .hi_wrapper__body__item__pay__yen
-          ¥10
+          = "¥ #{@item.price.to_s(:delimited)}"
         .hi_wrapper__body__item__pay__payee
           送料込み
       .hi_wrapper__body__item__point
@@ -23,7 +23,7 @@
         .hi_wrapper__body__item__price__left
           支払い金額
         .hi_wrapper__body__item__price__right
-          ¥10
+          = "¥ #{@item.price.to_s(:delimited)}"
       .hi_wrapper__body__item__buybtn
         .hi_wrapper__body__item__buybtn__btn
           購入する
@@ -32,11 +32,11 @@
         .hi_wrapper__body__shipping-address__inner__top
           配送先
         .hi_wrapper__body__shipping-address__inner__middle
-          〒714-0301
+          = "〒#{@address.postal_code}"
           %br
-          岡山県笠岡市北木島町2
+          = "#{@address.prefecture}#{@address.city}#{@address.address}"
           %br
-          山本 大梧
+          = "#{@user.name_family} #{@user.name_first}"
         .hi_wrapper__body__shipping-address__inner__bottom
           変更する
           = fa_icon "chevron-right"
@@ -45,10 +45,19 @@
         .hi_wrapper__body__payment__inner__title
           支払い方法
         .hi_wrapper__body__payment__inner__num
-          ************9876
+          = "***********" + @cards.last4
           %br
-          02/32
-        %img{class: "hi_wrapper__body__payment__inner__img", src: "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2687693852"}
+            = "#{@cards.exp_month}/#{@cards.exp_year-2000}"
+        - if @cards.brand == "Visa"
+          %img{class: "visa", src: "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2561606804"}
+        - elsif @cards.brand == "JCB"
+          %img{class: "jcb", src: "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2687693852"}
+        - elsif @cards.brand == "American Express"
+          %img{class: "americanexpress", src: "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2561606804"}
+        - elsif @cards.brand == "MasterCard"
+          %img{class: "mastercard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2561606804"}
+        - else @cards.brand == "Diner's Club"
+          %img{class: "dinersclub", src: "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2561606804"}
         .hi_wrapper__body__payment__inner__bottom
           変更する
           = fa_icon "chevron-right"

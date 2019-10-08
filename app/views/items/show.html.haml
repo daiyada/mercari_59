@@ -4,12 +4,12 @@
     .hi-container__content__position
       .hi-container__content__position__item
         .hi-container__content__position__item__name
-          【激安】千鳥のノブ
+          = @item.name
         .hi-container__content__position__item__detail
           .hi-container__content__position__item__detail__photo
             -# JSで選択した写真を表示させるコマンドを打ち込む必要あり
             .hi-container__content__position__item__detail__photo__top
-              %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+              %img{height: "100%", src: "#{@image.first.image}", class: "top-big-photo"}
             .hi-container__content__position__item__detail__photo__bottom
               .hi-container__content__position__item__detail__photo__bottom__size
                 %li.hi-container__content__position__item__detail__photo__bottom__size__mini
@@ -38,7 +38,7 @@
               %th
                 出品者
               %td
-                千鳥の大悟
+                = link_to "#{@nickname}", edit_user_path, class: "edit_user"
                 .hi-container__content__position__item__detail__matrix__evaliation
                   .hi-container__content__position__item__detail__matrix__evaliation__good
                     = fa_icon "smile-beam"
@@ -52,65 +52,83 @@
                     = fa_icon "tired"
                     .hi-container__content__position__item__detail__matrix__evaliation__good__num
                       100
-            %tr
-              %th
-                カテゴリ
-              %td
-                超むちゃんこおもろい芸人
-            %tr
-              %th
-                ブランド
-              %td
-                吉本
-            %tr
-              %th
-                商品のサイズ
-              %td
-                わしには扱いきれんぐらいでかい
+            - if @category.parent.parent.name.present?
+              %tr
+                %th
+                  カテゴリ
+                %td.category_ancestory
+                  = @category.parent.parent.name
+                  %br
+                  = fa_icon "chevron-right"
+                  = @category.parent.name
+                  %br
+                  = fa_icon "chevron-right"
+                  = @category.name
+            - elsif @category.parent.name.present?
+              %tr
+                %th
+                  カテゴリ
+                %td.category_ancestory
+                  = @category.parent.name
+                  %br
+                  = fa_icon "chevron-right"
+                  = @category.name
+            - else
+            - if @item.brand.present?
+              %tr
+                %th
+                  ブランド
+                %td
+                  = @item.brand
+            - if @item.size.present?
+              %tr
+                %th
+                  サイズ
+                %td
+                  = @item.size
             %tr
               %th
                 商品の状態
               %td
-                売り物にならんほど汚れまくり
+                = @item.condition
             %tr
               %th
                 配送料の負担
               %td
-                ノブが全部負担
+                = @delivery.pay_for_shipping
             %tr
               %th
                 配送の方法
               %td
-                商品(ノブ)が自ら向かいます
+                らくらくメルカリ便
             %tr
               %th
                 配送元地域
               %td
-                岡山県
+                = @delivery.delivery_from
             %tr
               %th
                 発送日の目安
               %td
-                購入直後
+                = @delivery.due_time_day
         .hi-container__content__position__item__price
           .hi-container__content__position__item__price__num
-            ¥10
+            = "¥ #{@item.price.to_s(:delimited)}"
           .hi-container__content__position__item__price__tax
             （税込）
           .hi-container__content__position__item__price__shipping-fee
-            送料込み
-        .hi-container__content__position__item__buybtn
-          .hi-container__content__position__item__buybtn__text
-            購入画面に進む
+            = @delivery.pay_for_shipping
+        - if @item.buyer_id == 0 ||  @item.buyer_id.blank?
+          = link_to "/items/purchase/#{@item.id}", class: "hi-container__content__position__item__buybtn" do
+            .hi-container__content__position__item__buybtn__text
+              購入画面に進む
+        - else
+          .hi-container__content__position__item__soldbtn
+            .hi-container__content__position__item__soldbtn__text
+              売り切れました
         .hi-container__content__position__item__explanation
           .hi-container__content__position__item__explanation__inner
-            もうこの相方飽きたから売る
-            %br
-            %br
-            けどこれ言うと吉本に怒られるから、吉本に通さず直接メルカリに出品します。
-            %br
-            %br
-            コメント無し、即購入OKです！
+            = @item.descript
         .hi-container__content__position__item__smallbtns
           .hi-container__content__position__item__smallbtns__left
             .hi-container__content__position__item__smallbtns__left__favo
@@ -130,10 +148,18 @@
       .hi-container__content__position__list
         .hi-container__content__position__list__caution
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いは退会処分となることがあります。
-        %input.hi-container__content__position__list__textarea
-        %button.hi-container__content__position__list__btn
-          %span
-            コメントする
-  = render 'items/navigation-bottom'
+        %textarea.hi-container__content__position__list__textarea
+        - if @item.buyer_id == 0 ||  @item.buyer_id.blank?
+          %button.hi-container__content__position__list__btn
+            %span
+              コメントする
+        - else
+          %button.hi-container__content__position__list__btn
+            %span
+              売り切れのためコメントできません
+  .hi-navigation-bottom
+    .hi-navigation-bottom__text
+      - breadcrumb :iteminfo, @item.name
+      = breadcrumbs pretext: "",separator: " &rsaquo; "
   = render 'items/sell_btn'
   = render 'items/footer'
