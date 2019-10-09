@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
+      sign_in User.find(@user.id)
       redirect_to root_path, notice: "アカウントを作成しました"
     else
       render :new
