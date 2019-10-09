@@ -85,6 +85,7 @@
       }
       &__buybtn{
         @include middle_located();
+        text-decoration: none;
         &__btn{
           margin-top: 8px;
           color: white;
@@ -120,7 +121,7 @@
     }
     &__payment{
       margin-top: 40px;
-      padding: 24px 87.5px 0;
+      padding: 24px 87.5px;
       border-top: solid 1px #f5f5f5;
       &__inner{
         margin: 0 102.5px;
@@ -141,6 +142,25 @@
           font-size: 14px;
           color: #0099E8;
           text-align: right;
+        }
+        .visa{
+          width: 49px;
+        }
+        .mastercard{
+          width: 34px;
+          margin: 0 4px;
+        }
+        .jcb{
+          width: 32px;
+          margin: 0 4px;
+        }
+        .americanexpress{
+          width: 21px;
+          margin: 0 4px;
+        }
+        .dinersclub{
+          width: 32px;
+          margin: 0 4px;
         }
       }
     }
