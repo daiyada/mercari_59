@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
    @radies = Item.where(category_id: 1...border_No[1]).order("created_at DESC").limit(10)
    @mens = Item.where(category_id: border_No[1]...border_No[2]).order("created_at DESC").limit(10)
    @kadens = Item.where(category_id: border_No[7]...border_No[8]).order("created_at DESC").limit(10)
- 
   end
+
   def new
     @item = Item.new
     @item.images.build
@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     category = Category.where(ancestry: nil)
     @category_parent_array = category.pluck(:name).unshift("---")
   end
+
   def create
     item_id = Item.last
     item_id == nil ? item_id =1 : item_id = item_id.id + 1
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
       redirect_to controller: :items, action: :index
     end
   end
+
   def get_category_children 
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
@@ -46,13 +48,27 @@ class ItemsController < ApplicationController
 
   def purchase
     set_item
-    @user = User.find(1)          #1→current_user.idに
+    @user = User.find(1)
     @card = @user.card
-    @address = User.find(1).address     #1→current_user.idに
+    @address = User.find(1).address
     @image = @item.images
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @cards = customer[:cards][:data][0]
+  end
+
+  def pay
+    set_item
+    card = Card.where(user_id: 1)[0]
+    Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
+    Payjp::Charge.create(
+    amount: @item.price,
+    customer: card.customer_id,
+    currency: "jpy"
+    )
+    @item.buyer_id = 1
+    @item.save
+    redirect_to item_path(@item)
   end
 
   private
@@ -60,7 +76,6 @@ class ItemsController < ApplicationController
     ancestry_pass = params.require(:grandchild_id) rescue
     ancestry_pass = nil if ancestry_pass == "---" || ancestry_pass == nil || ancestry_pass == "" 
     params.require(:item).permit(:name,:descript,:condition,:price,images_attributes: [:image] ).merge(buyer_id: 0, seller_id: 1,stock_status: 1, category_id: ancestry_pass, size:"M")
-  
   end
 
   def delivery_params

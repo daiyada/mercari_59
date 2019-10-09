@@ -10,6 +10,10 @@
             -# JSで選択した写真を表示させるコマンドを打ち込む必要あり
             .hi-container__content__position__item__detail__photo__top
               %img{height: "100%", src: "#{@image.first.image}", class: "top-big-photo"}
+              - if @item.buyer_id != 0 || @item.buyer_id.blank?
+                .sold-triangle
+                .sold-triangle-text
+                  SOLD
             .hi-container__content__position__item__detail__photo__bottom
               .hi-container__content__position__item__detail__photo__bottom__size
                 %li.hi-container__content__position__item__detail__photo__bottom__size__mini
