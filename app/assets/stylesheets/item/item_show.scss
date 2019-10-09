@@ -28,11 +28,32 @@
             &__top{
               height: 300px;
               width: 300px;
-              @include middle_located();
+              position: relative;
+              // @include middle_located();
               .top-big-photo{
                 height: 300px;
                 width: 300px;
                 object-fit: contain;
+                position: absolute;
+                z-index: 1;
+              }
+              .sold-triangle{
+                border-top: 60px solid #ea352d;
+                border-left: 60px solid #ea352d;
+                border-right: 60px solid transparent;
+                border-bottom: 60px solid transparent;
+                position: absolute;
+                z-index: 2;
+              }
+              .sold-triangle-text{
+                font-size: 22px;
+                color: white;
+                transform: rotate(-45deg);
+                letter-spacing: 2px;
+                font-weight: bold;
+                position: absolute;
+                top: 20px;
+                z-index: 3;
               }
             }
             &__bottom{
