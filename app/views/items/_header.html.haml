@@ -20,14 +20,43 @@
             %i.m-header__inner__low__lleft__category__icon.pc-header-cat-category-icon
               = fa_icon 'list', class: "m-header__inner__low__lleft__category__icon__icon"
             %span1 &nbsp;カテゴリーから探す
-            
+          -# -@category.each do |parent_name|  
+          -#   .m-category
+          -#     %ul.m-parent-wrap
+          -#       %li.m-parent
+          -#         %a.m-parent__link{:href => ""}
+          -#           =parent_name
+                
+          -#         %ul.m-child-wrap
+          -#           %li.m-child
+          -#           -Category.find_by(name: parent_name).children.each do |child_name|
+          -#             %a.m-child__link{:href => "",id: "#{child_name.id}"}
+          -#               =child_name.name 
+                  
+          -#             %ul.m-grand-child-wrap
+                        -# %li.m-grand-child
+                        -# -child_name.children.each do |grandchild_name|
+                        -#   %a.m-grand-child__link{:href => ""} 
+                        -#     =grandchild_name.name
+         
 
+
+
+
+
+
+
+
+
+
+        %nav.m-header__inner__low__lleft
           %a.m-header__inner__low__lleft__category.list-parent{href: "https://www.mercari.com/jp/brand/"}
             %i.m-header__inner__low__lleft__category__icon.pc-header-cat-brand-icon
               = fa_icon 'tag', class: "m-header__inner__low__lleft__category__icon__tag"
             %span1  &nbsp;ブランドから探す  
 
-    
+        -# - if user_signed_in?
+
         %nav.m-header__inner__low__lright
         
           %a.m-header__inner__low__lright__menu{href: "https://www.mercari.com/jp/mypage/like/history/"}
@@ -49,3 +78,8 @@
             %figure.m-header__inner__low__lright__menu__icon.icon-mypage
               %img.m-header__inner__low__lright__menu__icon__image{alt: "", src: "//static.mercdn.net/thumb/members/593913646.jpg?1554601239", width: "32"}/
             %span1 &nbsp;  マイページ
+        -# - else
+        -#   %nav.m-header__inner__low__lright
+        -#     %a.m-header__inner__low__lright__menu.m-signup{:href => "/users/new"} 新規会員登録
+        -#     %a.m-header__inner__low__lright__menu.m-login{:href => ""} ログイン
+    
