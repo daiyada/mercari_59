@@ -12,7 +12,6 @@ class CardsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def new
