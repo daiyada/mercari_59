@@ -1,10 +1,10 @@
 !!!
 %html
   %head
-    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    -# %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", rel: "stylesheet", type: "text/css"}/
-    -# = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    -# %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", rel: "stylesheet", type: "text/css"}/
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
     %title Mercari59
@@ -12,18 +12,18 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    -# :javascript
-    -#   WebFontConfig = {
-    -#     google: { families: [ 'Unica+One::latin' ] }
-    -#   };
-    -#   (function() {
-    -#     var wf = document.createElement('script');
-    -#     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-    -#       '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    -#     wf.type = 'text/javascript';
-    -#     wf.async = 'true';
-    -#     var s = document.getElementsByTagName('script')[0];
-    -#     s.parentNode.insertBefore(wf, s);
-    -#   })();
+    :javascript
+      WebFontConfig = {
+        google: { families: [ 'Unica+One::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
   %body
     = yield
