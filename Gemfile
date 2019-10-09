@@ -81,3 +81,4 @@ gem 'jquery-rails'
 gem 'font_awesome5_rails'
 gem 'payjp'
 gem "gretel"
+gem 'jquery-turbolinks'
