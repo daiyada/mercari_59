@@ -1,7 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :purchase, :pay]
-  category = Category.where(ancestry: nil)
-  @@category_parent_array = category.pluck(:name)
   
   def index
     category_No = Category.where(ancestry: nil)
@@ -9,7 +7,8 @@ class ItemsController < ApplicationController
     @radies = Item.where(category_id: 1...border_No[1]).order("created_at DESC").limit(10)
     @mens = Item.where(category_id: border_No[1]...border_No[2]).order("created_at DESC").limit(10)
     @kadens = Item.where(category_id: border_No[7]...border_No[8]).order("created_at DESC").limit(10)
-    @category = @@category_parent_array
+    category = Category.where(ancestry: nil)
+    @category = category.pluck(:name)
     params[:keyword].to_i == 0 ? grandchild_id =100 : grandchild_id = params[:keyword].to_i
     @grandchildren = Category.find(grandchild_id).children
     respond_to do |format|
@@ -22,7 +21,8 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.build
     @category = Category.all
-    @category_parent_array = @@category_parent_array.unshift("---")
+    category = Category.where(ancestry: nil)
+    @category_parent_array = category.pluck(:name).unshift("---")
   end
 
   def create
