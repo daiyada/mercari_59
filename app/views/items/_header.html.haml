@@ -34,7 +34,7 @@
           -#               =child_name.name 
                   
           -#             %ul.m-grand-child-wrap
-                        -# %li.m-grand-child
+          -#               %li.m-grand-child
                         -# -child_name.children.each do |grandchild_name|
                         -#   %a.m-grand-child__link{:href => ""} 
                         -#     =grandchild_name.name
@@ -57,29 +57,29 @@
 
         -# - if user_signed_in?
 
-        %nav.m-header__inner__low__lright
+        -# %nav.m-header__inner__low__lright
         
-          %a.m-header__inner__low__lright__menu{href: "https://www.mercari.com/jp/mypage/like/history/"}
-            %i.m-header__inner__low__lright__menu__icon.icon-iine
-              = fa_icon 'heart', class: "m-header__inner__low__lright__menu__icon__icon"
-            %span1 &nbsp;いいね！一覧
+        -#   %a.m-header__inner__low__lright__menu{href: "https://www.mercari.com/jp/mypage/like/history/"}
+        -#     %i.m-header__inner__low__lright__menu__icon.icon-iine
+        -#       = fa_icon 'heart', class: "m-header__inner__low__lright__menu__icon__icon"
+        -#     %span1 &nbsp;いいね！一覧
 
-          %a.m-header__inner__low__lright__menu{ href: "https://www.mercari.com/jp/mypage/notification/"}
-            %i.m-header__inner__low__lright__menu__icon.icon-oshirase
-              = fa_icon 'bell', class: "m-header__inner__low__lright__menu__icon__icon"
-            %span1 &nbsp;お知らせ
+        -#   %a.m-header__inner__low__lright__menu{ href: "https://www.mercari.com/jp/mypage/notification/"}
+        -#     %i.m-header__inner__low__lright__menu__icon.icon-oshirase
+        -#       = fa_icon 'bell', class: "m-header__inner__low__lright__menu__icon__icon"
+        -#     %span1 &nbsp;お知らせ
 
-          %a.m-header__inner__low__lright__menu{ href: "https://www.mercari.com/jp/mypage/todo/"}
-            %i.m-header__inner__low__lright__menu__icon.icon-yarukoto
-              = fa_icon 'check', class: "m-header__inner__low__lright__menu__icon__icon"
-            %span1 &nbsp;やることリスト
+        -#   %a.m-header__inner__low__lright__menu{ href: "https://www.mercari.com/jp/mypage/todo/"}
+        -#     %i.m-header__inner__low__lright__menu__icon.icon-yarukoto
+        -#       = fa_icon 'check', class: "m-header__inner__low__lright__menu__icon__icon"
+        -#     %span1 &nbsp;やることリスト
 
-          %a.m-header__inner__low__lright__menu{href: "https://www.mercari.com/jp/mypage/"}
-            %figure.m-header__inner__low__lright__menu__icon.icon-mypage
-              %img.m-header__inner__low__lright__menu__icon__image{alt: "", src: "//static.mercdn.net/thumb/members/593913646.jpg?1554601239", width: "32"}/
-            %span1 &nbsp;  マイページ
+        -#   %a.m-header__inner__low__lright__menu{href: "https://www.mercari.com/jp/mypage/"}
+        -#     %figure.m-header__inner__low__lright__menu__icon.icon-mypage
+        -#       %img.m-header__inner__low__lright__menu__icon__image{alt: "", src: "//static.mercdn.net/thumb/members/593913646.jpg?1554601239", width: "32"}/
+        -#     %span1 &nbsp;  マイページ
         -# - else
-        -#   %nav.m-header__inner__low__lright
-        -#     %a.m-header__inner__low__lright__menu.m-signup{:href => "/users/new"} 新規会員登録
-        -#     %a.m-header__inner__low__lright__menu.m-login{:href => ""} ログイン
+        %nav.m-header__inner__low__lright
+          %a.m-header__inner__low__lright__menu.m-signup{:href => "/users/new"} 新規会員登録
+          %a.m-header__inner__low__lright__menu.m-login{:href => ""} ログイン
     

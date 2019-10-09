@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
    @kadens = Item.where(category_id: border_No[7]...border_No[8]).order("created_at DESC").limit(10)
    @category = @@category_parent_array
    params[:keyword].to_i == 0 ? grandchild_id =100 : grandchild_id = params[:keyword].to_i
-  #  grandchild_id = 1 if params[:keyword].to_i ==0
    @grandchildren = Category.find(grandchild_id).children
   #  binding.pry
    respond_to do |format|
