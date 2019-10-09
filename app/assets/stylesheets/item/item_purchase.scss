@@ -85,6 +85,7 @@
       }
       &__buybtn{
         @include middle_located();
+        text-decoration: none;
         &__btn{
           margin-top: 8px;
           color: white;
