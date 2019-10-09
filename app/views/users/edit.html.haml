@@ -2,14 +2,8 @@
   = render 'items/header'
   .hi-container__navigation
     .hi-container__navigation__text
-      %span
-        メルカリ
-      = fa_icon "chevron-right", style: 'color: grey'
-      %span
-        マイページ
-      = fa_icon "chevron-right", style: 'color: grey'
-      %span
-        プロフィール
+      - breadcrumb :profile
+      = breadcrumbs pretext: "",separator: " &rsaquo; "
   .hi-container__wrapper
     .hi-container__wrapper__main
       %nav.hi-container__wrapper__main__left

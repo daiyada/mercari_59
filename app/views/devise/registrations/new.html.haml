@@ -67,6 +67,37 @@
           = f.text_field :name_family_kana, class: "iz2_container__registration__form-group--input-default", placeholder: "例) ヤマダ"
           = f.text_field :name_first_kana, class: "iz2_container__registration__form-group--input-default", placeholder: "例) アヤ"
 
+        = f.fields_for :address do |g|
+          .iz2_container__registration__form-group
+            %label 郵便番号
+            %span.iz2_container__registration__form-group--require 必須
+            = g.text_field :postal_code, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 123-4567"
+
+          .iz2_container__registration__form-group
+            %label 都道府県
+            %span.iz2_container__registration__form-group--require 必須
+            = g.text_field :prefecture, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 神奈川県"
+
+          .iz2_container__registration__form-group
+            %label 市区町村
+            %span.iz2_container__registration__form-group--require 必須
+            = g.text_field :city, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 横浜市緑区"
+
+          .iz2_container__registration__form-group
+            %label 番地
+            %span.iz2_container__registration__form-group--require 必須
+            = g.text_field :address, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 青山1-1-1"
+
+          .iz2_container__registration__form-group
+            %label 建物名
+            %span.iz2_container__registration__form-group--require 任意
+            = g.text_field :building, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 柳ビル103"
+
+          .iz2_container__registration__form-group
+            %label 電話
+            %span.iz2_container__registration__form-group--require 任意
+            = g.text_field :phone_number, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 090-1234-5678"
+
         .iz2_container__registration__form-group__bottom_info
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
