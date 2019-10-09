@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :purchase, :pay]
+
   def index
    category_No = Category.where(ancestry: nil)
    border_No = category_No.pluck(:id)
@@ -39,7 +41,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item
     @category = @item.category
     @image = @item.images
     @delivery = @item.delivery
@@ -47,7 +48,6 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    set_item
     @user = User.find(1)
     @card = @user.card
     @address = User.find(1).address
@@ -58,7 +58,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    set_item
     card = Card.where(user_id: 1)[0]
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
     Payjp::Charge.create(
