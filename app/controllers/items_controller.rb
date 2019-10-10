@@ -56,9 +56,9 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @user = User.find(1)
+    @user = User.find(current_user.id)
     @card = @user.card
-    @address = User.find(1).address
+    @address = User.find(current_user.id).address
     @image = @item.images
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -66,7 +66,7 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    card = Card.where(user_id: 1)[0]
+    card = Card.where(user_id: current_user.id)[0]
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
     Payjp::Charge.create(
     amount: @item.price,
