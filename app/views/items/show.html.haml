@@ -122,33 +122,38 @@
             （税込）
           .hi-container__content__position__item__price__shipping-fee
             = @delivery.pay_for_shipping
-        - if @item.buyer_id == 0 ||  @item.buyer_id.blank?
-          = link_to "/items/purchase/#{@item.id}", class: "hi-container__content__position__item__buybtn" do
-            .hi-container__content__position__item__buybtn__text
-              購入画面に進む
-        - else
-          .hi-container__content__position__item__soldbtn
-            .hi-container__content__position__item__soldbtn__text
-              売り切れました
+        - if @item.seller_id != current_user.id
+          - if @item.buyer_id == 0 ||  @item.buyer_id.blank?
+            = link_to "/items/purchase/#{@item.id}", class: "hi-container__content__position__item__buybtn" do
+              .hi-container__content__position__item__buybtn__text
+                購入画面に進む
+          - else
+            .hi-container__content__position__item__soldbtn
+              .hi-container__content__position__item__soldbtn__text
+                売り切れました
         .hi-container__content__position__item__explanation
           .hi-container__content__position__item__explanation__inner
             = @item.descript
-        .hi-container__content__position__item__smallbtns
-          .hi-container__content__position__item__smallbtns__left
-            .hi-container__content__position__item__smallbtns__left__favo
-              = fa_icon "heart",type: :regular
+        - if @item.seller_id != current_user.id
+          .hi-container__content__position__item__smallbtns
+            .hi-container__content__position__item__smallbtns__left
+              .hi-container__content__position__item__smallbtns__left__favo
+                = fa_icon "heart",type: :regular
+                %span
+                  いいね
+                %span
+                  0
+              .hi-container__content__position__item__smallbtns__left__ban
+                = fa_icon "flag",type: :regular
+                %span
+                  不適切な商品の報告
+            .hi-container__content__position__item__smallbtns__right
+              = fa_icon "key"
               %span
-                いいね
-              %span
-                0
-            .hi-container__content__position__item__smallbtns__left__ban
-              = fa_icon "flag",type: :regular
-              %span
-                不適切な商品の報告
-          .hi-container__content__position__item__smallbtns__right
-            = fa_icon "key"
-            %span
-              あんしん・あんぜんへの取り組み
+                あんしん・あんぜんへの取り組み
+      - if @item.seller_id != current_user.id
+        .hi-container__content__position__btns
+          
       .hi-container__content__position__list
         .hi-container__content__position__list__caution
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いは退会処分となることがあります。

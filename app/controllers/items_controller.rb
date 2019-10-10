@@ -82,7 +82,7 @@ class ItemsController < ApplicationController
   def item_params  
     ancestry_pass = params.require(:grandchild_id) rescue
     ancestry_pass = nil if ancestry_pass == "---" || ancestry_pass == nil || ancestry_pass == "" 
-    params.require(:item).permit(:name,:descript,:condition,:price,images_attributes: [:image] ).merge(buyer_id: 0, seller_id: 1,stock_status: 1, category_id: ancestry_pass, size:"M")
+    params.require(:item).permit(:name,:descript,:condition,:price,images_attributes: [:image] ).merge(buyer_id: 0, seller_id: current_user.id,stock_status: 1, category_id: ancestry_pass, size:"M")
   end
 
   def delivery_params

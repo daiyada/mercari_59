@@ -24,9 +24,9 @@
           支払い金額
         .hi_wrapper__body__item__price__right
           = "¥ #{@item.price.to_s(:delimited)}"
-      = link_to pay_item_path(@item.id), method: :post, class: "hi_wrapper__body__item__buybtn" do
-        .hi_wrapper__body__item__buybtn__btn
-          購入する
+        = link_to pay_item_path(@item.id), method: :post, class: "hi_wrapper__body__item__buybtn" do
+          .hi_wrapper__body__item__buybtn__btn
+            購入する
     .hi_wrapper__body__shipping-address
       .hi_wrapper__body__shipping-address__inner
         .hi_wrapper__body__shipping-address__inner__top
