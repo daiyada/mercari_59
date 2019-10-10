@@ -222,6 +222,34 @@
         margin: 24px 0;
         padding: 8px 16px;
         background-color: #FFFFFF;
+        &__edit{
+          font-size: 13px;
+          color: #FFFFFF;
+          background-color: #ea352d;
+          text-align: center;
+          line-height: 50px;
+          margin: 16px;
+        }
+        &__text{
+          text-align: center;
+          font-size: 13px;
+        }
+        &__stop{
+          font-size: 13px;
+          color: #FFFFFF;
+          background-color: #aaaaaa;
+          text-align: center;
+          line-height: 50px;
+          margin: 16px;
+        }
+        &__delete{
+          font-size: 13px;
+          color: #FFFFFF;
+          background-color: #aaaaaa;
+          text-align: center;
+          line-height: 50px;
+          margin: 16px;
+        }
       }
       &__list{
         margin-top: 10px;
