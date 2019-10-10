@@ -10,5 +10,5 @@
       .hi-container__wrapper__main__right
         .hi-container__wrapper__main__content
           .hi-container__wrapper__main__content__logout-btn
-            ログアウト
+            = link_to "ログアウト", destroy_user_session_path
   = render 'items/footer'

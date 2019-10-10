@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:show, :create, :edit, :new, :destroy]
   resources :items, only: [:show, :new , :index, :create] do
-    
+    member do
+      post "pay"  =>  "items#pay"
+    end
     collection do
       get "purchase/:id" => "items#purchase"
     end
