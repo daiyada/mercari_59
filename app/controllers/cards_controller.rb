@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
 
   def show
-    card = Card.where(user_id: 1)[0]    #後々1をcurrent_user.idに変更する
+    card = Card.where(user_id: current_user.id)[0]
       if card.present?
         Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
         customer = Payjp::Customer.retrieve(card.customer_id)
@@ -20,24 +20,24 @@ class CardsController < ApplicationController
   def create
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
     customer = Payjp::Customer.create(card: params[:payjpToken])
-    @card = Card.create(user_id: 1, customer_id: customer.id, card_id: params[:payjpToken])
+    @card = Card.create(user_id: current_user.id, customer_id: customer.id, card_id: params[:payjpToken])
     if @card.blank?
-      redirect_to "/cards/1/edit"   #後々1をprefixに変更する
+      redirect_to action: "edit"
     else
-      redirect_to "/cards/1/"   #後々1をprefixに変更する
+      redirect_to card_path(@card)
     end
   end
 
   def destroy
-    card = Card.where(user_id: 1)[0]
+    card = Card.where(user_id: current_user.id)[0]
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(card.customer_id)
-    if card.user_id == 1     #後々1をcurrent_user.idに変更する
+    if card.user_id == current_user.id
       card.delete
       customer.delete
-      redirect_to new_card_path
+      redirect_to action: "new"
     else
-      redirect_to "/cards/1/"   #後々1をprefixに変更する
+      redirect_to action: "logout"
     end
   end
 end
