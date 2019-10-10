@@ -9,6 +9,6 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images
 
   def self.seller(current_user)
-    self.where("(seller_id != ?) and (buyer_id = ?)",current_user, 0)
+    self.where("(seller_id != ?)", current_user).where("(buyer_id = ?) OR (buyer_id = ?))",0, blank?)
   end
 end
