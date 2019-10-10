@@ -49,6 +49,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @id = current_user.id
+    @seller = @item.seller(@id)
     @category = @item.category
     @image = @item.images
     @delivery = @item.delivery
