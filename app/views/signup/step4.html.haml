@@ -1,0 +1,46 @@
+.iz2_wrapper
+  .iz2_header
+    .iz2_header__progress-bar
+      .iz2_header__progress-bar__logo{:href=>"https://www.mercari.com/jp/"}
+        %img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1383403936"}/
+      .iz2_header__progress-bar__active
+        会員情報
+        %br
+        ●
+      .iz2_header__progress-bar__phone-certification
+        電話番号認証
+        %br
+        ●
+      .iz2_header__progress-bar__address
+        お届け先住所入力
+        %br
+        ●
+      .iz2_header__progress-bar__pay
+        支払い方法
+        %br
+        ●
+      .iz2_header__progress-bar__finish
+        完了
+        %br
+        ●
+
+  .iz2_container
+    .iz2_container__header
+      会員情報入力
+    .iz2_container__registration
+      = form_for @user, url: signup_index_path, method: :post do |f|
+        .iz2_container__registration__form-group
+          %label クレジットカード
+          %span.iz2_container__registration__form-group--require 必須
+          -# = f.text_field :nickname, class: "iz2_container__registration__form-group--input-default", placeholder: "例) メルカリ太郎"
+
+        .iz2_container__next_button
+          %input{:name => "after_save_callback", :type => "hidden", :value => ""}
+          .iz2_container__next_button__form-group
+            .iz2_g-recaptcha.iz2_signup-recaptcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
+          .iz2_container__next_button__form-group
+            %p.iz2_container__next_button__form-group--text
+              「次へ進む」のボタンを押すことにより、
+              %a{:href => "/jp/tos_list/", :target => "_blank"}> 利用規約
+              に同意したものとみなします
+        = f.submit 'Send', class: 'iz2_container__next_button--button'
