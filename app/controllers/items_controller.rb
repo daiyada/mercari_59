@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   def purchase
     @user = User.find(current_user.id)
     @card = @user.card
-    @address = User.find(current_user.id).address
+    @address = @user.address
     @image = @item.images
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -84,7 +84,7 @@ class ItemsController < ApplicationController
     ancestry_pass = nil if ancestry_pass == "---" || ancestry_pass == nil || ancestry_pass == "" 
     validate_price = params[:item][:price].to_i
     validate_price = nil if validate_price < 300
-    params.require(:item).permit(:name,:descript,:condition,images_attributes: [:image] ).merge(price: validate_price , buyer_id: 0, seller_id: 1,stock_status: 1, category_id: ancestry_pass, size:"M")
+    params.require(:item).permit(:name,:descript,:condition,images_attributes: [:image] ).merge(price: validate_price , buyer_id: 0, seller_id: current_user.id,stock_status: 1, category_id: ancestry_pass, size:"M")
   end
 
   def delivery_params
