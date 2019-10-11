@@ -11,9 +11,9 @@ class Item < ApplicationRecord
   def can_purchase
     if @item.seller_id != current_user
       if @item.buyer_id == 0 ||  @item.buyer_id.blank?
-        return "true"
+        true
       else
-        return "false"
+        false
       end
     end
   end
