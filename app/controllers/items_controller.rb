@@ -1,3 +1,5 @@
+require "item.rb"
+
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :purchase, :pay]
   
@@ -49,8 +51,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @id = current_user.id
-    @seller = Item.seller(@id)
+    # @id = current_user.id
+    # @judge = Item.class.judge(@id, @item)
     @category = @item.category
     @image = @item.images
     @delivery = @item.delivery
@@ -60,7 +62,7 @@ class ItemsController < ApplicationController
   def purchase
     @user = User.find(current_user.id)
     @card = @user.card
-    @address = User.find(current_user.id).address
+    @address = @user.address
     @image = @item.images
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(@card.customer_id)
