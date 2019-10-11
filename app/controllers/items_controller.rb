@@ -1,4 +1,4 @@
-require "item.rb"
+# require "item.rb"
 
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :purchase, :pay]
@@ -51,8 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @id = current_user.id
-    # @judge = Item.class.judge(@id, @item)
     @category = @item.category
     @image = @item.images
     @delivery = @item.delivery

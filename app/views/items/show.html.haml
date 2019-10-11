@@ -122,15 +122,14 @@
             （税込）
           .hi-container__content__position__item__price__shipping-fee
             = @delivery.pay_for_shipping
-        - if @item.seller_id != current_user.id
-          - if @item.buyer_id == 0 ||  @item.buyer_id.blank?
-            = link_to "/items/purchase/#{@item.id}", class: "hi-container__content__position__item__buybtn" do
-              .hi-container__content__position__item__buybtn__text
-                購入画面に進む
-          - else
-            .hi-container__content__position__item__soldbtn
-              .hi-container__content__position__item__soldbtn__text
-                売り切れました
+        - if @can_purchase == "true"
+          = link_to "/items/purchase/#{@item.id}", class: "hi-container__content__position__item__buybtn" do
+            .hi-container__content__position__item__buybtn__text
+              購入画面に進む
+        - elsif @can_purchase == "false"
+          .hi-container__content__position__item__soldbtn
+            .hi-container__content__position__item__soldbtn__text
+              売り切れました
         .hi-container__content__position__item__explanation
           .hi-container__content__position__item__explanation__inner
             = @item.descript
@@ -179,3 +178,5 @@
       = breadcrumbs pretext: "",separator: " &rsaquo; "
   = render 'items/sell_btn'
   = render 'items/footer'
+
+
