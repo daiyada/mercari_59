@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('.m-child-wrap').hide();
   $('.m-parent').hide();
   //親要素の吹き出し
-  $('.m-header__inner__low__lleft__category').hover(function(){
+  $('.m-parent1').hover(function(){
   $('.m-parent').show();
   },function(){
   });
