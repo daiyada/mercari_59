@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-
+  before_action :set_navi, only: [:edit,:show,:new,:create,:destroy]
   def show
     card = Card.where(user_id: current_user.id)[0]
       if card.present?
@@ -39,5 +39,10 @@ class CardsController < ApplicationController
     else
       redirect_to action: "logout"
     end
+  end
+  private
+  def set_navi
+    navicategory = Category.where(ancestry: nil)
+    @navicategory = navicategory.pluck(:name)
   end
 end

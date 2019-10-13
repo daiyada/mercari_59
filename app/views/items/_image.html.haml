@@ -2,6 +2,10 @@
 %a.m-main__items__low__item{:href => "/items/#{image.id}"}
   %figure.m-main__items__low__item__pic
     = image_tag image.images.first.image.url , class: 'm-main__items__low__item__pic'
+    -# - if @item.buyer_id != 0 || @item.buyer_id.blank?
+    -#             .sold-triangle
+    -#             .sold-triangle-text
+    -#               SOLD
     .m-main__items__low__item__pic__price
       = "¥"+ image.price.to_s(:delimited)
   .m-main__items__low__item__descript
