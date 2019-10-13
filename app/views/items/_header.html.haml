@@ -17,7 +17,7 @@
             %i.m-header__inner__low__lleft__category__icon.pc-header-cat-category-icon
               = fa_icon 'list', class: "m-header__inner__low__lleft__category__icon__icon"
             %span1 &nbsp;カテゴリーから探す
-          -@category.each do |parent_name|  
+          - @navicategory.each do |parent_name| 
             .m-category
               %ul.m-parent-wrap
                 %li.m-parent
@@ -30,10 +30,6 @@
                       = link_to items_path, class: "m-child__link m-hover" ,id: "#{child_name.id}",target: "_blank" do
                         =child_name.name       
                       %ul.m-grand-child-wrap
-                        -# %li.m-grand-child
-                        -# -child_name.children.each do |grandchild_name|
-                        -#   %a.m-grand-child__link{:href => ""} 
-                        -#     =grandchild_name.name
 
         %nav.m-header__inner__low__lleft.m-parent2
           = link_to items_path, class: "m-header__inner__low__lleft__category list-parent" ,target: "_blank" do

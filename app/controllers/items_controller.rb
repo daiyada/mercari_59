@@ -1,14 +1,13 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase, :pay]
-  
+  before_action :set_item, only: [:show, :purchase, :pay ,:destroy]
+  before_action :set_navi, only: [:show,:index,:show, :purchase, :pay]
   def index
     category_No = Category.where(ancestry: nil)
     border_No = category_No.pluck(:id)
     @radies = Item.where(category_id: 1...border_No[1]).order("created_at DESC").limit(10)
     @mens = Item.where(category_id: border_No[1]...border_No[2]).order("created_at DESC").limit(10)
     @kadens = Item.where(category_id: border_No[7]...border_No[8]).order("created_at DESC").limit(10)
-    category = Category.where(ancestry: nil)
-    @category = category.pluck(:name)
+    # @navicategory = @@navicategory
     params[:keyword].to_i == 0 ? grandchild_id =100 : grandchild_id = params[:keyword].to_i
     @grandchildren = Category.find(grandchild_id).children
     respond_to do |format|
@@ -54,6 +53,7 @@ class ItemsController < ApplicationController
     @image = @item.images
     @delivery = @item.delivery
     @nickname = User.find(@item.seller_id).nickname
+    # @navicategory = @@navicategory #header-naviバー用
   end
 
   def purchase
@@ -79,6 +79,14 @@ class ItemsController < ApplicationController
     redirect_to item_path(@item)
   end
 
+  def destroy
+    if @item.destroy
+      redirect_to action: "index", notice: "削除しました"
+    else
+      redirect_to action: "index", notice: "削除に失敗しました"
+    end
+  end
+
   private
   def item_params  
     ancestry_pass = params.require(:grandchild_id) rescue
@@ -94,5 +102,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_navi
+    navicategory = Category.where(ancestry: nil)
+    @navicategory = navicategory.pluck(:name)
   end
 end
