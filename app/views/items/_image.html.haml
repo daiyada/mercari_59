@@ -1,3 +1,4 @@
+-# = link_to "/items/#{image.id}", class: "m-main__items__low__item" ,target: "_blank" do
 %a.m-main__items__low__item{:href => "/items/#{image.id}"}
   %figure.m-main__items__low__item__pic
     = image_tag image.images.first.image.url , class: 'm-main__items__low__item__pic'

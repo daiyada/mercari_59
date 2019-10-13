@@ -158,8 +158,9 @@
             or
           .hi-container__content__position__btns__stop
             出品を一旦停止する
-          .hi-container__content__position__btns__delete
-            この商品を削除する
+          .hi-container__content__position__btns__delete 
+            = link_to item_path(@item), method: :delete do
+              この商品を削除する
       .hi-container__content__position__list
         .hi-container__content__position__list__caution
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いは退会処分となることがあります。
