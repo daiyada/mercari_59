@@ -11,9 +11,9 @@
         .hi-container__wrapper__main__right__userinfo
           .hi-container__wrapper__main__right__userinfo__identity
             .hi-container__wrapper__main__right__userinfo__identity__image
-              %img.hi-container__wrapper__main__right__userinfo__identity__image__icon
+              = image_tag "/member_photo_noimage_thumb.png", class: "hi-container__wrapper__main__right__userinfo__identity__image__icon"
             %p.hi-container__wrapper__main__right__userinfo__identity__name
-              千鳥の大悟
+              = @user.nickname
             .hi-container__wrapper__main__right__userinfo__identity__condition
               .hi-container__wrapper__main__right__userinfo__identity__condition__evaluation
                 %p.hi-container__wrapper__main__right__userinfo__identity__condition__evaluation__word

@@ -55,9 +55,9 @@
                 = fa_icon 'check', class: "m-header__inner__low__lright__menu__icon__icon"
               %span1 &nbsp;やることリスト
 
-            = link_to items_path, class: "m-header__inner__low__lright__menu" ,target: "_blank" do
+            = link_to users_path(@user), class: "m-header__inner__low__lright__menu" ,target: "_blank" do
               %figure.m-header__inner__low__lright__menu__icon.icon-mypage
-                = image_tag "//static.mercdn.net/thumb/members/593913646.jpg?1554601239",class: "m-header__inner__low__lright__menu__icon__image", width: "32"
+                = image_tag "/member_photo_noimage_thumb.png",class: "m-header__inner__low__lright__menu__icon__image", width: "32"
               %span1 &nbsp;  マイページ
         - else
           %nav.m-header__inner__low__lright

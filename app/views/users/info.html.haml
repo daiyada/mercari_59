@@ -22,12 +22,12 @@
             .hi-container__wrapper__main__right__content__name-group__label
               お名前
             .hi-container__wrapper__main__right__content__name-group__name
-              山本 大悟
+              = "#{@user.name_family} #{@user.name_first}"
           .hi-container__wrapper__main__right__content__name-group
             .hi-container__wrapper__main__right__content__name-group__label
               お名前
             .hi-container__wrapper__main__right__content__name-group__name
-              ヤマモト ダイゴ
+              = "#{@user.name_family_kana} #{@user.name_first_kana}"
           .hi-container__wrapper__main__right__content__name-group
             .hi-container__wrapper__main__right__content__name-group__label
               生年月日
@@ -48,7 +48,7 @@
                   任意
             %select{class: "hi-container__wrapper__main__right__content__select-group__textarea"}
               %option{value: ""} ---
-              %option{value: "1"} 北海道
+              %option{value: "1", selected: "selected"} 北海道
               %option{value: "2"} 青森県
               %option{value: "3"} 岩手県
               %option{value: "4"} 宮城県
@@ -80,7 +80,7 @@
               %option{value: "30"} 和歌山県
               %option{value: "31"} 鳥取県
               %option{value: "32"} 島根県
-              %option{value: "33", selected: "selected"} 岡山県
+              %option{value: "33"} 岡山県
               %option{value: "34"} 広島県
               %option{value: "35"} 山口県
               %option{value: "36"} 徳島県
@@ -102,18 +102,18 @@
                 市区町村
                 .hi-container__wrapper__main__right__content__text-group__label__postnum__tag
                   任意
-            %input{class: "hi-container__wrapper__main__right__content__text-group__textarea", value: "笠原市"}
+            %input{class: "hi-container__wrapper__main__right__content__text-group__textarea", value: "#{@address.city}"}
           .hi-container__wrapper__main__right__content__text-group
             .hi-container__wrapper__main__right__content__text-group__label
               .hi-container__wrapper__main__right__content__text-group__label__postnum
                 番地
                 .hi-container__wrapper__main__right__content__text-group__label__postnum__tag
                   任意
-            %input{class: "hi-container__wrapper__main__right__content__text-group__textarea", value: "北木島"}
+            %input{class: "hi-container__wrapper__main__right__content__text-group__textarea", value: "#{@address.address}"}
           .hi-container__wrapper__main__right__content__text-group
             .hi-container__wrapper__main__right__content__text-group__label
               .hi-container__wrapper__main__right__content__text-group__label__postnum
-                番地
+                建物
                 .hi-container__wrapper__main__right__content__text-group__label__postnum__tag
                   任意
             %input{class: "hi-container__wrapper__main__right__content__text-group__textarea", placeholder: "例）柳ビル103"}
