@@ -78,6 +78,9 @@ class ItemsController < ApplicationController
     redirect_to item_path(@item)
   end
 
+  def destroy
+  end
+
   private
   def item_params  
     ancestry_pass = params.require(:grandchild_id) rescue
