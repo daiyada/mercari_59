@@ -7,4 +7,15 @@ class Item < ApplicationRecord
   # belongs_to :seller, class_name: "User"
   # belongs_to :buyer, class_name: "User"
   accepts_nested_attributes_for :images
+
+  def can_purchase
+    if @item.seller_id != current_user
+      if @item.buyer_id == 0 ||  @item.buyer_id.blank?
+        true
+      else
+        false
+      end
+    end
+  end
+
 end
