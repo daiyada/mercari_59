@@ -26,3 +26,6 @@ public/uploads/*
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# sns認証関係
+/config/initializers/devise.rb
