@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase, :pay]
+  before_action :set_item, only: [:show, :purchase, :pay, :destroy]
   navicategory = Category.where(ancestry: nil)
   @@navicategory = navicategory.pluck(:name)
   def index
@@ -78,6 +78,14 @@ class ItemsController < ApplicationController
     @item.buyer_id = 1
     @item.save
     redirect_to item_path(@item)
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to action: "index", notice: "削除しました"
+    else
+      redirect_to action: "index", notice: "削除に失敗しました"
+    end
   end
 
   private
