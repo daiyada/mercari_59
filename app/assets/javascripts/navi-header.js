@@ -1,18 +1,16 @@
+$(document).on('turbolinks:load', function() { 
 $(document).ready(function(){
   $('.m-grand-child-wrap').hide();
   $('.m-child-wrap').hide();
   $('.m-parent').hide();
   //親要素の吹き出し
   $('.m-parent1').hover(function(){
+  $('.m-parent-wrap').show();
   $('.m-parent').show();
   },function(){
+    $('.m-parent-wrap').hide();
   });
   
-  //親要素が消えないためm-mainに乗ったら消える
-  $('.m-main').hover(function(){
-    $('.m-parent').hide();
-  },function(){
-  });
   //子要素追加
   $('.m-parent').hover(function(){
     $('.m-grand-child-wrap').hide();
@@ -71,4 +69,5 @@ $(document).ready(function(){
         
         })
     
+});
 });
