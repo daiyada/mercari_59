@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
-  has_many :images ,inverse_of: :item #, dependent: :destroy
-  has_one :delivery, dependent: :destroy
+  has_many :images ,inverse_of: :item ,dependent: :destroy
+  has_one :delivery ,dependent: :destroy
   belongs_to :category
   
   # belongs_to :seller, class_name: "User"
@@ -10,7 +10,7 @@ class Item < ApplicationRecord
 
   def can_purchase
     if @item.seller_id != current_user
-      if @item.buyer_id == 0 ||  @item.buyer_id.blank?
+      if @item.buyer_id == 0 || @item.buyer_id.blank?
         true
       else
         false

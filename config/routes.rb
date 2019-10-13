@@ -29,14 +29,12 @@ Rails.application.routes.draw do
   end
 
   resources :cards, only: [:show, :create, :edit, :new, :destroy]
-  resources :items, only: [:show, :new , :index, :create] do
+  resources :items, only: [:show, :new , :index, :create, :destroy] do
     member do
       post "pay"  =>  "items#pay"
     end
     collection do
       get "purchase/:id" => "items#purchase"
-    end
-    collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
