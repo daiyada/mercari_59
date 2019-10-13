@@ -65,6 +65,7 @@
               %span1 &nbsp;  マイページ
         - else
           %nav.m-header__inner__low__lright
-            %a.m-header__inner__low__lright__menu.m-signup{:href => "/users/new"} 新規会員登録
-            %a.m-header__inner__low__lright__menu.m-login{:href => "/users/sign_in"} ログイン
-    
+            = link_to "新規会員登録", "/users/new", class: "m-header__inner__low__lright__menu m-signup" 
+            = link_to "ログイン", "/users/sign_in", class: "m-header__inner__low__lright__menu m-login" 
+            
+          

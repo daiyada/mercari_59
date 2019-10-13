@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() { 
-
+  //値段
   $(function() {
     var search_list = "";
     function appendProduct1(margin_fee ) {
@@ -28,7 +28,6 @@ $(document).on('turbolinks:load', function() {
           margin_fee = input * 0.1
           margin_fee = Math.floor(margin_fee); 
           margin_fee = '¥' + margin_fee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-          // margin_fee = margin_fee.substring(0,margin_fee.indexOf("."));
           benefit = input * 0.9
           benefit = Math.floor(benefit); 
           benefit = '¥' + benefit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
@@ -41,5 +40,17 @@ $(document).on('turbolinks:load', function() {
         }
     });
   });
-  });
+    var submitnum = 1
+    $('.m-main__container__inner__form__last__button').off('click')
+    $('.m-main__container__inner__form__last__button').on('click',function(){
+    
+      if (submitnum >= 2) {
+        $(".m-main__container__inner__form__last__button").prop("disabled", true);
+        }
+        submitnum = submitnum + 1
+
+    });
+
+
+});
   

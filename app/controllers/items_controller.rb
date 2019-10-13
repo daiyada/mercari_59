@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    redirect_to controller: :users, action: :new unless user_signed_in?
     @item = Item.new
     @item.images.build
     @category = Category.all

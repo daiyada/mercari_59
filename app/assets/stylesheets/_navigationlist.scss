@@ -23,7 +23,7 @@
     z-index:10;
     
     &:hover{
-      background-color:rgb(238, 67, 67);
+      background-color:rgb(235, 50, 50);
     }
     &__link{
       height:14px;
@@ -61,7 +61,7 @@
       line-height: 33px;
       z-index:9;
       &:hover{
-        background-color: gray;
+        background-color: rgb(199, 199, 199);
       }
     }
   }
@@ -94,7 +94,7 @@
       z-index:8;
       &:hover {
         height:30px;
-        background-color: gray;
+        background-color: rgb(233, 233, 233);
         }
     }
   }

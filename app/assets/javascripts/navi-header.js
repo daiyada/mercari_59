@@ -46,7 +46,7 @@ $(document).ready(function(){
             var childid =  '#'+ input.toString()
                 if(preinput != input){
                   $('.m-child__link').css('background-color','white');
-                  $(childid).css('background-color','gray');
+                  $(childid).css('background-color','rgb(233, 233, 233)');
                   preinput = input
               }
             });
