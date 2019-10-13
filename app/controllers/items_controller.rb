@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    redirect_to controller: :users, action: :new unless user_signed_in?
+    redirect_to sign_in_path unless user_signed_in?
     @item = Item.new
     @item.images.build
     @category = Category.all
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
     unless validate.include?("") || validate.include?(nil)
       item.save  
       delivery.save
-      redirect_to controller: :items, action: :index
+      redirect_to root_path
     end
   end
 
