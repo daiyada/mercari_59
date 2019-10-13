@@ -53,7 +53,6 @@
               &__number10{
                 display: block;
                 width: 620px;
-                // height:450px;
                 box-sizing: content-box; 
                 
                 &__box{
@@ -79,7 +78,6 @@
                     width: 100%;
                     height:100%;
                     position:relative;
-                    // z-index:30;
                     display:flex;
                     
                     
@@ -99,16 +97,13 @@
                     &__pic1{
                       width:100%;
                       height:162px;
-                      // display: -webkit-flex;
-            
                       display:flex;
-                      align-items: center; /*上下中央*/
-                      justify-content: center; /*左右中央*/
+                      align-items: center; 
+                      justify-content: center; 
                       
                     }
                     &__box{
                       width:20%;
-                      // height:162px;
                       display: flex;
                       flex-direction: column;
                       display: -webkit-flex;
@@ -116,7 +111,6 @@
                       
                       &__pic{
                         height:140px;
-                        // color: #0099e8;
                         background: #a19e9e;
                         display: -webkit-flex;
                         display: flex;
@@ -126,18 +120,13 @@
                         background: #a19e9e;
                         -webkit-order: 5;
                         order: 5;
+                        z-index:10;
                       }
-                        // text-align:bottom;
-                        // b
+          
                       &__btn{
                         color: #0099e8;
                         text-decoration:none;
                         bottom:0;
-                        // display: flex;
-                        // justify-content: flex-end;
-                        
-                        // text-align:bottom;
-                        // background-color:rgb(21, 255, 0);
                       }
                     }
                   }
@@ -158,14 +147,11 @@
               margin-top:20px;
               &__textarea{
                 width:100%;
-                // overflow-wrap: anywhere;
-                // display: block;
                 max-width: 100%;
                 min-height: 104px;
                 border: 1px solid #ccc;
                 background: #fff;
                 font-size: 16px;
-                // line-height: 1.5;
                }
              }
           }
@@ -187,11 +173,9 @@
               &__up{
               
                 width:100%;
-                // display: block;
                }
                &__low{
                 width:100%;
-                // display: block;
                 margin-top:20px;
                }
             }

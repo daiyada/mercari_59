@@ -1,24 +1,25 @@
 .m-footerall
   %a1side.app-banner
     %figure1
-      %img.m-app__back{alt: "", src: "https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg", width: "1000"}/
+      = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg",class: "m-app__back", width: "1000"
     .m-app
-      
       .m-app__left
         %h2.m-app__left__1 スマホでかんたんフリマアプリ
         %p.m-app__left__2 今すぐ無料ダウンロード！
         .m-app__left__icon.clearfix
           %figure1
-            %img.m-app__left__icon__1{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?872667783", width: "68"}/
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?872667783",class: "m-app__left__icon__1", width: "68"
           %ul.m-app__left__icon__smart
             %li.m-app__left__icon__smart__1
               %a1{href: "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "_blank"}
-                %img{alt: "", height: "40", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?872667783", width: "133"}/
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?872667783", size: "133x40"
+                
             %li.m-app__left__icon__smart__1
               %a1{href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", target: "_blank"}
-                %img{alt: "", height: "40", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?872667783", width: "133"}/
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?872667783", size: "133x40"
       %figure1
-        %img.m-app__right{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?872667783", width: "280"}/
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?872667783",class: "m-app__right", width: "280"
+       
   %footer.global-footer
     %nav.m-foot
       .m-foot__cell
@@ -93,7 +94,8 @@
             %a1{href: "https://www.mercari.com/"} United States
     .m-bottom
       %a1.m-bottom__logo{href: "https://www.mercari.com/jp/"}
-        %img{alt: "mercari", height: "33", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?872667783", width: "124"}/
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?872667783",alt: "mercari", width: "124"
+        
       %span.m-bottom__copyright
         %small © 2019 Mercari
 
