@@ -79,6 +79,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    set_item
+    @item.destroy
+    redirect_to action: "index"
   end
 
   private
