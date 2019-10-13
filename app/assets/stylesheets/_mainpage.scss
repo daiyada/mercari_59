@@ -62,16 +62,16 @@
       
     }
     &__low{
-      width:71%;
+      width:72%;
       margin:0 auto;
       display: -webkit-flex;
       display: flex;
       flex-wrap: wrap;
       &__item{
-        width:180px;
-        height:220px;
+        width:185px;
+        height:250px;
         position:relative;
-        margin:5px;
+        margin:10px;
         box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.1);
         
         &__pic{
@@ -83,7 +83,6 @@
           &__price{
           position:absolute;
           color:white;
-          // top:100px;
           bottom:35px;
           border-radius: 0px 8px 8px 0px;
           padding:0 8px 0 8px;
@@ -94,13 +93,12 @@
         &__descript{
          position:relative;
          height:15%;
-        //  height:60px;
          bottom:0;
          &__1{
           position:absolute;
           font-size:14px;
           padding:10px;
-          // background-color:rgb(113, 129, 221);
+          color: #222;
           bottom:0;
          }
      
@@ -111,4 +109,23 @@
    
   }
 
+}
+.m-sold-triangle{
+  border-top: 40px solid #ea352d;
+  border-left: 40px solid #ea352d;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  position: absolute;
+  z-index: 5;
+  top: 0px;
+}
+.m-sold-triangle-text{
+  font-size: 16px;
+  color: white;
+  transform: rotate(-45deg);
+  letter-spacing: 2px;
+  font-weight: bold;
+  position: absolute;
+  top: 17px;
+  z-index: 6;
 }
