@@ -10,8 +10,7 @@
       .hi-container__wrapper__main__right
         .hi-container__wrapper__main__right__head
           クレジットカード情報入力
-        -# パスを変える必要あり
-        = form_with url: "/cards", class: "hi-container__wrapper__main__right__secret" do |f|
+        = form_with url: cards_path, method: :post, class: "hi-container__wrapper__main__right__secret", id: "card-info-form" do |f|
           .hi-container__wrapper__main__right__secret__content
             .hi-container__wrapper__main__right__secret__content__cardinfo
               .hi-container__wrapper__main__right__secret__content__title
@@ -80,4 +79,4 @@
               .hi-container__wrapper__main__right__secret__content__deadline__caution
                 =fa_icon "question-circle"
                 カード裏面の番号とは？
-            = f.submit "追加する", class: "hi-container__wrapper__main__right__secret__content__btn"
+            = f.submit "追加する", class: "hi-container__wrapper__main__right__secret__content__btn", id: "submit-card-info"
