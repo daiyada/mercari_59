@@ -1,7 +1,9 @@
 class CardsController < ApplicationController
   before_action :set_navi, only: [:edit,:show,:new,:create,:destroy]
+  before_action :set_user, only: [:edit,:show,:new,:create,:destroy]
+
   def show
-    card = Card.where(user_id: current_user.id)[0]
+    card = Card.where(user_id: params[:id])[0]
       if card.present?
         Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
         customer = Payjp::Customer.retrieve(card.customer_id)
@@ -44,5 +46,9 @@ class CardsController < ApplicationController
   def set_navi
     navicategory = Category.where(ancestry: nil)
     @navicategory = navicategory.pluck(:name)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
