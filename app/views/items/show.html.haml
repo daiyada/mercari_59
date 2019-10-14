@@ -8,35 +8,18 @@
         .hi-container__content__position__item__detail
           .hi-container__content__position__item__detail__photo
             -# JSで選択した写真を表示させるコマンドを打ち込む必要あり
-            .hi-container__content__position__item__detail__photo__top
-              %img{height: "100%", src: "#{@image.first.image}", class: "top-big-photo"}
-              - if @item.buyer_id != 0 || @item.buyer_id.blank?
+            #image-top.hi-container__content__position__item__detail__photo__top
+              = image_tag "#{@image[0].image}", class: "top-big-photo"
+              - if @item.buyer_id != 0
                 .sold-triangle
                 .sold-triangle-text
                   SOLD
-            .hi-container__content__position__item__detail__photo__bottom
-              .hi-container__content__position__item__detail__photo__bottom__size
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
-              .hi-container__content__position__item__detail__photo__bottom__size
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
-                %li.hi-container__content__position__item__detail__photo__bottom__size__mini
-                  %img{height: "100%", src: "https://www.sponichi.co.jp/entertainment/news/2019/04/23/jpeg/20190423s00041000168000p_view.jpg"}
+            #image-list.hi-container__content__position__item__detail__photo__bottom
+              %ul.hi-container__content__position__item__detail__photo__bottom__size
+                - @image.each do |photo|
+                  %li.hi-container__content__position__item__detail__photo__bottom__size__mini
+                    - if photo.present?
+                      =image_tag "#{photo.image}", class: "bottom-small-photo"
           %table.hi-container__content__position__item__detail__matrix
             %tr
               %th
