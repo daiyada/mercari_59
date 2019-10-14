@@ -13,7 +13,7 @@
             = fa_icon 'search', class: "m-header__inner__up__uright__icon__icon"
       .m-header__inner__low
         %nav.m-header__inner__low__lleft.m-parent1
-          = link_to items_path, class: "m-header__inner__low__lleft__category list-parent" ,target: "_blank" do
+          = link_to items_path, class: "m-header__inner__low__lleft__category list-parent"  do
             %i.m-header__inner__low__lleft__category__icon.pc-header-cat-category-icon
               = fa_icon 'list', class: "m-header__inner__low__lleft__category__icon__icon"
             %span1 &nbsp;カテゴリーから探す
@@ -21,18 +21,18 @@
             .m-category
               %ul.m-parent-wrap
                 %li.m-parent
-                  = link_to items_path, class: "m-parent__link" ,target: "_blank" do
+                  = link_to items_path, class: "m-parent__link"  do
                     =parent_name
                   
                   %ul.m-child-wrap
                     %li.m-child
                     -Category.find_by(name: parent_name).children.each do |child_name|
-                      = link_to items_path, class: "m-child__link m-hover" ,id: "#{child_name.id}",target: "_blank" do
+                      = link_to items_path, class: "m-child__link m-hover" ,id: "#{child_name.id}" do
                         =child_name.name       
                       %ul.m-grand-child-wrap
 
         %nav.m-header__inner__low__lleft.m-parent2
-          = link_to items_path, class: "m-header__inner__low__lleft__category list-parent" ,target: "_blank" do
+          = link_to items_path, class: "m-header__inner__low__lleft__category list-parent"  do
             %i.m-header__inner__low__lleft__category__icon.pc-header-cat-brand-icon
               = fa_icon 'tag', class: "m-header__inner__low__lleft__category__icon__tag"
             %span1  &nbsp;ブランドから探す  
@@ -40,17 +40,17 @@
         - if user_signed_in?
 
           %nav.m-header__inner__low__lright
-            = link_to items_path, class: "m-header__inner__low__lright__menu" ,target: "_blank" do
+            = link_to items_path, class: "m-header__inner__low__lright__menu"  do
               %i.m-header__inner__low__lright__menu__icon.icon-iine
                 = fa_icon 'heart', class: "m-header__inner__low__lright__menu__icon__icon"
               %span1 &nbsp;いいね！一覧
 
-            = link_to items_path, class: "m-header__inner__low__lright__menu" ,target: "_blank" do
+            = link_to items_path, class: "m-header__inner__low__lright__menu"  do
               %i.m-header__inner__low__lright__menu__icon.icon-oshirase
                 = fa_icon 'bell', class: "m-header__inner__low__lright__menu__icon__icon"
               %span1 &nbsp;お知らせ
 
-            = link_to items_path, class: "m-header__inner__low__lright__menu" ,target: "_blank" do
+            = link_to items_path, class: "m-header__inner__low__lright__menu"  do
               %i.m-header__inner__low__lright__menu__icon.icon-yarukoto
                 = fa_icon 'check', class: "m-header__inner__low__lright__menu__icon__icon"
               %span1 &nbsp;やることリスト

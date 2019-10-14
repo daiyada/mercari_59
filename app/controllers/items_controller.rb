@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     # @navicategory = @@navicategory
     params[:keyword].to_i == 0 ? grandchild_id =100 : grandchild_id = params[:keyword].to_i
     @grandchildren = Category.find(grandchild_id).children
+    # @item = Item.find(params[:id])
     respond_to do |format|
       format.html
       format.json
@@ -37,6 +38,8 @@ class ItemsController < ApplicationController
       item.save  
       delivery.save
       redirect_to root_path
+    else
+      redirect_to action: :new 
     end
   end
 
