@@ -60,11 +60,18 @@
               height: 120px;
               &__size{
                 height: 60px;
-                width: 300px;
+                max-width: 300px;
+                overflow: visible;
+                flex-wrap: wrap;
                 @include both_end_located();
                 &__mini{
                   width: 60px;
                   @include middle_located();
+                  .bottom-small-photo{
+                    max-height: 60px;
+                    max-width: 60px;
+                    object-fit: contain;
+                  }
                 }
               }
             }
