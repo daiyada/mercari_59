@@ -1,0 +1,68 @@
+%body
+  %header.m-single-header
+    .m-single-header__logo
+      %a{:href => "https://www.mercari.com/jp/"}
+        %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3466462615"}/
+
+  .m-content
+    .m-content__main
+      .m-content__main__1
+        .m-content__main__1__up
+          アカウントをお持ちでない方はこちら
+        
+        = link_to "新規会員登録", "/users/new", class: "m-content__main__1__low"
+      
+      .m-content__main__2
+        .m-content__main__21
+          .m-content__main__21__logo
+            %i.fab.fa-facebook-square
+          .m-content__main__21__name
+            Facebookでログイン
+
+        .m-content__main__22
+          .m-content__main__22__logo
+            %i.fab.fa-google
+          .m-content__main__22__name
+            Googleでログイン
+      .m-content__main__3
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .m-content__main__3__1
+            = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス", :size => "26*30", :class => 'm-email'
+          
+          .m-content__main__3__1
+            = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", :size => "26*30" ,:class => 'm-email'
+            
+          .m-content__main__3__notrobot
+            
+            = image_tag 'notrobot.png', class: 'm-content__main__3__notrobot__img'
+            .m-content__main__3__notrobot__check
+              = check_box_tag :kazari, class: 'm-content__main__3__notrobot__check'
+
+          .btn-default.btn-red
+            
+            %input.m-login-submit{"data-disable-with" => "Create User", :name => "commit", :type => "submit", :value => "ログイン"}/
+
+        .m-content__main__forgot
+          パスワードをお忘れの方
+
+  
+  %footer.m-footer-login
+    %nav
+      %ul.m-footer__cont
+        .m-footer__cont__up
+          %li
+            %a8{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+          %li
+            %a8{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+          %li
+            %a8{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+        .m-footer__cont__logo
+        
+          %a.m-footer__logo__logo{href: "https://www.mercari.com/jp/"}
+            %img{alt: "mercari", height: "65", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", width: "80"}/
+          %p
+            %small © 2019 Mercari
+
+
+
+
