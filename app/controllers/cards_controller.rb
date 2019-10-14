@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   before_action :set_user, only: [:edit,:show,:new,:create,:destroy]
 
   def show
-    card = Card.where(user_id: params[:id])[0]
+    card = current_user.card
       if card.present?
         Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
         customer = Payjp::Customer.retrieve(card.customer_id)
@@ -24,7 +24,7 @@ class CardsController < ApplicationController
     customer = Payjp::Customer.create(card: params[:payjpToken])
     @card = Card.create(user_id: current_user.id, customer_id: customer.id, card_id: params[:payjpToken])
     if @card.blank?
-      redirect_to action: "edit"
+      redirect_to edit_card_path
     else
       redirect_to card_path(@card)
     end
@@ -49,6 +49,6 @@ class CardsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 end
