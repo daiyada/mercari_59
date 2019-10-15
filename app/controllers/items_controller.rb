@@ -52,31 +52,23 @@ class ItemsController < ApplicationController
       redirect_to action: :new 
     end
   end
+  
   def update
-    # binding.pry
     item = Item.find(params[:id])
     category_id =""
     category_id = params[:grandchild_id] rescue
-    # descript = params[:item][:descript]
-    # name = params[:item][:name]
-    
-    
     price = params[:item][:price]
-  #  binding.pry
     params[:item][:price].to_i >= 300 ? price = params[:item][:price] : price = nil
     validate = [ params[:item][:name] , params[:item][:descript]  , price ,category_id ]
     unless validate.include?("") || validate.include?(nil)
     item.update(params.require(:item).permit(:name, :descript, :condition, :price).merge(category_id: category_id))
-    # item.update(name: params[:item][:pay_for_shipping],descript: params[:item][:descript],condition: params[:item][:condition],price: params[:item][:price])
     delivery = Delivery.where(item_id: params[:id])
-    # delivery.update(pay_for_shipping: params[:delivery][:pay_for_shipping], delivery_from: params[:delivery][:delivery_from] , due_time_day: params[:delivery][:due_time_day])
     delivery.update(params.require(:delivery).permit(:pay_for_shipping, :delivery_from, :due_time_day))
-    redirect_to root_path
+    redirect_to item
     else
-      redirect_to action: :edit
+    redirect_to action: :edit
     end
   end
-
 
   def get_category_children 
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -91,7 +83,6 @@ class ItemsController < ApplicationController
     @image = @item.images
     @delivery = @item.delivery
     @nickname = User.find(@item.seller_id).nickname
-    
   end
 
   def purchase

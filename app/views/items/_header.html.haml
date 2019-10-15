@@ -4,7 +4,7 @@
     .m-header__inner
       .m-header__inner__up
         .m-header__inner__up__uleft
-          = link_to items_path, target: "_blank" do
+          = link_to items_path do
             = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464", size: "134x36",alt:  "mercari"
            
         %form.m-header__inner__up__uright{action: ""}
@@ -55,7 +55,7 @@
                 = fa_icon 'check', class: "m-header__inner__low__lright__menu__icon__icon"
               %span1 &nbsp;やることリスト
 
-            = link_to users_path(@user), class: "m-header__inner__low__lright__menu" ,target: "_blank" do
+            = link_to users_path(@user), class: "m-header__inner__low__lright__menu"  do
               %figure.m-header__inner__low__lright__menu__icon.icon-mypage
                 = image_tag "/member_photo_noimage_thumb.png",class: "m-header__inner__low__lright__menu__icon__image", width: "32"
               %span1 &nbsp;  マイページ

@@ -79,8 +79,6 @@
                     height:100%;
                     position:relative;
                     display:flex;
-                    
-                    
                     }
 
                   &__visible{
@@ -289,6 +287,7 @@
               display: block;
               background: #aaa;
               border: 1px solid #aaa;
+              text-decoration:none;
               color: #fff;
               line-height: 48px;
               font-size: 14px;
@@ -419,29 +418,40 @@ a8{
   color: #333;
   text-decoration:none;
 }
-.m-editbox{
+.m-editbox0{
   position:absolute;
   height:165px;
-  width:150px;
+  width:620px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.m-editbox{
+  height:165px;
   display: flex;
   flex-direction: column;
-  display: -webkit-flex;
+  padding:0 4px;
+  
 }
 .m-editpic{
   height:140px;
+  width: 115px;
   background: #a19e9e;
-  display: -webkit-flex;
   display: flex;
+  flex-direction: column;
+  
 }
 .m-editbtn{
   color: #0099e8;
+  width: 115px;
   text-decoration:none;
   bottom:0;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  
 }
 #set_item_price{
   text-align:right;
+}
+.m-btn-gray{
+  text-decoration:none;
+  color:white;
 }

@@ -1,6 +1,19 @@
 $(document).on('turbolinks:load', function() { 
   if(document.URL.match(/(edit)/)) {
-  
+  //写真が6枚以上の時箱サイズ変更
+    $(function () {
+      var counter = 0;
+      $('.m-editbox').each(function () {
+          counter++;
+      });
+      if (counter >= 6) {
+        //cssサイズ変更
+        $(function() {
+          $('.m-main__container__inner__form__upload__number10__box').height(324);
+        });
+      } 
+  });
+
 //最初のクリックで子孫削除
 var firstclick = 0;
 if (firstclick == 0){

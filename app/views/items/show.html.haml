@@ -136,7 +136,9 @@
       - if @item.seller_id == current_user.id
         .hi-container__content__position__btns
           .hi-container__content__position__btns__edit
-            商品の編集
+            = link_to  edit_item_path , class: "hi-container__content__position__btns__edit"  do
+              商品の編集
+        
           .hi-container__content__position__btns__text
             or
           .hi-container__content__position__btns__stop

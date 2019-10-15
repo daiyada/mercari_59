@@ -22,13 +22,17 @@
                       .m-main__container__inner__form__upload__number10__box__file
                         = f.fields_for :images do |image|
                           -# = image.file_field :image, class: "m-main__container__inner__form__upload__number10__box__file1 pic"
-                        
-                    .m-editbox
-                      -@images.each do |pic|
-                        = image_tag pic.image.url , class: 'm-editpic'
-                        .m-editbtn
-                          %a.sell-upload-edit 編集
-                          %a{:href => "", "pic-id" => ""} 削除
+                    .m-editbox0
+                      -@images.each do |pic|  
+                        .m-editbox
+                          = image_tag pic.image.url , class: 'm-editpic'
+                          .m-editbtn
+                            %a.sell-upload-edit 編集
+                            %a{:href => "", "pic-id" => ""} 削除
+
+                    
+                          
+    
 
                       .m-main__container__inner__form__upload__number10__box__visible__pic1
                        
@@ -225,8 +229,10 @@
                       %a{href: "/jp/seller_terms/"} 加盟店規約
                       に同意したことになります。
                   = button_tag type: "submit", class: "m-main__container__inner__form__last__button" do
-                    出品する
-                  %a.m-main__container__inner__form__last__retract.btn-gray もどる
+                    変更する
+                  .m-main__container__inner__form__last__retract.btn-gray 
+                    = link_to item_path ,class: "m-btn-gray" do
+                      もどる
               .overlay
     %footer.m-footer
       %nav

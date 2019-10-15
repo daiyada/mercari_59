@@ -199,7 +199,9 @@
                       に同意したことになります。
                   = button_tag type: "submit", class: "m-main__container__inner__form__last__button" do
                     出品する
-                  %a.m-main__container__inner__form__last__retract.btn-gray もどる
+                  .m-main__container__inner__form__last__retract.btn-gray 
+                    = link_to root_path ,class: "m-btn-gray" do
+                      もどる
               .overlay
     %footer.m-footer
       %nav
