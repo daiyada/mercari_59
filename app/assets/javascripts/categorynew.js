@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() { 
+  if(document.URL.match(/(new)/)) {
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
@@ -100,4 +101,5 @@ $(function(){
     }
   });
 });
+  }
 });

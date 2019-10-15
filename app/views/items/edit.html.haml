@@ -1,0 +1,246 @@
+%body
+  .m-single
+    %header.m-single__header
+      %h1
+        %a{href: "https://www.mercari.com/jp/"}
+          %img.m-single__header__img{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464"}/
+    %main.m-main
+      %section.m-main__container.buy-item-container
+        #sell-container
+          = form_for @item do |f|    
+            .m-main__container__inner
+              %h2.m-main__container__inner__head 商品の情報を入力
+              %form.m-main__container__inner__form
+                .m-main__container__inner__form__upload
+                  %h3.m-main__container__inner__form__upload__head
+                    出品画像
+                    %span.form-require 必須
+                  %p 最大10枚までアップロードできます
+                  .m-main__container__inner__form__upload__number10
+                    
+                    .m-main__container__inner__form__upload__number10__box.have-item-0
+                      .m-main__container__inner__form__upload__number10__box__file
+                        = f.fields_for :images do |image|
+                          -# = image.file_field :image, class: "m-main__container__inner__form__upload__number10__box__file1 pic"
+                        
+                    .m-editbox
+                      -@images.each do |pic|
+                        = image_tag pic.image.url , class: 'm-editpic'
+                        .m-editbtn
+                          %a.sell-upload-edit 編集
+                          %a{:href => "", "pic-id" => ""} 削除
+
+                      .m-main__container__inner__form__upload__number10__box__visible__pic1
+                       
+
+                .m-main__container__inner__form__sell
+                  .m-main__container__inner__form__sell__up
+                    %label
+                      商品名
+                      %span.form-require 必須
+                    %div
+                      %input.input-default{name: "item[name]", placeholder: "商品名（必須 40文字まで)",value: "#{@item.name}", :type => "stling"}/
+        
+                  .m-main__container__inner__form__sell__low
+                    %label
+                      商品の説明
+                      %span.form-require 必須
+                    %textarea.m-main__container__inner__form__sell__low__textarea{name: "item[descript]",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+                      =@item.descript
+                .m-main__container__inner__form__descript.clearfix 
+                  %h3.m-main__container__inner__form__descript__head 商品の詳細
+                  .m-main__container__inner__form__descript__box
+                    .m-main__container__inner__form__descript__box__up
+                      %label
+                        カテゴリー
+                        %span.form-require 必須
+                      %div.m-select-wrap
+                        #parent_wrapper.select-wrap
+                          %i.fas.fa-chevron-down.m-arrow
+                          %select#parent_category.m-select-default{:name => "item[category_id]"}
+                            %option{:value => "#{@grandchild.parent.parent.name}"} #{@grandchild.parent.parent.name}
+                            %option{:value => "レディース"} レディース
+                            %option{:value => "メンズ"} メンズ
+                            %option{:value => "ベビー・キッズ"} ベビー・キッズ
+                            %option{:value => "インテリア・住まい・小物"} インテリア・住まい・小物
+                            %option{:value => "本・音楽・ゲーム"} 本・音楽・ゲーム
+                            %option{:value => "おもちゃ・ホビー・グッズ"} おもちゃ・ホビー・グッズ
+                            %option{:value => "コスメ・香水・美容"} コスメ・香水・美容
+                            %option{:value => "家電・スマホ・カメラ"} 家電・スマホ・カメラ
+                            %option{:value => "スポーツ・レジャー"} スポーツ・レジャー
+                            %option{:value => "ハンドメイド"} ハンドメイド
+                            %option{:value => "チケット"} チケット
+                            %option{:value => "自動車・オートバイ"} 自動車・オートバイ
+                            %option{:value => "その他"} その他
+
+                      
+                        #children_wrapper.select-wrap
+                          %i.fas.fa-chevron-down.m-arrow
+                          %select#child_category.m-select-default{:name => "child_id"}
+                            %option{"data-category" => "#{@grandchild.parent.id}", :value => "#{@grandchild.parent.id}"} #{@grandchild.parent.name}
+  
+                        #grandchildren_wrapper.select-wrap
+                          %i.fas.fa-chevron-down.m-arrow
+                          %select#grandchild_category.m-select-default{:name => "grandchild_id"}
+                            %option{"data-category" => "#{@grandchild.id}", :value => "#{@grandchild.id}"} #{@grandchild.name}
+                    
+                    #size_wrapper.select-wrap
+
+                    #brand_wrapper.form-suggest-container.select-wrap
+
+                    .m-main__container__inner__form__descript__box__low
+                      %label
+                        商品の状態
+                        %span.form-require 必須
+                      .select-wrap
+                        %i.fas.fa-chevron-down.m-arrow
+                        
+                        %select.m-select-default{name: "item[condition]",:type => "string" }
+                          -# %option{:selected => "selected", :value => "#{@item.condition}"} #{@item.condition}
+                          %option{value: "#{@item.condition}"} #{@item.condition}
+                          %option{value: "新品、未使用"} 新品、未使用
+                          %option{value: "未使用に近い"} 未使用に近い
+                          %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
+                          %option{value: "やや傷や汚れあり"} やや傷や汚れあり
+                          %option{value: "傷や汚れあり"} 傷や汚れあり
+                          %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
+                .m-main__container__inner__form__ship.clearfix
+                  %h3.m-main__container__inner__form__ship__head 配送について
+                  %a.form-question{href: "/jp/help_center/article/68/", target: "_blank"} ?
+                  .m-main__container__inner__form__ship__box
+                    .m-main__container__inner__form__ship__box__up
+                      %label
+                        配送料の負担
+                        %span.form-require 必須
+                      .select-wrap
+                        %i.fas.fa-chevron-down.m-arrow
+                        %select.m-select-default{name: "delivery[pay_for_shipping]",:type => "string"}
+                          %option{value: "#{@delivery.pay_for_shipping}"} #{@delivery.pay_for_shipping}
+                          %option{value: "送料込み(出品者負担)"} 送料込み(出品者負担)
+                          %option{value: "着払い(購入者負担)"} 着払い(購入者負担)
+                    .m-main__container__inner__form__ship__box__mid
+                      %label
+                        発送元の地域
+                        %span.form-require 必須
+                      .select-wrap
+                        %i.fas.fa-chevron-down.m-arrow
+                        %select.m-select-default{name: "delivery[delivery_from]",:type => "string"}
+                          %option{value: "#{@delivery.delivery_from}"} #{@delivery.delivery_from}
+                          %option{value: "北海道"} 北海道
+                          %option{value: "青森県"} 青森県
+                          %option{value: "岩手県"} 岩手県
+                          %option{value: "宮城県"} 宮城県
+                          %option{value: "秋田県"} 秋田県
+                          %option{value: "山形県"} 山形県
+                          %option{value: "福島県"} 福島県
+                          %option{value: "茨城県"} 茨城県
+                          %option{value: "栃木県"} 栃木県
+                          %option{value: "群馬県"} 群馬県
+                          %option{value: "埼玉県"} 埼玉県
+                          %option{value: "千葉県"} 千葉県
+                          %option{value: "東京都"} 東京都
+                          %option{value: "神奈川県"} 神奈川県
+                          %option{value: "新潟県"} 新潟県
+                          %option{value: "富山県"} 富山県
+                          %option{value: "石川県"} 石川県
+                          %option{value: "福井県"} 福井県
+                          %option{value: "山梨県"} 山梨県
+                          %option{value: "長野県"} 長野県
+                          %option{value: "岐阜県"} 岐阜県
+                          %option{value: "静岡県"} 静岡県
+                          %option{value: "愛知県"} 愛知県
+                          %option{value: "三重県"} 三重県
+                          %option{value: "滋賀県"} 滋賀県
+                          %option{value: "京都府"} 京都府
+                          %option{value: "大阪府"} 大阪府
+                          %option{value: "兵庫県"} 兵庫県
+                          %option{value: "奈良県"} 奈良県
+                          %option{value: "和歌山県"} 和歌山県
+                          %option{value: "鳥取県"} 鳥取県
+                          %option{value: "島根県"} 島根県
+                          %option{value: "岡山県"} 岡山県
+                          %option{value: "広島県"} 広島県
+                          %option{value: "山口県"} 山口県
+                          %option{value: "徳島県"} 徳島県
+                          %option{value: "香川県"} 香川県
+                          %option{value: "愛媛県"} 愛媛県
+                          %option{value: "高知県"} 高知県
+                          %option{value: "福岡県"} 福岡県
+                          %option{value: "佐賀県"} 佐賀県
+                          %option{value: "長崎県"} 長崎県
+                          %option{value: "熊本県"} 熊本県
+                          %option{value: "大分県"} 大分県
+                          %option{value: "宮崎県"} 宮崎県
+                          %option{value: "鹿児島県"} 鹿児島県
+                          %option{value: "沖縄県"} 沖縄県
+                          %option{value: "未定"} 未定
+                  
+                    .m-main__container__inner__form__ship__box__low
+                      %label
+                        発送までの日数
+                        %span.form-require 必須
+                      .select-wrap
+                        %i.fas.fa-chevron-down.m-arrow
+                        %select.m-select-default{name: "delivery[due_time_day]",:type => "string"}
+                          %option{value: "#{@delivery.due_time_day}"} #{@delivery.due_time_day}
+                          %option{value: "1~2日で発送"} 1~2日で発送
+                          %option{value: "2~3日で発送"} 2~3日で発送
+                          %option{value: "4~7日で発送"} 4~7日で発送
+                .m-main__container__inner__form__price.clearfix
+                  %h3.m-main__container__inner__form__price__head 販売価格(300〜9,999,999)
+                  %a.form-question{href: "/jp/help_center/article/64/", target: "_blank"} ?
+                  .m-main__container__inner__form__price__box
+                    %ul.m-main__container__inner__form__price__box__price
+                      %li.m-main__container__inner__form__price__box__price__up
+                        .m-main__container__inner__form__price__box__price__up__cnt
+                          %label.m-main__container__inner__form__price__box__price__up__cnt__uleft
+                            価格
+                            %span.form-require 必須
+                          .m-main__container__inner__form__price__box__price__up__cnt__uright.sell-price-input
+                            ¥ &thinsp; 
+                            %div
+                              %input#set_item_price.input-default{name: "item[price]", placeholder:  "            例）300", value: "#{@item.price}",:type => "integer"}/
+                              
+                      %li.m-main__container__inner__form__price__box__price__calc
+                        .m-main__container__inner__form__price__box__price__calc__left
+                          販売手数料 (10%)
+                        .m-main__container__inner__form__price__box__price__calc__right -
+                      %li.m-main__container__inner__form__price__box__price__benefit.bold
+                        .m-main__container__inner__form__price__box__price__benefit__left 販売利益
+                        .m-main__container__inner__form__price__box__price__benefit__right -
+  
+                .m-main__container__inner__form__last.sell-btn-box
+                  %div
+                    %p
+                      %a{href: "/jp/help_center/getting_started/prohibited_items/", target: "_blank"} 禁止されている出品
+                      、
+                      %a{href: "/jp/help_center/getting_started/prohibited_conduct/", target: "_blank"} 行為
+                      を必ずご確認ください。
+                    %p
+                      またブランド品でシリアルナンバー等がある場合はご記載ください。
+                      %a{href: "/jp/help_center/getting_started/counterfeit_goods/", target: "_blank"} 偽ブランドの販売
+                      は犯罪であり処罰される可能性があります。
+                    %p
+                      また、出品をもちまして
+                      %a{href: "/jp/seller_terms/"} 加盟店規約
+                      に同意したことになります。
+                  = button_tag type: "submit", class: "m-main__container__inner__form__last__button" do
+                    出品する
+                  %a.m-main__container__inner__form__last__retract.btn-gray もどる
+              .overlay
+    %footer.m-footer
+      %nav
+        %ul.m-footer__cont
+          .m-footer__cont__up
+            %li
+              %a8{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+            %li
+              %a8{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+            %li
+              %a8{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+          .m-footer__cont__logo
+          
+            %a.m-footer__logo__logo{href: "https://www.mercari.com/jp/"}
+              %img{alt: "mercari", height: "65", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", width: "80"}/
+            %p
+              %small © 2019 Mercari
