@@ -21,14 +21,21 @@
                     .m-main__container__inner__form__upload__number10__box.have-item-0
                       .m-main__container__inner__form__upload__number10__box__file
                         = f.fields_for :images do |image|
-                          = image.file_field :image, class: "m-main__container__inner__form__upload__number10__box__file1 pic"
-                        
-                    .m-main__container__inner__form__upload__number10__box__visible 
-                      
+                          -# = image.file_field :image, class: "m-main__container__inner__form__upload__number10__box__file1 pic"
+                    .m-editbox0
+                      -@images.each do |pic|  
+                        .m-editbox
+                          = image_tag pic.image.url , class: 'm-editpic'
+                          .m-editbtn
+                            %a.sell-upload-edit 編集
+                            %a{:href => "", "pic-id" => ""} 削除
+
+                    
+                          
+    
+
                       .m-main__container__inner__form__upload__number10__box__visible__pic1
-                        ドラッグアンドドロップ 
-                        %br/
-                        またはクリックしてファイルをアップロード
+                       
 
                 .m-main__container__inner__form__sell
                   .m-main__container__inner__form__sell__up
@@ -36,14 +43,14 @@
                       商品名
                       %span.form-require 必須
                     %div
-                      %input.input-default{name: "item[name]", placeholder: "商品名（必須 40文字まで)", :type => "stling"}/
+                      %input.input-default{name: "item[name]", placeholder: "商品名（必須 40文字まで)",value: "#{@item.name}", :type => "stling"}/
         
                   .m-main__container__inner__form__sell__low
                     %label
                       商品の説明
                       %span.form-require 必須
                     %textarea.m-main__container__inner__form__sell__low__textarea{name: "item[descript]",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
-  
+                      =@item.descript
                 .m-main__container__inner__form__descript.clearfix 
                   %h3.m-main__container__inner__form__descript__head 商品の詳細
                   .m-main__container__inner__form__descript__box
@@ -51,13 +58,35 @@
                       %label
                         カテゴリー
                         %span.form-require 必須
-                      %div
-                        .select-wrap
+                      %div.m-select-wrap
+                        #parent_wrapper.select-wrap
                           %i.fas.fa-chevron-down.m-arrow
-                          = f.select :category_id, @category_parent_array, {}, {class: 'm-select-default', id: 'parent_category'}
-                        #children_wrapper.select-wrap
+                          %select#parent_category.m-select-default{:name => "item[category_id]"}
+                            %option{:value => "#{@grandchild.parent.parent.name}"} #{@grandchild.parent.parent.name}
+                            %option{:value => "レディース"} レディース
+                            %option{:value => "メンズ"} メンズ
+                            %option{:value => "ベビー・キッズ"} ベビー・キッズ
+                            %option{:value => "インテリア・住まい・小物"} インテリア・住まい・小物
+                            %option{:value => "本・音楽・ゲーム"} 本・音楽・ゲーム
+                            %option{:value => "おもちゃ・ホビー・グッズ"} おもちゃ・ホビー・グッズ
+                            %option{:value => "コスメ・香水・美容"} コスメ・香水・美容
+                            %option{:value => "家電・スマホ・カメラ"} 家電・スマホ・カメラ
+                            %option{:value => "スポーツ・レジャー"} スポーツ・レジャー
+                            %option{:value => "ハンドメイド"} ハンドメイド
+                            %option{:value => "チケット"} チケット
+                            %option{:value => "自動車・オートバイ"} 自動車・オートバイ
+                            %option{:value => "その他"} その他
 
+                      
+                        #children_wrapper.select-wrap
+                          %i.fas.fa-chevron-down.m-arrow
+                          %select#child_category.m-select-default{:name => "child_id"}
+                            %option{"data-category" => "#{@grandchild.parent.id}", :value => "#{@grandchild.parent.id}"} #{@grandchild.parent.name}
+  
                         #grandchildren_wrapper.select-wrap
+                          %i.fas.fa-chevron-down.m-arrow
+                          %select#grandchild_category.m-select-default{:name => "grandchild_id"}
+                            %option{"data-category" => "#{@grandchild.id}", :value => "#{@grandchild.id}"} #{@grandchild.name}
                     
                     #size_wrapper.select-wrap
 
@@ -69,8 +98,10 @@
                         %span.form-require 必須
                       .select-wrap
                         %i.fas.fa-chevron-down.m-arrow
-                        %select.m-select-default{name: "item[condition]",:type => "string"}
-                          %option{value: ""} ---
+                        
+                        %select.m-select-default{name: "item[condition]",:type => "string" }
+                          -# %option{:selected => "selected", :value => "#{@item.condition}"} #{@item.condition}
+                          %option{value: "#{@item.condition}"} #{@item.condition}
                           %option{value: "新品、未使用"} 新品、未使用
                           %option{value: "未使用に近い"} 未使用に近い
                           %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
@@ -88,7 +119,7 @@
                       .select-wrap
                         %i.fas.fa-chevron-down.m-arrow
                         %select.m-select-default{name: "delivery[pay_for_shipping]",:type => "string"}
-                          %option{value: ""} ---
+                          %option{value: "#{@delivery.pay_for_shipping}"} #{@delivery.pay_for_shipping}
                           %option{value: "送料込み(出品者負担)"} 送料込み(出品者負担)
                           %option{value: "着払い(購入者負担)"} 着払い(購入者負担)
                     .m-main__container__inner__form__ship__box__mid
@@ -98,7 +129,7 @@
                       .select-wrap
                         %i.fas.fa-chevron-down.m-arrow
                         %select.m-select-default{name: "delivery[delivery_from]",:type => "string"}
-                          %option{value: ""} ---
+                          %option{value: "#{@delivery.delivery_from}"} #{@delivery.delivery_from}
                           %option{value: "北海道"} 北海道
                           %option{value: "青森県"} 青森県
                           %option{value: "岩手県"} 岩手県
@@ -155,7 +186,7 @@
                       .select-wrap
                         %i.fas.fa-chevron-down.m-arrow
                         %select.m-select-default{name: "delivery[due_time_day]",:type => "string"}
-                          %option{value: ""} ---
+                          %option{value: "#{@delivery.due_time_day}"} #{@delivery.due_time_day}
                           %option{value: "1~2日で発送"} 1~2日で発送
                           %option{value: "2~3日で発送"} 2~3日で発送
                           %option{value: "4~7日で発送"} 4~7日で発送
@@ -172,7 +203,7 @@
                           .m-main__container__inner__form__price__box__price__up__cnt__uright.sell-price-input
                             ¥ &thinsp; 
                             %div
-                              %input#set_item_price.input-default{name: "item[price]", placeholder:  "            例）300", value: "",:type => "integer"}/
+                              %input#set_item_price.input-default{name: "item[price]", placeholder:  "            例）300", value: "#{@item.price}",:type => "integer"}/
                               
                       %li.m-main__container__inner__form__price__box__price__calc
                         .m-main__container__inner__form__price__box__price__calc__left
@@ -198,9 +229,9 @@
                       %a{href: "/jp/seller_terms/"} 加盟店規約
                       に同意したことになります。
                   = button_tag type: "submit", class: "m-main__container__inner__form__last__button" do
-                    出品する
+                    変更する
                   .m-main__container__inner__form__last__retract.btn-gray 
-                    = link_to root_path ,class: "m-btn-gray" do
+                    = link_to item_path ,class: "m-btn-gray" do
                       もどる
               .overlay
     %footer.m-footer
