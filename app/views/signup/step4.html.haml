@@ -9,12 +9,12 @@
         .hi_header__right__top__phone-number
           電話番号認証
         .hi_header__right__top__address
-          お届け先住所入力
+          住所入力
         .hi_header__right__top__cardinfo
           支払い方法
         .hi_header__right__top__finish
           完了
-      %canvas#draw-area.hi_header__right__bottom
+      %canvas#step4.hi_header__right__bottom{width: "478.22px", height: "78px"}
       
   .iz2_container
     .iz2_container__header
@@ -89,7 +89,7 @@
             .hi-container__wrapper__main__right__secret__content__deadline__caution
               =fa_icon "question-circle"
               カード裏面の番号とは？
-          = f.submit "追加する", class: "hi-container__wrapper__main__right__secret__content__btn", id: "submit-card-info"
+          = f.submit "次に進む", class: "hi-container__wrapper__main__right__secret__content__btn", id: "submit-card-info"
   .hi_wrapper__foot
     .hi_wrapper__foot__rule
       %p.hi_wrapper__foot__rule__left
