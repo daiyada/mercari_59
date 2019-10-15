@@ -63,8 +63,8 @@
         発送元・お届け先住所変更
         = fa_icon "chevron-right"
       %li.hi-left-side-bar__mypage-nav__list
-        - if @id.present?
-          = link_to :"支払い方法", card_path(@id), method: :get, class: "hi-left-side-bar__mypage-nav__list__element"
+        - if current_user.card.present?
+          = link_to :"支払い方法", card_path(@user), method: :get, class: "hi-left-side-bar__mypage-nav__list__element"
         - else
           = link_to :"支払い方法", new_card_path, class: "hi-left-side-bar__mypage-nav__list__element"
         = fa_icon "chevron-right"

@@ -1,10 +1,10 @@
 $(document).on("turbolinks:load", function(){
-  var form = $(".hi-container__wrapper__main__right__secret");
+  var form = $("#card-info-form");
   Payjp.setPublicKey("pk_test_8147a23f6956eb62dc7e25ff");
 
-  $(".hi-container__wrapper__main__right__secret").on("click", ".hi-container__wrapper__main__right__secret__content__btn", function(e){
+  $("#card-info-form").on("click", "#submit-card-info", function(e){
     e.preventDefault();
-    form.find(".hi-container__wrapper__main__right__secret__content__btn").prop("disabled", true);
+    form.find("#submit-card-info").prop("disabled", true);
 
     var card = {
         number: $("#card_num").val(),
@@ -19,6 +19,7 @@ $(document).on("turbolinks:load", function(){
         $("#exp_month").removeAttr("name");
         $("#exp_year").removeAttr("name");
         var token = response.id
+        console.log("通過");
 
         form.append($('<input type="hidden" name="payjpToken">').val(token));
         form.get(0).submit();
