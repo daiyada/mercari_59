@@ -22,19 +22,19 @@
     .iz2_container__registration
       = form_for @user, url: step2_signup_index_path, method: :get do |f|
         .iz2_container__registration__form-group
-          %label ニックネーム
+          %labeliz ニックネーム
           %span.iz2_container__registration__form-group--require 必須
           = f.text_field :nickname, class: "iz2_container__registration__form-group--input-default", placeholder: "例) メルカリ太郎"
           = render partial: 'user-error-messages', locals: {user: @user, column: "nickname"}
 
         .iz2_container__registration__form-group
-          %label メールアドレス
+          %labeliz メールアドレス
           %span.iz2_container__registration__form-group--require 必須
           = f.text_field :email, class: "iz2_container__registration__form-group--input-default", placeholder: "PC・携帯どちらでも可"
           = render partial: 'user-error-messages', locals: {user: @user, column: "email"}
 
         .iz2_container__registration__form-group
-          %label パスワード
+          %labeliz パスワード
           %span.iz2_container__registration__form-group--require 必須
           = f.password_field :password, class: "iz2_container__registration__form-group--input-default", placeholder: "7文字以上"
           = render partial: 'user-error-messages', locals: {user: @user, column: "password"}
@@ -46,23 +46,28 @@
             安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
 
         .iz2_container__registration__form-group
-          %label お名前(全角)
+          %labeliz お名前(全角)
           %span.iz2_container__registration__form-group--require 必須
-          = f.text_field :name_family, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 山田"
-          = render partial: 'user-error-messages', locals: {user: @user, column: "name_family"}
-          = f.text_field :name_first, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 彩"
-          = render partial: 'user-error-messages', locals: {user: @user, column: "name_first"}
+          .iz2_container__registration__form-group2
+            = f.text_field :name_family, class: "iz2_container__registration__form-group--input-default2", placeholder: "例) 山田"
+            = render partial: 'user-error-messages', locals: {user: @user, column: "name_family"}
+            = f.text_field :name_first, class: "iz2_container__registration__form-group--input-default2", placeholder: "例) 彩"
+            = render partial: 'user-error-messages', locals: {user: @user, column: "name_first"}
 
         .iz2_container__registration__form-group
-          %label お名前カナ(全角)
+          %labeliz お名前カナ(全角)
           %span.iz2_container__registration__form-group--require 必須
-          = f.text_field :name_family_kana, class: "iz2_container__registration__form-group--input-default", placeholder: "例) ヤマダ"
-          = render partial: 'user-error-messages', locals: {user: @user, column: "name_family_kana"}
-          = f.text_field :name_first_kana, class: "iz2_container__registration__form-group--input-default", placeholder: "例) アヤ"
-          = render partial: 'user-error-messages', locals: {user: @user, column: "name_first_kana"}
+          .iz2_container__registration__form-group2
+            = f.text_field :name_family_kana, class: "iz2_container__registration__form-group--input-default2", placeholder: "例) ヤマダ"
+            = render partial: 'user-error-messages', locals: {user: @user, column: "name_family_kana"}
+            = f.text_field :name_first_kana, class: "iz2_container__registration__form-group--input-default2", placeholder: "例) アヤ"
+            = render partial: 'user-error-messages', locals: {user: @user, column: "name_first_kana"}
 
         .iz2_container__registration__form-group__bottom_info
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        = image_tag 'notrobot.png', class: 'iz2_container__registration__form-group__bottom-norobot'
+        .iz2_container__registration__form-group__bottom-check
+          = check_box_tag :kazari, class: 'iz2_container__registration__form-group__bottom-check'
 
         .iz2_container__next_button
           %input{:name => "after_save_callback", :type => "hidden", :value => ""}
