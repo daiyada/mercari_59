@@ -1,47 +1,104 @@
 .iz2_wrapper
-  .iz2_header
-    .iz2_header__progress-bar
-      .iz2_header__progress-bar__logo{:href=>"https://www.mercari.com/jp/"}
-        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"
-      .iz2_header__progress-bar__active
-        会員情報
-        %br
-        ●
-      .iz2_header__progress-bar__phone-certification
-        電話番号認証
-        %br
-        ●
-      .iz2_header__progress-bar__address
-        お届け先住所入力
-        %br
-        ●
-      .iz2_header__progress-bar__pay
-        支払い方法
-        %br
-        ●
-      .iz2_header__progress-bar__finish
-        完了
-        %br
-        ●
-
+  .hi_header
+    .hi_header__progress-bar
+      = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"), "https://www.mercari.com/jp/", class: "hi_header__progress-bar__logo"
+    .hi_header__right
+      .hi_header__right__top
+        .hi_header__right__top__regiinfo
+          会員情報
+        .hi_header__right__top__phone-number
+          電話番号認証
+        .hi_header__right__top__address
+          住所入力
+        .hi_header__right__top__cardinfo
+          支払い方法
+        .hi_header__right__top__finish
+          完了
+      %canvas#step4.hi_header__right__bottom{width: "478.22px", height: "78px"}
+      
   .iz2_container
     .iz2_container__header
-      会員情報入力
+      支払い方法
     .iz2_container__registration
-      = form_for @user, url: signup_index_path, method: :post do |f|
-        .iz2_container__registration__form-group
-          %label クレジットカード
-          %span.iz2_container__registration__form-group--require 必須
-          -# = f.text_field :nickname, class: "iz2_container__registration__form-group--input-default", placeholder: "例) メルカリ太郎"
-
-        .iz2_container__next_button
-          %input{:name => "after_save_callback", :type => "hidden", :value => ""}
-          .iz2_container__next_button__form-group
-            .iz2_g-recaptcha.iz2_signup-recaptcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
-          .iz2_container__next_button__form-group
-            %p.iz2_container__next_button__form-group--text
-              「次へ進む」のボタンを押すことにより、
-              = link_to  "利用規約", "https://www.mercari.com/jp/tos_list/"
-              に同意したものとみなします
-        = f.submit 'Send', class: 'iz2_container__next_button--button'
-  = render partial: 'footer'
+      = form_with url: cards_path, method: :post, class: "hi-container__wrapper__main__right__secret", id: "card-info-form" do |f|
+        .hi-container__wrapper__main__right__secret__content
+          .hi-container__wrapper__main__right__secret__content__cardinfo
+            .hi-container__wrapper__main__right__secret__content__title
+              .hi-container__wrapper__main__right__secret__content__title__text
+                カード番号
+              .hi-container__wrapper__main__right__secret__content__title__required
+                必須
+            = f.text_field :card_num, class: "hi-container__wrapper__main__right__secret__content__textarea", id: "card_num", placeholder: "半角数字のみ", maxlength: "16",type: "text"
+            .hi-container__wrapper__main__right__secret__content__cardlist
+              %img{class: "visa", src: "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2561606804"}
+              %img{class: "mastercard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2561606804"}
+              %img{class: "saisoncard", src: "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2561606804"}
+              %img{class: "jcb", src: "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2561606804"}
+              %img{class: "americanexpress", src: "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2561606804"}
+              %img{class: "dinersclub", src: "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2561606804"}
+              %img{class: "discover", src: "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2561606804"}
+          .hi-container__wrapper__main__right__secret__content__deadline
+            .hi-container__wrapper__main__right__secret__content__deadline__title
+              .hi-container__wrapper__main__right__secret__content__deadline__title__text
+                有効期限
+              .hi-container__wrapper__main__right__secret__content__deadline__title__required
+                必須
+            .hi-container__wrapper__main__right__secret__content__deadline__date
+              .hi-container__wrapper__main__right__secret__content__deadline__date__element
+                .hi-container__wrapper__main__right__secret__content__deadline__date__element__select
+                  = f.select :exp_month, {maxlength: "2", id: "exp_month", type: "text"}, {}, {class: "hi-container__wrapper__main__right__secret__content__deadline__date__element__select__num"} do
+                    %option 01
+                    %option 02
+                    %option 03
+                    %option 04
+                    %option 05
+                    %option 06
+                    %option 07
+                    %option 08
+                    %option 09
+                    %option 10
+                    %option 11
+                    %option 12
+                  = fa_icon "chevron-down"
+                .hi-container__wrapper__main__right__secret__content__deadline__date__element__unit
+                  月
+              .hi-container__wrapper__main__right__secret__content__deadline__date__element
+                .hi-container__wrapper__main__right__secret__content__deadline__date__element__select
+                  = f.select :exp_year,{maxlength: "2", id: "exp_year", type: "text"}, {}, class: "hi-container__wrapper__main__right__secret__content__deadline__date__element__select__num" do
+                    %option{value: "2019"} 19
+                    %option{value: "2020"} 20
+                    %option{value: "2021"} 21
+                    %option{value: "2022"} 22
+                    %option{value: "2023"} 23
+                    %option{value: "2024"} 24
+                    %option{value: "2025"} 25
+                    %option{value: "2026"} 26
+                    %option{value: "2027"} 27
+                    %option{value: "2028"} 28
+                    %option{value: "2029"} 29
+                  = fa_icon "chevron-down"
+                .hi-container__wrapper__main__right__secret__content__deadline__date__element__unit
+                  年
+          .hi-container__wrapper__main__right__secret__content__deadline
+            .hi-container__wrapper__main__right__secret__content__deadline__title
+              .hi-container__wrapper__main__right__secret__content__deadline__title__text
+                セキュリティーコード
+              .hi-container__wrapper__main__right__secret__content__deadline__title__required
+                必須
+            = f.text_field :cvc, class: "hi-container__wrapper__main__right__secret__content__textarea", id: "cvc", maxlength: "3", placeholder: "カード背面4桁もしくは3桁の番号"
+            .hi-container__wrapper__main__right__secret__content__deadline__caution
+              =fa_icon "question-circle"
+              カード裏面の番号とは？
+          = f.submit "次に進む", class: "hi-container__wrapper__main__right__secret__content__btn", id: "submit-card-info"
+  .hi_wrapper__foot
+    .hi_wrapper__foot__rule
+      %p.hi_wrapper__foot__rule__left
+        プライバシーポリシー
+      %p.hi_wrapper__foot__rule__center
+        メルカリ利用規約
+      %p.hi_wrapper__foot__rule__right
+        特定商取引に関する表記
+    .hi_wrapper__foot__mark
+      %img{class: "hi_wrapper__foot__mark__img", src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2687693852"}
+    .hi_wrapper__foot__mercari
+      ©︎2019 Mercari
