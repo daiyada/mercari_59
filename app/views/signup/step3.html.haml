@@ -44,12 +44,12 @@
             = render partial: 'address-error-messages', locals: {user: @user, column: "address"}
           .iz2_container__registration__form-group
             %label 建物名
-            %span.iz2_container__registration__form-group--require 任意
+            %span.iz2_container__registration__form-group--require1 任意
             = g.text_field :building, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 柳ビル103"
             = render partial: 'address-error-messages', locals: {user: @user, column: "building"}
           .iz2_container__registration__form-group
             %label 電話
-            %span.iz2_container__registration__form-group--require 任意
+            %span.iz2_container__registration__form-group--require1 任意
             = g.text_field :phone_number, class: "iz2_container__registration__form-group--input-default", placeholder: "例) 090-1234-5678"
             = render partial: 'address-error-messages', locals: {user: @user, column: "phone_number"}
         .iz2_container__next_button
@@ -61,5 +61,5 @@
               「次へ進む」のボタンを押すことにより、
               = link_to  "利用規約", "https://www.mercari.com/jp/tos_list/"
               に同意したものとみなします
-        = f.submit 'Send', class: 'iz2_container__next_button--button'
+        = f.submit '次へ進む', class: 'iz2_container__next_button--button'
   = render partial: 'footer'
