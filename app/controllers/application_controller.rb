@@ -16,5 +16,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:address])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:building])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number])
+
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:customer_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:card_id])
   end
 end
