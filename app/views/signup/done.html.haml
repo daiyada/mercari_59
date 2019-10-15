@@ -1,0 +1,30 @@
+.iz2_wrapper
+  .hi_header
+    .hi_header__progress-bar
+      = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"), root_path, class: "hi_header__progress-bar__logo"
+    .hi_header__right
+      .hi_header__right__top
+        .hi_header__right__top__regiinfo5
+          会員情報
+        .hi_header__right__top__phone-number5
+          電話番号認証
+        .hi_header__right__top__address5
+          住所入力
+        .hi_header__right__top__cardinfo5
+          支払い方法
+        .hi_header__right__top__finish5
+          完了
+      %canvas#done.hi_header__right__bottom{width: "478.22px", height: "78px"}
+      
+  .hi2_container
+    .hi2_container__header
+      会員登録完了
+    .hi2_container__content
+      .hi2_container__content__message
+        ありがとうございます。
+        %br
+        会員登録が完了しました。
+      .hi2_container__content__btn
+        = link_to "メルカリをはじめる", root_path, class: "hi2_container__content__btn__text"
+.hi2_bottom
+= render 'items/footer'
