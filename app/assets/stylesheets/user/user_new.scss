@@ -94,12 +94,13 @@
             @include both_end_located();
             &__button{
               height: 50px;
-              width: 50px;
             }
             &__message{
               height: 50px;
               width: 100%;
               color: #fff;
+              text-decoration:none;
+              margin-right:20px;
               // border: solid blue;
             }
           }
@@ -118,12 +119,12 @@
             @include both_end_located();
             &__button{
               height: 50px;
-              width: 50px;
             }
             &__message{
               height: 50px;
               width: 100%;
               color: #fff;
+              margin-right:40px;
               // border: solid blue;
             }
           }
@@ -142,12 +143,12 @@
             @include both_end_located();
             &__button{
               height: 50px;
-              width: 50px;
             }
             &__message{
               height: 50px;
               width: 100%;
-              color: black;
+              color: #333;
+              margin-right:40px;
               // border: solid blue;
             }
           }
@@ -169,4 +170,22 @@
       margin:  auto;
     }
   }
+}
+im{
+  font-size:20px;
+  color:white;
+  margin-top:15px;
+  margin-left:18px;
+}
+if{
+  font-size:30px;
+  color:white;
+  margin-top:10px;
+  margin-left:15px;
+}
+ig{
+  font-size:25px;
+  color:rgb(230, 230, 67);
+  margin-top:12px;
+  margin-left:15px;
 }

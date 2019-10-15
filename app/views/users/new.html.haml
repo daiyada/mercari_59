@@ -19,21 +19,21 @@
             -# 6
             .iz_registration-list__mailaddress__button
               -# 7
-              = fa_icon "envelope"
+              %im.far.fa-envelope
             .iz_registration-list__mailaddress__message{:href => "https://www.mercari.com/jp/signup/registration/"}
-              = link_to "メールアドレスで登録", step1_signup_index_path
+              = link_to "メールアドレスで登録", step1_signup_index_path ,class: "iz_registration-list__mailaddress__message"
           .iz_registration-list__facebook
             -# 6
             .iz_registration-list__facebook__button
               -# 7
-              = fa_icon "envelope"
+              %if.fab.fa-facebook-square
             .iz_registration-list__facebook__message
               Facebookで登録
           .iz_registration-list__google
             -# 6
             .iz_registration-list__google__button
               -# 7
-              = fa_icon "envelope"
+              %ig.fab.fa-google
             .iz_registration-list__google__message
               Googleで登録
     .iz_login_form_facebook
