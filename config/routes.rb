@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :cards, only: [:show, :create, :edit, :new, :destroy]
-  resources :items, only: [:show, :new , :index, :create, :destroy] do
+  resources :items, only: [:show, :new , :index, :create, :destroy,:edit,:update] do
     member do
       post "pay"  =>  "items#pay"
     end
