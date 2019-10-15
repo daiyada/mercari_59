@@ -52,6 +52,8 @@ class SignupController < ApplicationController
         session[:id] = @user.id
         redirect_to done_signup_index_path
       else
+        card = Card.where(user_id: @user.id)
+        card.destroy
         render '/users/new'
       end
     else
