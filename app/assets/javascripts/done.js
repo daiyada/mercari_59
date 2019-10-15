@@ -1,6 +1,6 @@
 $(document).on("turbolinks:load",function(){
-  if(location.href.match("/signup/step4")){
-    var canvas = document.getElementById('step4');
+  if(location.href.match("/signup/done")){
+    var canvas = document.getElementById('done');
     if (canvas.getContext){
       var context = canvas.getContext("2d");
       context.lineWidth = 3;
@@ -9,15 +9,15 @@ $(document).on("turbolinks:load",function(){
       context.beginPath();
       context.strokeStyle = "#EA352D";
       context.moveTo(28, 20);
-      context.lineTo(368, 20);
+      context.lineTo(465, 20);
       context.stroke();
 
       // 灰色線
-      context.beginPath();
-      context.strokeStyle = "#d3d3d3";
-      context.moveTo(368, 20);
-      context.lineTo(465, 20);
-      context.stroke(); 
+      // context.beginPath();
+      // context.strokeStyle = "#d3d3d3";
+      // context.moveTo(368, 20);
+      // context.lineTo(465, 20);
+      // context.stroke(); 
 
       // 会員情報○
       context.beginPath () ;
@@ -46,7 +46,7 @@ $(document).on("turbolinks:load",function(){
       // 完了○
       context.beginPath () ;
       context.arc( 465, 20, 6.5, 0, Math.PI*2, false) ;
-      context.fillStyle = "#d3d3d3" ;
+      context.fillStyle = "#EA352D" ;
       context.fill() ;
     }
   }
