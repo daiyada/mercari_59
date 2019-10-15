@@ -1,0 +1,49 @@
+.hi_header{
+  width: 700px;
+  height: 128px;
+  margin: 0 auto;
+  @include both_end_located();
+  &__progress-bar{
+  height: 49px;
+  width: 185px;
+  line-height: 56px;
+  margin: auto 50px auto 0;
+  }
+  &__right{
+    width: calc(100% - 185px);
+    height: 100%;
+    &__top{
+      width: 100%;
+      margin-top: 30px;
+      @include both_end_located();
+      &__regiinfo{
+        font-size: 13px;
+        color: #a9a9a9;
+      }
+      &__phone-number{
+        font-size: 13px;
+        color: #a9a9a9
+      }
+      &__address{
+        font-size: 13px;
+        color: #a9a9a9
+      }
+      &__cardinfo{
+        font-size: 13px;
+        color: #EA352D;
+        font-weight: bold;
+      }
+      &__finish{
+        font-size: 13px;
+        color: #a9a9a9
+      }
+    }
+    &__bottom{
+      width: 100%;
+      height: calc(100% - 50px);
+    }
+  }
+}
+
+
+
