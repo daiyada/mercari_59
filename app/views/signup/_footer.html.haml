@@ -1,7 +1,5 @@
 .iz_footer
-  -# 2
   .iz_navi
-    -# 3
     .iz_ul
       .iz_privacy
         プライバシーポリシー
@@ -9,7 +7,9 @@
         メルカリ利用規約
       .iz_tokutei
         特定商取引に関する表記
-  .iz_a{:href => "https://www.mercari.com/jp/"}
-    %img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464"}
+
+  = link_to "https://www.mercari.com/jp/" do
+    .iz_a
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464"
   .iz_p
     © 2019 Mercari
