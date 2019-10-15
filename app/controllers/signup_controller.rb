@@ -26,10 +26,9 @@ class SignupController < ApplicationController
 
   def step4
     session[:address_attributes] = user_params[:address_attributes]
-    @user = User.new
   end
 
-def create
+  def create
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -43,19 +42,22 @@ def create
     @user.build_address(
       session[:address_attributes]
     )
+    
     if @user.save
       session[:id] = @user.id
-      redirect_to done_signup_index_path
+      sign_in User.find(session[:id]) unless user_signed_in?
+
+      Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
+      customer = Payjp::Customer.create(card: params[:payjpToken])
+      @card = Card.create(user_id: current_user.id, customer_id: customer.id, card_id: params[:payjpToken])
+
+      redirect_to root_path
     else
       render '/users/new'
     end
   end
 
-  def done
-    sign_in User.find(session[:id]) unless user_signed_in?
-  end
-
-def validates_step1
+  def validates_step1
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
