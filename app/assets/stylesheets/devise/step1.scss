@@ -16,24 +16,24 @@
       width: 100%;
       margin-top: 30px;
       @include both_end_located();
-      &__regiinfo4{
-        font-size: 13px;
-        color: #a9a9a9;
-      }
-      &__phone-number4{
-        font-size: 13px;
-        color: #a9a9a9
-      }
-      &__address4{
-        font-size: 13px;
-        color: #a9a9a9
-      }
-      &__cardinfo4{
+      &__regiinfo1{
         font-size: 13px;
         color: #EA352D;
         font-weight: bold;
       }
-      &__finish4{
+      &__phone-number1{
+        font-size: 13px;
+        color: #a9a9a9;
+      }
+      &__address1{
+        font-size: 13px;
+        color: #a9a9a9;
+      }
+      &__cardinfo1{
+        font-size: 13px;
+        color: #a9a9a9;
+      }
+      &__finish1{
         font-size: 13px;
         color: #a9a9a9
       }
@@ -44,6 +44,3 @@
     }
   }
 }
-
-
-
