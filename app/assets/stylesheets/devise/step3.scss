@@ -16,24 +16,24 @@
       width: 100%;
       margin-top: 30px;
       @include both_end_located();
-      &__regiinfo4{
+      &__regiinfo3{
         font-size: 13px;
         color: #a9a9a9;
       }
-      &__phone-number4{
+      &__phone-number3{
         font-size: 13px;
-        color: #a9a9a9
+        color:#a9a9a9;
       }
-      &__address4{
-        font-size: 13px;
-        color: #a9a9a9
-      }
-      &__cardinfo4{
+      &__address3{
         font-size: 13px;
         color: #EA352D;
         font-weight: bold;
       }
-      &__finish4{
+      &__cardinfo3{
+        font-size: 13px;
+        color: #a9a9a9;
+      }
+      &__finish3{
         font-size: 13px;
         color: #a9a9a9
       }
@@ -44,6 +44,3 @@
     }
   }
 }
-
-
-
