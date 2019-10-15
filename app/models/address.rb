@@ -2,10 +2,11 @@ class Address < ApplicationRecord
   belongs_to :user
 
   #STEP3入力項目validation
-  validates :postal_code, presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
-  validates :prefecture, presence: true
-  validates :city, presence: true
-  validates :address, presence: true
-  # validates :building
-  # validates :phone_number
+  with_options presence: true do
+    validates :postal_code
+    validates :prefecture
+    validates :city
+    validates :address
+  end
+  validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
 end
