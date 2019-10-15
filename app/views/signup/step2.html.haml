@@ -33,6 +33,7 @@
           %label 携帯番号
           %span.iz2_container__registration__form-group--require 必須
           = f.text_field :cellphone_number, class: "iz2_container__registration__form-group--input-default", placeholder: "090-1234-5678"
+          = render partial: 'user-error-messages', locals: {user: @user, column: "cellphone_number"}
 
         .iz2_container__next_button
           %input{:name => "after_save_callback", :type => "hidden", :value => ""}
@@ -44,3 +45,4 @@
               = link_to  "利用規約", "https://www.mercari.com/jp/tos_list/"
               に同意したものとみなします
         = f.submit 'Send', class: 'iz2_container__next_button--button'
+  = render partial: 'footer'

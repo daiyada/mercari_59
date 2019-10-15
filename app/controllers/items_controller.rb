@@ -7,10 +7,8 @@ class ItemsController < ApplicationController
     @radies = Item.where(category_id: 1...border_No[1]).order("created_at DESC").limit(10)
     @mens = Item.where(category_id: border_No[1]...border_No[2]).order("created_at DESC").limit(10)
     @kadens = Item.where(category_id: border_No[7]...border_No[8]).order("created_at DESC").limit(10)
-    # @navicategory = @@navicategory
     params[:keyword].to_i == 0 ? grandchild_id =100 : grandchild_id = params[:keyword].to_i
     @grandchildren = Category.find(grandchild_id).children
-    # @item = Item.find(params[:id])
     respond_to do |format|
       format.html
       format.json
@@ -24,6 +22,18 @@ class ItemsController < ApplicationController
     @category = Category.all
     category = Category.where(ancestry: nil)
     @category_parent_array = category.pluck(:name).unshift("---")
+  end
+
+  def edit
+    redirect_to sign_in_path unless user_signed_in?
+    @item = Item.find( params[:id])
+    @item.images.build
+    @delivery = Delivery.find( params[:id])
+    @category = Category.all
+    category = Category.where(ancestry: nil)
+    @category_parent_array = category.pluck(:name).unshift("---")
+    @grandchild = @item.category
+    @images = Image.where(item_id: params[:id])
   end
 
   def create
@@ -42,6 +52,23 @@ class ItemsController < ApplicationController
       redirect_to action: :new 
     end
   end
+  
+  def update
+    item = Item.find(params[:id])
+    category_id =""
+    category_id = params[:grandchild_id] rescue
+    price = params[:item][:price]
+    params[:item][:price].to_i >= 300 ? price = params[:item][:price] : price = nil
+    validate = [ params[:item][:name] , params[:item][:descript]  , price ,category_id ]
+    unless validate.include?("") || validate.include?(nil)
+    item.update(params.require(:item).permit(:name, :descript, :condition, :price).merge(category_id: category_id))
+    delivery = Delivery.where(item_id: params[:id])
+    delivery.update(params.require(:delivery).permit(:pay_for_shipping, :delivery_from, :due_time_day))
+    redirect_to item
+    else
+    redirect_to action: :edit
+    end
+  end
 
   def get_category_children 
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -56,7 +83,6 @@ class ItemsController < ApplicationController
     @image = @item.images
     @delivery = @item.delivery
     @nickname = User.find(@item.seller_id).nickname
-    # @navicategory = @@navicategory #header-naviバー用
   end
 
   def purchase
