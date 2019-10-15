@@ -63,7 +63,7 @@
                 max-width: 300px;
                 overflow: visible;
                 flex-wrap: wrap;
-                @include both_end_located();
+                display: flex;
                 &__mini{
                   width: 60px;
                   @include middle_located();

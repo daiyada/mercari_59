@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images
 
   def can_purchase
-    if @item.seller_id != current_user
+    if @item.seller_id != current_user.id
       if @item.buyer_id == 0 || @item.buyer_id.blank?
         true
       else
