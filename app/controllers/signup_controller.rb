@@ -44,20 +44,23 @@ class SignupController < ApplicationController
       session[:address_attributes]
     )
 
-    Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
-    customer = Payjp::Customer.create(card: params[:payjpToken])
-    @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: params[:payjpToken])
-    if @card.save
-      if @user.save
-        session[:id] = @user.id
+    if @user.save
+      session[:id] = @user.id
+
+      Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
+      customer = Payjp::Customer.create(card: params[:payjpToken])
+      @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: params[:payjpToken])
+
+      if @card.save
         redirect_to done_signup_index_path
       else
-        card = Card.where(user_id: @user.id)
-        card.destroy
-        render '/users/new'
+        user = User.find(@user.id)
+        user.destroy
+        render '/signup/step4'
       end
+
     else
-      render '/signup/step4'
+      render '/users/new'
     end
   end
 
