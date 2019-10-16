@@ -85,7 +85,7 @@ def validates_step1
       name_first: session[:name_first], 
       name_family_kana: session[:name_family_kana], 
       name_first_kana: session[:name_first_kana],
-      cellphone_number: "090-1234-5678"
+      cellphone_number: "424-2424-2424"
     )
     render '/signup/step1' unless @user.valid?
   end
