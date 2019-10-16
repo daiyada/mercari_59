@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
     redirect_to sign_in_path unless user_signed_in?
     @item = Item.find( params[:id])
     @item.images.build
-    @delivery = Delivery.find( params[:id])
+    @delivery = Delivery.where(item_id: params[:id])[0]
     @category = Category.all
     category = Category.where(ancestry: nil)
     @category_parent_array = category.pluck(:name).unshift("---")
