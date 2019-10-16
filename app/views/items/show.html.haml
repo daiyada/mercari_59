@@ -151,8 +151,8 @@
               %span
                 あんしん・あんぜんへの取り組み
       - if user_signed_in?
-        - if @item.seller_id == current_user.id
-          - if @item.buyer_id != 0 || @item.buyer_id.blank?
+        - if @item.buyer_id != 0 || @item.buyer_id.blank?
+          - if @item.seller_id == current_user.id
             .hi-container__content__position__btns
               .hi-container__content__position__btns__edit
                 = link_to  edit_item_path , class: "hi-container__content__position__btns__edit"  do
