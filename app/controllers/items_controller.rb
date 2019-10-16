@@ -47,6 +47,13 @@ class ItemsController < ApplicationController
     unless validate.include?("") || validate.include?(nil)
       item.save  
       delivery.save
+      itemlast_id = Item.last.id 
+      thisdeli = Delivery.where(item_id: itemlast_id)[0]
+        if thisdeli&.id == nil
+        cancel_item = Item.find(itemlast_id)
+        cancel_item.destroy
+        redirect_to action: :new and return
+        end
       redirect_to root_path
     else
       redirect_to action: :new 
