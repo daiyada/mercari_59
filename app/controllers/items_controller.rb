@@ -86,6 +86,8 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    redirect_to new_card_path if current_user.card.nil?
+    redirect_to sign_in_path unless user_signed_in?
     @user = User.find(current_user.id)
     @card = @user.card
     @address = @user.address
@@ -96,6 +98,7 @@ class ItemsController < ApplicationController
   end
 
   def pay
+    redirect_to sign_in_path unless user_signed_in?
     card = Card.where(user_id: current_user.id)[0]
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
     Payjp::Charge.create(
@@ -109,6 +112,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    redirect_to sign_in_path unless user_signed_in?
     if @item.destroy
       redirect_to action: "index", notice: "削除しました"
     else
