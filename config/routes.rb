@@ -31,9 +31,9 @@ Rails.application.routes.draw do
   resources :items, only: [:show, :new , :index, :create, :destroy,:edit,:update] do
     member do
       post "pay"  =>  "items#pay"
+      get "purchase" => "items#purchase"
     end
     collection do
-      get "purchase/:id" => "items#purchase"
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
