@@ -86,13 +86,13 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    @user = current_user
+    @card = @user.card
     if not user_signed_in?
       redirect_to sign_in_path
     elsif @card.nil?
       redirect_to new_card_path
     else
-    @user = current_user
-    @card = @user.card
     @address = @user.address
     @image = @item.images
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
