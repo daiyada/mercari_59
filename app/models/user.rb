@@ -27,6 +27,6 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 7, maximum: 128}
 
   #STEP2入力項目validation
-  validates :cellphone_number, uniqueness: true
+  validates :cellphone_number, uniqueness: true, format: {with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/}
 
 end
