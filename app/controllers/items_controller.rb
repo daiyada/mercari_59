@@ -86,10 +86,10 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    redirect_to new_card_path if current_user.card.nil?
     redirect_to sign_in_path unless user_signed_in?
     @user = User.find(current_user.id)
     @card = @user.card
+    redirect_to new_card_path if @card.nil?
     @address = @user.address
     @image = @item.images
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)
