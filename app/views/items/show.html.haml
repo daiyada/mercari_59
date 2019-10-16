@@ -24,7 +24,8 @@
               %th
                 出品者
               %td
-                = link_to "#{@nickname}", edit_user_path, class: "edit_user"
+                .edit_user
+                  = @nickname
                 .hi-container__content__position__item__detail__matrix__evaliation
                   .hi-container__content__position__item__detail__matrix__evaliation__good
                     = fa_icon "smile-beam"
@@ -104,9 +105,9 @@
             （税込）
           .hi-container__content__position__item__price__shipping-fee
             = @delivery.pay_for_shipping
-        - if @item.seller_id != current_user.id
+        - if @item.seller_id != current_user&.id
           - if @item.buyer_id == 0 || @item.buyer_id.blank?
-            = link_to "/items/purchase/#{@item.id}", class: "hi-container__content__position__item__buybtn" do
+            = link_to purchase_item_path(@item), class: "hi-container__content__position__item__buybtn" do
               .hi-container__content__position__item__buybtn__text
                 購入画面に進む
           - else
@@ -135,7 +136,7 @@
                 %span
                   あんしん・あんぜんへの取り組み
       - if @item.buyer_id == 0 || @item.buyer_id.blank?
-        - if @item.seller_id == current_user.id
+        - if @item.seller_id == current_user&.id
           .hi-container__content__position__btns
             .hi-container__content__position__btns__edit
               = link_to  edit_item_path , class: "hi-container__content__position__btns__edit"  do
