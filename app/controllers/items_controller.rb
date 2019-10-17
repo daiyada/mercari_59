@@ -92,10 +92,9 @@ class ItemsController < ApplicationController
 
   def purchase
     @user = current_user
-    @card = @user.card
     if not user_signed_in?
       redirect_to sign_in_path
-    elsif @card.nil?
+    elsif @user.card.nil?
       redirect_to new_card_path
     else
     @address = @user.address
