@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :purchase, :pay ,:destroy]
   before_action :set_navi, only: [:show,:index,:show, :purchase, :pay]
   def index
+
+
     category_No = Category.where(ancestry: nil)
     border_No = category_No.pluck(:id)
     @radies = Item.where(category_id: 1...border_No[1]).order("created_at DESC").limit(10)
@@ -28,7 +30,7 @@ class ItemsController < ApplicationController
     redirect_to sign_in_path unless user_signed_in?
     @item = Item.find( params[:id])
     @item.images.build
-    @delivery = Delivery.find( params[:id])
+    @delivery = Delivery.where(item_id: params[:id])[0]
     @category = Category.all
     category = Category.where(ancestry: nil)
     @category_parent_array = category.pluck(:name).unshift("---")
@@ -37,17 +39,20 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item_id = Item.last
-    item_id == nil ? item_id =1 : item_id = item_id.id + 1
     item = Item.new(item_params) 
     delivery = Delivery.new(delivery_params)
-    delivery.item_id = item_id
     pic_pass = params[:item][:images_attributes]
-    validate = [pic_pass, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day, delivery.item_id ]
+    validate = [pic_pass, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day]
     unless validate.include?("") || validate.include?(nil)
       item.save  
+      delivery.item_id = item.id
       delivery.save
-      redirect_to root_path
+      confirmdel = Confirmdelivery.confirmdel
+      if  confirmdel == true
+      redirect_to root_path and return
+      else
+      redirect_to action: :new and return
+      end
     else
       redirect_to action: :new 
     end
