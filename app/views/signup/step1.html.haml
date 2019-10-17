@@ -50,18 +50,18 @@
           %span.iz2_container__registration__form-group--require 必須
           .iz2_container__registration__form-group2
             = f.text_field :name_family, class: "iz2_container__registration__form-group--input-default2", placeholder: "例) 山田"
-            = render partial: 'user-error-messages', locals: {user: @user, column: "name_family"}
             = f.text_field :name_first, class: "iz2_container__registration__form-group--input-default2", placeholder: "例) 彩"
-            = render partial: 'user-error-messages', locals: {user: @user, column: "name_first"}
+          = render partial: 'user-error-messages', locals: {user: @user, column: "name_family"}
+          = render partial: 'user-error-messages', locals: {user: @user, column: "name_first"}
 
         .iz2_container__registration__form-group
           %labeliz お名前カナ(全角)
           %span.iz2_container__registration__form-group--require 必須
           .iz2_container__registration__form-group2
             = f.text_field :name_family_kana, class: "iz2_container__registration__form-group--input-default2", placeholder: "例) ヤマダ"
-            = render partial: 'user-error-messages', locals: {user: @user, column: "name_family_kana"}
             = f.text_field :name_first_kana, class: "iz2_container__registration__form-group--input-default2", placeholder: "例) アヤ"
-            = render partial: 'user-error-messages', locals: {user: @user, column: "name_first_kana"}
+          = render partial: 'user-error-messages', locals: {user: @user, column: "name_family_kana"}
+          = render partial: 'user-error-messages', locals: {user: @user, column: "name_first_kana"}
 
         .iz2_container__registration__form-group__bottom_info
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
