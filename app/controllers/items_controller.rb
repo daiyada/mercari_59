@@ -40,19 +40,17 @@ class ItemsController < ApplicationController
 
   def create
 
-    item_id = Item.last
-    item_id == nil ? item_id =1 : item_id = item_id.id + 1
+    # item_id = Item.last
+    # item_id == nil ? item_id =1 : item_id = item_id.id + 1
     item = Item.new(item_params) 
     delivery = Delivery.new(delivery_params)
-    delivery.item_id = item_id
+    # delivery.item_id = item_id
     pic_pass = params[:item][:images_attributes]
-    validate = [pic_pass, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day, delivery.item_id ]
+    validate = [pic_pass, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day,]
     unless validate.include?("") || validate.include?(nil)
-      
       item.save  
       delivery.save
-
-      # binding.pry
+      binding.pry
       Confirmdelivery.confirmdel
       redirect_to root_path
     else
