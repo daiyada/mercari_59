@@ -1,3 +1,3 @@
 class Delivery < ApplicationRecord
-  belongs_to :item, option
+  belongs_to :item
 end
