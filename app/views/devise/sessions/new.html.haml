@@ -21,7 +21,7 @@
 
         .m-content__main__22
           .m-content__main__22__logo
-            %i.fab.fa-google
+            = image_tag "https://pbs.twimg.com/profile_images/874463635950551040/IhlhyWsq.jpg", id: "google_logo_login"
           .m-content__main__22__name
             Googleでログイン
       .m-content__main__3
@@ -40,7 +40,7 @@
 
           .btn-default.btn-red
             
-            %input.m-login-submit{"data-disable-with" => "Create User", :name => "commit", :type => "submit", :value => "ログイン"}/
+            %input.m-login-submit{"data-disable-with" => "ログイン", :name => "commit", :type => "submit", :value => "ログイン"}/
 
         .m-content__main__forgot
           パスワードをお忘れの方
