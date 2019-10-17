@@ -21,14 +21,10 @@
   .iz_main{
     height: 400px;
     width: 100%;
-    // border: solid blue;
-    // color: red;
-    // background-color: rgb(204, 248, 7);
     margin:  auto;
     .iz_container{
       height: 100%;
       max-width: 636px;
-      // border: solid blue;
       background-color:white;
       margin:  auto;
       .iz_h2{
@@ -50,6 +46,9 @@
           height: 100%;
           width: 343px;
           margin:  auto;
+          &__mailaddress:hover{
+            background-color: #fa736c;
+          }
           &__mailaddress{
             height: 50px;
             width: 100%;
@@ -62,6 +61,7 @@
             text-align: center;
             margin:  16px 0px 0px 0px;
             @include both_end_located();
+            transition: 0.5s;
             &__button{
               height: 50px;
             }
