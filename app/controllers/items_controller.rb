@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :purchase, :pay ,:destroy]
   before_action :set_navi, only: [:show,:index,:show, :purchase, :pay]
   def index
+
+
     category_No = Category.where(ancestry: nil)
     border_No = category_No.pluck(:id)
     @radies = Item.where(category_id: 1...border_No[1]).order("created_at DESC").limit(10)
@@ -37,6 +39,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+
     item_id = Item.last
     item_id == nil ? item_id =1 : item_id = item_id.id + 1
     item = Item.new(item_params) 
@@ -45,19 +48,25 @@ class ItemsController < ApplicationController
     pic_pass = params[:item][:images_attributes]
     validate = [pic_pass, item.name , item.descript , item.condition , item.price ,item.category_id, delivery.pay_for_shipping , delivery.delivery_from , delivery.due_time_day, delivery.item_id ]
     unless validate.include?("") || validate.include?(nil)
+      
       item.save  
       delivery.save
-      itemlast_id = Item.last.id 
-      thisdeli = Delivery.where(item_id: itemlast_id)[0]
-        if thisdeli&.id == nil
-        cancel_item = Item.find(itemlast_id)
-        cancel_item.destroy
-        redirect_to action: :new and return
-        end
+
+      # binding.pry
+      Confirmdelivery.confirmdel
       redirect_to root_path
     else
       redirect_to action: :new 
     end
+    # Confirmdelivery.confirmdel
+    # # if confirmdel == true
+    # redirect_to root_path
+    # else
+    # redirect_to controller: :items, action: :new 
+    # end
+    
+
+
   end
   
   def update
