@@ -1,5 +1,5 @@
 $(document).on("turbolinks:load",function(){
-  if(location.href.match("/signup/step3")){
+  if($('#code3').length){
     var canvas = document.getElementById('step3');
     if (canvas.getContext){
       var context = canvas.getContext("2d");
