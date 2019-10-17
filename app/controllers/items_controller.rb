@@ -39,9 +39,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-
-    # item_id = Item.last
-    # item_id == nil ? item_id =1 : item_id = item_id.id + 1
     item = Item.new(item_params) 
     delivery = Delivery.new(delivery_params)
     pic_pass = params[:item][:images_attributes]
@@ -50,21 +47,15 @@ class ItemsController < ApplicationController
       item.save  
       delivery.item_id = item.id
       delivery.save
-      # binding.pry
-      Confirmdelivery.confirmdel
-      redirect_to root_path
+      confirmdel = Confirmdelivery.confirmdel
+      if  confirmdel == true
+      redirect_to root_path and return
+      else
+      redirect_to action: :new and return
+      end
     else
       redirect_to action: :new 
     end
-    # Confirmdelivery.confirmdel
-    # # if confirmdel == true
-    # redirect_to root_path
-    # else
-    # redirect_to controller: :items, action: :new 
-    # end
-    
-
-
   end
   
   def update
