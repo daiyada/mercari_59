@@ -6,38 +6,26 @@
       .iz_a{:href => ""}
         %img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464"}
   .iz_main
-    -# 2
     .iz_container
-      -# 3
       .iz_h2
         新規会員登録
       .iz_registration-form
-        -# 4
         .iz_registration-list
-          -# 5
-          .iz_registration-list__mailaddress
-            -# 6
+          .iz_registration-list__mailaddress{id: "iz_mouseover"}
             .iz_registration-list__mailaddress__button
-              -# 7
               %im.far.fa-envelope
             .iz_registration-list__mailaddress__message{:href => "https://www.mercari.com/jp/signup/registration/"}
               = link_to "メールアドレスで登録", step1_signup_index_path ,class: "iz_registration-list__mailaddress__message"
           .iz_registration-list__facebook
-            -# 6
             .iz_registration-list__facebook__button
-              -# 7
               %if.fab.fa-facebook-square
             .iz_registration-list__facebook__message
               Facebookで登録
           .iz_registration-list__google
-            -# 6
             .iz_registration-list__google__button
-              -# 7
-              %ig.fab.fa-google
+              = image_tag "https://pbs.twimg.com/profile_images/874463635950551040/IhlhyWsq.jpg", id: "google_logo"
             .iz_registration-list__google__message
               Googleで登録
     .iz_login_form_facebook
-      -# 3
     .iz_login_form_google
-      -# 3
   = render "users/footer"
