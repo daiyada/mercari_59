@@ -97,6 +97,7 @@ class ItemsController < ApplicationController
     elsif @user.card.nil?
       redirect_to new_card_path
     else
+    @card = @user.card
     @address = @user.address
     @image = @item.images
     Payjp.api_key = Rails.application.credentials.dig(:payjp,:PAYJP_SECRET_KEY)

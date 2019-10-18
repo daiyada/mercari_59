@@ -19,7 +19,6 @@ $(document).on("turbolinks:load", function(){
         $("#exp_month").removeAttr("name");
         $("#exp_year").removeAttr("name");
         var token = response.id
-        console.log("通過");
 
         form.append($('<input type="hidden" name="payjpToken">').val(token));
         form.get(0).submit();
