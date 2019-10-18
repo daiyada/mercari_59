@@ -75,12 +75,15 @@
           .hi-container__wrapper__main__right__itemlist__head
             購入した商品
           .hi-container__wrapper__main__right__itemlist__tab
-            .hi-container__wrapper__main__right__itemlist__tab__now
+            .hi-container__wrapper__main__right__itemlist__tab__switch.is_shown
               取引中
-            .hi-container__wrapper__main__right__itemlist__tab__past
+            .hi-container__wrapper__main__right__itemlist__tab__switch
               過去の取引
-          .hi-container__wrapper__main__right__itemlist__box
+          .hi-container__wrapper__main__right__itemlist__box.active
             取引中の商品がありません
+            .hi-container__wrapper__main__right__itemlist__box__image
+          .hi-container__wrapper__main__right__itemlist__box
+            過去の取引商品がありません
             .hi-container__wrapper__main__right__itemlist__box__image
   = render 'items/sell_btn'
   = render 'items/footer'
