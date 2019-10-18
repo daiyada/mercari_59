@@ -52,7 +52,8 @@
               }
               &__number10{
                 display: block;
-                width: 620px;
+                // width: 620px;
+                width: 100%;
                 box-sizing: content-box; 
                 
                 &__box{
@@ -91,14 +92,15 @@
                     height:100px;
                     width:620px;
                     z-index: 9;
-                 
+                
+
                     &__pic1{
-                      width:100%;
+                      width:360px;
                       height:162px;
                       display:flex;
                       align-items: center; 
                       justify-content: center; 
-                      
+                      margin:0 auto;
                     }
                     &__box{
                       width:20%;
