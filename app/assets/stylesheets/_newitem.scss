@@ -447,6 +447,11 @@ a8{
   bottom:0;
   display: flex;
   justify-content: center;
+  // -webkit-justify-content: space-around;
+  // justify-content: space-around;
+}
+.m-sell-upload-edit{
+  margin:0 5px;
 }
 #set_item_price{
   text-align:right;

@@ -19,8 +19,8 @@ $(function(){
   var html = `<div class="m-main__container__inner__form__upload__number10__box__visible__box">
               <img class="m-main__container__inner__form__upload__number10__box__visible__box__pic" src="${src_pass}"> 
               <div class="m-main__container__inner__form__upload__number10__box__visible__box__btn">
-              <a class="sell-upload-edit" >編集</a>
-              <a href="" pic-id="${i}">削除</a>
+              <a class=".m-sell-upload-edit" >編集</a>
+              <a class=".m-sell-upload-edit" pic-id="${i}">削除</a>
               </div>
               </div>`
 
