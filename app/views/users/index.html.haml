@@ -26,11 +26,11 @@
                 %p.hi-container__wrapper__main__right__userinfo__identity__condition__exhibit__num
                   1
         .hi-container__wrapper__main__right__tab
-          .hi-container__wrapper__main__right__tab__notice
+          .hi-container__wrapper__main__right__tab__switch.is-shown
             お知らせ
-          .hi-container__wrapper__main__right__tab__todo
+          .hi-container__wrapper__main__right__tab__switch
             やることリスト
-        %ul.hi-container__wrapper__main__right__list
+        %ul.hi-container__wrapper__main__right__list.is-active
           %li.hi-container__wrapper__main__right__list__link
             .hi-container__wrapper__main__right__list__link__icon
             .hi-container__wrapper__main__right__list__link__content
@@ -71,15 +71,19 @@
             .hi-container__wrapper__main__right__list__linkbtn__btn
               .hi-container__wrapper__main__right__list__linkbtn__btn__text
                 一覧を見る
+        %ul.hi-container__wrapper__main__right__list
+          .hi-container__wrapper__main__right__list__todo
+            現在、やることリストはありません
+            .hi-container__wrapper__main__right__list__todo__image
         .hi-container__wrapper__main__right__itemlist
           .hi-container__wrapper__main__right__itemlist__head
             購入した商品
           .hi-container__wrapper__main__right__itemlist__tab
-            .hi-container__wrapper__main__right__itemlist__tab__switch.is_shown
+            .hi-container__wrapper__main__right__itemlist__tab__switch.is-shown
               取引中
             .hi-container__wrapper__main__right__itemlist__tab__switch
               過去の取引
-          .hi-container__wrapper__main__right__itemlist__box.active
+          .hi-container__wrapper__main__right__itemlist__box.is-active
             取引中の商品がありません
             .hi-container__wrapper__main__right__itemlist__box__image
           .hi-container__wrapper__main__right__itemlist__box
