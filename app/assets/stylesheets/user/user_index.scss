@@ -64,7 +64,7 @@
           @include both_end_located();
           align-items: center;
           width: 100%;
-          &__notice{
+          &__switch.is-shown{
             text-align: center;
             width: 100%;
             line-height: 72px;
@@ -74,7 +74,7 @@
             border-top: solid 2px;
             border-top-color: red;
           }
-          &__todo{
+          &__switch{
             text-align: center;
             width: 100%;
             line-height: 74px;
@@ -82,10 +82,16 @@
             font-weight: bold;
             background-color: #dcdcdc;
           }
+          &__switch:hover{
+            opacity: 0.7;
+            cursor: pointer;
+            transition: 0.1s;
+          }
         }
-        &__list{
+        &__list.is-active{
+          display: block;
           width: 100%;
-          &__link{
+          .hi-container__wrapper__main__right__list__link{
             padding: 16px;
             background-color: #fff;
             display: flex;
@@ -102,10 +108,12 @@
               margin-left: 16px;
               &__text{
                 margin-right: 20px;
+                text-align: left;
               }
               &__time{
                 color: #c0c0c0;
                 margin-left: 20px;
+                text-align: left;
                 position: relative;
                 .fa-clock{
                   position: absolute;
@@ -120,7 +128,12 @@
               right: 16px;
             }
           }
-          &__linkbtn{
+          .hi-container__wrapper__main__right__list__link:hover{
+            opacity: 0.7;
+            cursor: pointer;
+            transition: 0.1s;
+          }
+          .hi-container__wrapper__main__right__list__linkbtn{
             padding: 16px;
             background-color: #fff;
             display: flex;
@@ -135,6 +148,46 @@
                 height: 56px;
                 color: #333333;
               }
+            }
+            &__btn:hover{
+              opacity: 0.7;
+              cursor: pointer;
+              transition: 0.1s;
+            }
+          }
+          .hi-container__wrapper__main__right__list__todo{
+            padding: 160px 0 60px;
+            text-align: center;
+            background-color: #fff;
+            color: #CCCCCC;
+            position: relative;
+            .hi-container__wrapper__main__right__list__todo__image{
+              background-image: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?33381563");
+              width: 80px;
+              height: 90px;
+              position: absolute;
+              top: 20%;
+              right: 45%;
+              background-size: cover;
+            }
+          }
+        }
+        &__list{
+          display: none;
+          &__todo{
+            padding: 160px 0 60px;
+            text-align: center;
+            background-color: #fff;
+            color: #CCCCCC;
+            position: relative;
+            &__image{
+              background-image: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?33381563");
+              width: 80px;
+              height: 90px;
+              position: absolute;
+              top: 20%;
+              right: 45%;
+              background-size: cover;
             }
           }
         }
@@ -151,7 +204,7 @@
             @include both_end_located();
             align-items: center;
             width: 100%;
-            &__now{
+            &__switch.is-shown{
               text-align: center;
               width: 100%;
               line-height: 72px;
@@ -161,7 +214,7 @@
               border-top: solid 2px;
               border-top-color: red;
             }
-            &__past{
+            &__switch{
               text-align: center;
               width: 100%;
               line-height: 74px;
@@ -169,14 +222,20 @@
               font-weight: bold;
               background-color: #dcdcdc;
             }
+            &__switch:hover{
+              opacity: 0.7;
+              cursor: pointer;
+              transition: 0.1s;
+            }
           }
-          &__box{
+          &__box.is-active{
+            display: block;
             padding: 160px 0 60px;
             text-align: center;
             background-color: #fff;
             color: #CCCCCC;
             position: relative;
-            &__image{
+            .hi-container__wrapper__main__right__itemlist__box__image{
               background-image: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?33381563");
               width: 80px;
               height: 90px;
@@ -185,6 +244,9 @@
               right: 45%;
               background-size: cover;
             }
+          }
+          &__box{
+            display: none;
           }
         }
       }
